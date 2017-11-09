@@ -1,0 +1,30 @@
+{% load static from staticfiles %}
+
+<!doctype html>
+<html>
+	<head>
+		<title>{% block title %} {% endblock %}</title>
+		<link rel="stylesheet" href="{% static 'css/major.css' %}">
+	</head>
+	<body>
+		<div class="site-container">
+			<div class='header'>
+				<h1> <img src="{% static 'images/logo.png' %}" alt="Logo"/> Social Monomedia <img src="{% static 'images/headerGraphic.png' %}" alt="Header"/> </h1>
+				
+			</div>
+			<h1>{% block heading %} {% endblock %}</h1>
+		
+			
+				<nav>
+					<a href="{% url 'home' %}">Home</a>
+					<a href="{% url 'home' %}">About</a>
+					<a href="{% url 'home' %}">Login</a>
+					<a href="{% url 'home' %}">FAQ</a>
+					<a href="{% url 'home' %}">Contact Us</a>
+				</nav>
+		
+			{% block content %} {% endblock %}
+		
+		</div>
+	</body>
+</html>
