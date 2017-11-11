@@ -7,8 +7,12 @@
 .header{
 	width:100%;
 	background: linear-gradient(to right, #56699B, white);
-	font-family:"Lucida Console", Monaco, monospace;
-  }
+	! font-size: 70px;
+  	font-family:"Lucida Console", Monaco, monospace;
+	float: right;
+}
+  
+ 
   
 nav {
     width: 100%;

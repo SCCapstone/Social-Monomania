@@ -1,0 +1,59 @@
+
+.site-container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  font-family:"Lucida Console", Monaco, monospace; }
+  
+.header{
+	width:100%;
+	background: linear-gradient(to right, #56699B, white);
+	font-size: 30px;
+	
+
+  }
+  
+
+.graphic{
+	display: block;
+	margin: auto;
+    width: 50%;
+}
+  
+  
+nav {
+    width: 100%;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #E7D473;
+    margin-bottom: 1em;
+    overflow: hidden; }
+    .site-container nav a {
+      display: table-cell;
+      width: 8.33333%;
+      padding: 10px;
+      border-bottom: 2px solid #642039;
+      color: #56699B;
+      letter-spacing: 0.075em;
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
+      }
+      .site-container nav a:hover {
+        background: #6A589F;
+        border-bottom: 2px solid #642039;
+        color: white; }
+
+.content{
+	text-align: center;
+}
+
+#mySearch {
+    width: 600px;
+    height: 300px;
+    border: 5px solid #6A589F;
+}
+
+/*# sourceMappingURL=layout.css.map */
+

@@ -4,17 +4,16 @@
 <html>
 	<head>
 		<title>{% block title %} {% endblock %}</title>
-		<link rel="stylesheet" href="{% static 'css/major.css' %}">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
 	</head>
 	<body>
 		<div class="site-container">
 			<div class='header'>
-				<h1> <img src="{% static 'images/logo.png' %}" alt="Logo"/> Social Monomedia <img src="{% static 'images/headerGraphic.png' %}" alt="Header"/> </h1>
-				
-			</div>
-			<h1>{% block heading %} {% endblock %}</h1>
-		
-			
+				<h1> <img src="{% static 'images/smallLogo.png' %}" alt="Logo"/> Social Monomedia</h1>
+				<div class='graphic'>
+			 		<img src="{% static 'images/headerGraphic.png' %}" alt="Header"/>
+			 	</div>
+			 </div>
 				<nav>
 					<a href="{% url 'home' %}">Home</a>
 					<a href="{% url 'home' %}">About</a>
@@ -22,8 +21,10 @@
 					<a href="{% url 'home' %}">FAQ</a>
 					<a href="{% url 'home' %}">Contact Us</a>
 				</nav>
-		
-			{% block content %} {% endblock %}
+				<h1>{% block heading %} {% endblock %}</h1>
+				<div class = 'content'>
+					{% block content %} {% endblock %}
+				</div>
 		
 		</div>
 	</body>
