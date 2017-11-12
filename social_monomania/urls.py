@@ -22,4 +22,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.hello, name='home'),
+    url(r'^about/', views.about, name='about'),
+    url(r'^faq/', views.faq, name='faq'),
+    
 ]
