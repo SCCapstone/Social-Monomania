@@ -71,6 +71,7 @@ ubuntuone-client-data==14.4
 unity-lens-photos==1.0
 urllib3==1.21.1
 virtualenv==15.1.0
+whitenoise==3.3.1
 zope.component==4.2.2
 zope.event==4.2.0
 zope.hookable==4.0.4
