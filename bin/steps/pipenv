@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# export CLINT_FORCE_COLOR=1
+# export PIPENV_FORCE_COLOR=1
+
+# Pipenv support (Generate requriements.txt with pipenv).
+if [[ -f Pipfile ]]; then
+    if [[ ! -f requirements.txt ]]; then
+        puts-step "Installing requirements with latest Pipenv…"
+
+        # Install pipenv.
+        /app/.heroku/python/bin/pip install pipenv --upgrade &> /dev/null
+
+        if [[ ! -f Pipfile.lock ]]; then
+            /app/.heroku/python/bin/pipenv install --system --skip-lock 2>&1 | indent
+        else
+            /app/.heroku/python/bin/pipenv install --system --deploy 2>&1 | indent
+        fi
+        # Install the dependencies.
+
+
+        # Skip pip install, later.
+        export SKIP_PIP_INSTALL=1
+
+        # Pip freeze, for compatibility.
+        /app/.heroku/python/bin/pip freeze > requirements.txt
+
+    fi
+fi
