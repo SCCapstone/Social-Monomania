@@ -25,7 +25,7 @@ SECRET_KEY = 'kt21qp(v(85%@^9)2++cs=49vull98^!^l82ya@1%fvvpcxuhx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['socialmonomania.herokuapp.com/','127.0.0.1']
+ALLOWED_HOSTS = ['socialmonomania.herokuapp.com','127.0.0.1']
 
 
 # Application definition
