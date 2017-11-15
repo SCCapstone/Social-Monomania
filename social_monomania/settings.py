@@ -121,11 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/assets/'
+STATIC_URL = 'assets/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets"),
-    '/assets/',
+    'assets/',
 ]
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
