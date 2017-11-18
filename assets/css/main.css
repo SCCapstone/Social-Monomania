@@ -70,5 +70,15 @@ input{
 	margin: auto;
 }
 
+.subject_input{
+	display: block;
+	margin: auto;
+}
+
+.message_input{
+	display: block;
+	margin: auto;
+}
+
 /*# sourceMappingURL=layout.css.map */
 
