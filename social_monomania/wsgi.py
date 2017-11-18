@@ -8,12 +8,11 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 """
 
 import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "social_monomania.settings")
 
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
 from django.contrib.staticfiles.handlers import StaticFilesHandler
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "social_monomania.settings")
 
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)

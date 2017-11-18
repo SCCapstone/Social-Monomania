@@ -25,7 +25,7 @@ SECRET_KEY = 'kt21qp(v(85%@^9)2++cs=49vull98^!^l82ya@1%fvvpcxuhx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['socialmonomania.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['socialmonomania.herokuapp.com','127.0.0.1','localhost:8000']
 
 
 # Application definition
@@ -117,16 +117,27 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, '../static','../assets'),
+)
+
+
+
+
+"""STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'assets/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets"),
     'assets/',
-]
+]"""
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
