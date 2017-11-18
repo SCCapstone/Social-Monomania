@@ -68,16 +68,22 @@ input{
 .email_input{
 	display: block;
 	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
 }
 
 .subject_input{
 	display: block;
 	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
 }
 
 .message_input{
 	display: block;
 	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
 }
 
 /*# sourceMappingURL=layout.css.map */
