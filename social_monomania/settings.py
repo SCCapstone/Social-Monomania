@@ -73,9 +73,9 @@ WSGI_APPLICATION = 'social_monomania.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
+import dj_database_url	
 DATABASES = {
-    'default': {
+    'default': { 
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mydatabase',
         'USER': 'root',

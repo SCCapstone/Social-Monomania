@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
+from django.contrib.staticfiles.handlers import StaticFilesHandler
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "social_monomania.settings")
 

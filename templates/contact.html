@@ -1,0 +1,16 @@
+{% extends  "layout.html" %}
+
+{% block title %} Contact Us {% endblock %}
+
+{% block heading %} Contact Us {% endblock %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <div class="form-actions">
+      <button type="submit">Send</button>
+    </div>
+</form>
+{% endblock %}
