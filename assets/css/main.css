@@ -65,5 +65,10 @@ input{
 	font-size: 20px;
 }
 
+.email_input{
+	display: block;
+	margin: auto;
+}
+
 /*# sourceMappingURL=layout.css.map */
 
