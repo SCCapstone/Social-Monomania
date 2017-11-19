@@ -70,6 +70,7 @@ input{
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
+    font-size: 16px
 }
 
 .subject_input{
@@ -77,6 +78,7 @@ input{
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
+    font-size: 16px
 }
 
 .message_input{
@@ -84,6 +86,7 @@ input{
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
+    font-size: 16px
 }
 
 /*# sourceMappingURL=layout.css.map */
