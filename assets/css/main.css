@@ -78,6 +78,9 @@ input{
     padding: 5px;
 }
 
+.subject_input:: placeholder{
+ 	margin-top: 20px;
+}
 .subject_input{
 	display: block;
 	margin: auto;
@@ -88,9 +91,12 @@ input{
     height: 40px;
     outline: none;
     padding: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
+.message_input:: placeholder{
+ 	margin-top: 20px;
+}
 .message_input{
 	display: block;
 	margin: auto;
@@ -101,7 +107,7 @@ input{
     height: 175px;
     outline: none;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 /*# sourceMappingURL=layout.css.map */
