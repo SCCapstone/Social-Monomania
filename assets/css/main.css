@@ -86,6 +86,10 @@ input{
 }
 
 
+#question{
+border-bottom: 2px solid black;
+}
+
 .email_input placeholder{
 	font-size: 16px !important;
 }
