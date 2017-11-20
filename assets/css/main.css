@@ -59,11 +59,11 @@ nav {
 }
 
 input::-webkit-input-placeholder{
-	font-size: 25px;
+	font-size: 30px;
 }
 
 input{
-	font-size: 25px;
+	font-size: 30px;
 }
 
 .email_input{
