@@ -88,6 +88,7 @@ input{
 
 #question{
 border-bottom: 2px solid black;
+margin-bottom: 10px;
 }
 
 .email_input placeholder{
