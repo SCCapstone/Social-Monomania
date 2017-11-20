@@ -87,7 +87,7 @@ input{
 
 
 .email_input:: placeholder{
-	font-size: 16px;
+	font-size: 16px !important;
 }
 
 .email_input{
@@ -105,14 +105,14 @@ input{
 
 .subject_input:: placeholder{
  	margin-top: 20px;
- 	font-size: 16px;
+ 	font-size: 16px !important;
 }
 .subject_input{
 	display: block;
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
-    font-size: 16px;
+    font-size: 16px !important;
     width: 175px;
     height: 40px;
     outline: none;
@@ -134,6 +134,7 @@ input{
     height: 175px;
     outline: none;
     padding: 10px;
+    margin-bottom: 15px;
 }
 
 #id_subject_input{
