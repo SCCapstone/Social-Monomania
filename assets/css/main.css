@@ -86,7 +86,7 @@ input{
 }
 
 
-.email_input:: placeholder{
+.email_input placeholder{
 	font-size: 16px !important;
 }
 
