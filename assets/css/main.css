@@ -103,10 +103,6 @@ input{
     margin-bottom: 25px;
 }
 
-.subject_input:: placeholder{
- 	margin-top: 20px;
- 	font-size: 16px !important;
-}
 .subject_input{
 	display: block;
 	margin: auto;
