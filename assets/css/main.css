@@ -3,15 +3,30 @@
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  font-family:"Lucida Console", Monaco, monospace; }
+  font-family:"Lucida Console", Monaco, monospace;
+  padding-bottom: 100px;
+   }
   
 .header{
 	width:100%;
 	background: linear-gradient(to right, #56699B, white);
 	font-size: 30px;
+	color: black;
+	text-decoration: none;
+	}
+	.header a {
+		color: black;
+		text-decoration: none;
+	}
+
+  
+  
+.about_info{
+	padding-right: 100px;
+	padding-left: 100px;
+}
 	
 
-  }
   
 
 .graphic{
@@ -54,15 +69,30 @@ nav {
     height: 70px;
     border: 5px solid #6A589F;
     border-radius: 25px;
+    outline: none;
     
 }
 
+#s_button {
+	font-size: 30px;
+}
+
 input::-webkit-input-placeholder{
-	font-size: 20px;
+	font-size: 30px;
 }
 
 input{
-	font-size: 20px;
+	font-size: 30px;
+}
+
+
+#question{
+border-bottom: 2px solid black;
+margin-bottom: 10px;
+}
+
+.email_input placeholder{
+	font-size: 16px !important;
 }
 
 .email_input{
@@ -70,9 +100,12 @@ input{
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
-    font-size: 16px
+    font-size: 16px;	
     width: 175px;
     height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
 }
 
 .subject_input{
@@ -80,18 +113,37 @@ input{
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
-    font-size: 16px
+    font-size: 16px !important;
     width: 175px;
     height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
 }
 
+.message_input:: placeholder{
+ 	margin-top: 20px;
+ 	font-size: 16px;
+}
 .message_input{
 	display: block;
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
-    font-size: 16px
+    font-size: 16px;
+    width: 350px;
+    height: 175px;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 15px;
 }
 
+#id_subject_input{
+	 margin-top: 50px;
+}
+
+#submit_b{
+	font-size: 30px;
+}
 /*# sourceMappingURL=layout.css.map */
 
