@@ -73,6 +73,7 @@ input{
     font-size: 16px
     width: 175px;
     height: 40px;
+    outline: none;
 }
 
 .subject_input{
@@ -92,6 +93,8 @@ input{
 	border: 5px solid #6A589F;
     border-radius: 25px;
     font-size: 16px
+    width: 250px;
+    outline: none;
 }
 
 /*# sourceMappingURL=layout.css.map */
