@@ -65,5 +65,33 @@ input{
 	font-size: 20px;
 }
 
+.email_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px
+    width: 175px;
+    height: 40px;
+}
+
+.subject_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px
+    width: 175px;
+    height: 40px;
+}
+
+.message_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px
+}
+
 /*# sourceMappingURL=layout.css.map */
 
