@@ -77,10 +77,10 @@ import dj_database_url
 DATABASES = {
     'default': { 
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-        'USER': 'root',
-        'PASSWORD': 'SocialMonomania',
-        'HOST': '127.0.0.1',
+        'NAME': 'd9lvjn9gh6uq86',
+        'USER': 'cmiqkxfbojgkci',
+        'PASSWORD': '87db10235f175c3c8e7d72436ab410bca0e35cb6ebc17dcb91b2666246d18dc8',
+        'HOST': 'ec2-50-16-204-127.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
