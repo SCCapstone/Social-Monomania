@@ -100,6 +100,7 @@ input{
     height: 40px;
     outline: none;
     padding: 5px;
+    margin-bottom: 25px;
 }
 
 .subject_input:: placeholder{
@@ -116,7 +117,7 @@ input{
     height: 40px;
     outline: none;
     padding: 5px;
-    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .message_input:: placeholder{
@@ -133,7 +134,6 @@ input{
     height: 175px;
     outline: none;
     padding: 10px;
-    margin-top: 25px;
 }
 
 #id_subject_input{
