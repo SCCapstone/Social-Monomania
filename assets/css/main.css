@@ -58,6 +58,10 @@ nav {
     
 }
 
+#s_button {
+	font-size: 30px;
+}
+
 input::-webkit-input-placeholder{
 	font-size: 30px;
 }
