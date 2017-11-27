@@ -1,0 +1,149 @@
+
+.site-container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  font-family:"Lucida Console", Monaco, monospace;
+  padding-bottom: 100px;
+   }
+  
+.header{
+	width:100%;
+	background: linear-gradient(to right, #56699B, white);
+	font-size: 30px;
+	color: black;
+	text-decoration: none;
+	}
+	.header a {
+		color: black;
+		text-decoration: none;
+	}
+
+  
+  
+.about_info{
+	padding-right: 100px;
+	padding-left: 100px;
+}
+	
+
+  
+
+.graphic{
+	display: block;
+	margin: auto;
+    width: 50%;
+}
+  
+  
+nav {
+    width: 100%;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #E7D473;
+    margin-bottom: 1em;
+    overflow: hidden; }
+    .site-container nav a {
+      display: table-cell;
+      width: 8.33333%;
+      padding: 10px;
+      border-bottom: 2px solid #642039;
+      color: #56699B;
+      letter-spacing: 0.075em;
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
+      }
+      .site-container nav a:hover {
+        background: #6A589F;
+        border-bottom: 2px solid #642039;
+        color: white; }
+
+.content{
+	text-align: center;
+}
+
+#mySearch {
+    width: 600px;
+    height: 70px;
+    border: 5px solid #6A589F;
+    border-radius: 25px;
+    outline: none;
+    
+}
+
+#s_button {
+	font-size: 30px;
+}
+
+input::-webkit-input-placeholder{
+	font-size: 30px;
+}
+
+input{
+	font-size: 30px;
+}
+
+
+#question{
+border-bottom: 2px solid black;
+margin-bottom: 10px;
+}
+
+.email_input placeholder{
+	font-size: 16px !important;
+}
+
+.email_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px;	
+    width: 175px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+.subject_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px !important;
+    width: 175px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+.message_input:: placeholder{
+ 	margin-top: 20px;
+ 	font-size: 16px;
+}
+.message_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px;
+    width: 350px;
+    height: 175px;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#id_subject_input{
+	 margin-top: 50px;
+}
+
+#submit_b{
+	font-size: 30px;
+}
+/*# sourceMappingURL=layout.css.map */
+

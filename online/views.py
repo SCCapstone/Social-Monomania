@@ -23,7 +23,7 @@ def regist(req):
             return HttpResponse('regist success!!')
     else:
         uf = UserForm()
-    return render_to_response('regist.html',{'uf':uf}, context_instance=RequestContext(req))
+    return render(req, 'regist.html',{'uf':uf})
 
 #login
 def login(req):
@@ -46,12 +46,12 @@ def login(req):
                 return HttpResponseRedirect('/online/login/')
     else:
         uf = UserForm()
-    return render_to_response('login.html',{'uf':uf},context_instance=RequestContext(req))
+    return render(req, 'login.html',{'uf':uf})
 
 #Log in Succeed
 def index(req):
     username = req.COOKIES.get('username','')
-    return render_to_response('index.html' ,{'username':username})
+    return render(req, 'index.html' ,{'username':username})
 
 #Failed to Login
 def logout(req):
