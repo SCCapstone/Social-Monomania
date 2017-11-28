@@ -145,10 +145,11 @@ DATABASES['default'].update(db_from_env)
 
 
 #contact us backend
-EMAIL_BACKEND =
-  'django.core.mail.backends.console.EmailBackend' 
-DEFAULT_FROM_EMAIL = 'testing@example.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False 
-EMAIL_PORT = 1025
+#currently not functioning without project email
+#EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+#EMAIL_HOST='smtp.gmail.com'
+#EMAIL_PORT=465
+#EMAIL_HOST_USER = 'tomboy2322'
+#EMAIL_HOST_PASSWORD = ''
+#EMAIL_USE_TLS = False 
+
