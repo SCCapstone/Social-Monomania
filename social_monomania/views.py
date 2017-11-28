@@ -17,34 +17,20 @@ def faq(request):
 	
 	
 def contact(request):
+    if request.method == 'GET':
         form = ContactForm()
-        if request.method == 'POST':
-        	form = form_class(data=request.POST)
+    else:
+        form = ContactForm(request.POST)
         if form.is_valid():
-            subject = request.POST.get(
-                'subject'
-            , '')
-            from_email = request.POST.get(
-                'from_email'
-            , '')
-            message = request.POST.get('message', '')
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_email(subject, message, from_email, ['mebaskin@email.sc.edu'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('thanks')
+    return render(request, "contact.html", {'form': form})
 
-            # Email the profile with the 
-            # contact information
-            email = EmailMessage(
-                "New contact form submission",
-                content,
-                "Your website" +'',
-                ['youremail@gmail.com'],
-                headers = {'Reply-To': contact_email }
-            )
-            email.send()
-            return redirect('contact')
-
-    return render(request, 'contact.html', {
-        'form': form,
-    })
 def thanks(request):
     return HttpResponse('Thank you for your message.')
-    
-    

@@ -142,14 +142,3 @@ STATICFILES_DIRS = [
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-
-
-#contact us backend
-#currently not functioning without project email
-#EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
-#EMAIL_HOST='smtp.gmail.com'
-#EMAIL_PORT=465
-#EMAIL_HOST_USER = 'tomboy2322'
-#EMAIL_HOST_PASSWORD = ''
-#EMAIL_USE_TLS = False 
-
