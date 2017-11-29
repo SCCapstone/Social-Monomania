@@ -14,19 +14,16 @@ class UserForm(forms.Form):
 def regist(req):
     if req.method == 'POST':
         uf = UserForm(req.POST)
-        try:
-            if uf.is_valid():
-                # get data from base
-                username = uf.cleaned_data['username']
-                password = uf.cleaned_data['password']
-                # add to cookie base
-                User.objects.create(username= username,password=password)
-                return HttpResponse('regist success!!')
-            else:
-                uf = UserForm()
-            return render(req, 'regist.html',{'uf':uf})
-        except:
-            render(req, 'regist.html',{'uf':uf})
+        if uf.is_valid():
+            # get data from base
+            username = uf.cleaned_data['username']
+            password = uf.cleaned_data['password']
+            # add to cookie base
+            User.objects.create(username= username,password=password)
+            return HttpResponse('regist success!!')
+    else:
+        uf = UserForm()
+    return render(req, 'regist.html',{'uf':uf})
 
 # login
 def login(req):
@@ -38,6 +35,7 @@ def login(req):
             password = uf.cleaned_data['password']
             # comparing
             user = User.objects.filter(username__exact = username,password__exact = password)
+        try:    
             if user:
                 # login succeed return to index page
                 response = HttpResponseRedirect('/online/index/')
@@ -47,6 +45,8 @@ def login(req):
             else:
                 # Failed to Login return to login
                 return HttpResponseRedirect('/online/login/')
+        except:
+            return HttpResponseRedirect('/online/login/')
     else:
         uf = UserForm()
     return render(req, 'login.html',{'uf':uf})
