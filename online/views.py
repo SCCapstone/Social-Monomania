@@ -42,7 +42,7 @@ def login(req):
                 response.set_cookie('username',username,3600)
                 return response
             else:
-                # Failed to Login ，return to login
+                # Failed to Login return to login
                 return HttpResponseRedirect('/online/login/')
     else:
         uf = UserForm()
