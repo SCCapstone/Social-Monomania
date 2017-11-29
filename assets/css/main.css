@@ -107,9 +107,7 @@ margin-bottom: 10px;
     padding: 5px;
     margin-bottom: 25px;
 }
-.subject_input:: placeholder{
- 	margin-top: 20px;
- 	font-size: 16px;
+
 
 .subject_input{
 	display: block;
