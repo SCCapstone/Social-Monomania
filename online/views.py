@@ -14,16 +14,19 @@ class UserForm(forms.Form):
 def regist(req):
     if req.method == 'POST':
         uf = UserForm(req.POST)
-        if uf.is_valid():
-            # get data from base
-            username = uf.cleaned_data['username']
-            password = uf.cleaned_data['password']
-            # add to cookie base
-            User.objects.create(username= username,password=password)
-            return HttpResponse('regist success!!')
-    else:
-        uf = UserForm()
-    return render(req, 'regist.html',{'uf':uf})
+        try:
+            if uf.is_valid():
+                # get data from base
+                username = uf.cleaned_data['username']
+                password = uf.cleaned_data['password']
+                # add to cookie base
+                User.objects.create(username= username,password=password)
+                return HttpResponse('regist success!!')
+            else:
+                uf = UserForm()
+            return render(req, 'regist.html',{'uf':uf})
+        except:
+            render(req, 'regist.html',{'uf':uf})
 
 # login
 def login(req):
