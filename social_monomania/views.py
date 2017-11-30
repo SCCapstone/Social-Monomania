@@ -15,6 +15,9 @@ def about(request):
 def faq(request):
 	return render(request, 'faq.html')
 	
+def thanks(request):
+	return render(request, 'thanks.html')
+	
 	
 def contact(request):
     if request.method == 'GET':

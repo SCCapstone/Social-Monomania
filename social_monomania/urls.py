@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^faq/', views.faq, name='faq'),
     url(r'^contact/', views.contact, name='contact'),
     url(r'^online/', include('online.urls')),
+    url(r'^thanks/', views.thanks, name='thanks'),
     
 ]
 
