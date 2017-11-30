@@ -130,8 +130,14 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, '../static','../assets'),
 )
 
-
-
+#email settings
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'socialmonomania@gmail.com'
+EMAIL_HOST_PASSWORD = 'socialmonomania123'
+DEFAULT_FROM_EMAIL = 'socialmonomania@gmail.com'
+DEFAULT_TO_EMAIL = 'to email'
 
 """STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'assets/'
