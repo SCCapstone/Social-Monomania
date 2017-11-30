@@ -145,5 +145,33 @@ margin-bottom: 10px;
 #submit_b{
 	font-size: 30px;
 }
+
+#id_username{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px !important;
+    width: 175px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+    }
+
+
+#id_password{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px !important;
+    width: 175px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+    }
+
 /*# sourceMappingURL=layout.css.map */
 
