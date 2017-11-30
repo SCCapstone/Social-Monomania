@@ -29,8 +29,5 @@ def contact(request):
                 send_mail(subject, message, from_email, ['socialmonomania@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect(HttpResponse('Thank you for your message.'))
+            return HttpResponseRedirect('/thanks/')
     return render(request, "contact.html", {'form': form})
-
-def thanks(request):
-    return HttpResponse('Thank you for your message.')
