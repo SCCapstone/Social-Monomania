@@ -2,7 +2,7 @@ from django.shortcuts import render,render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext
 from django import forms
-from .models import User
+from django.contrib.auth.models import User
 
 # form
 class UserForm(forms.Form): 
@@ -19,7 +19,7 @@ def regist(req):
             username = uf.cleaned_data['username']
             password = uf.cleaned_data['password']
             # add to cookie base
-            User.objects.create(username= username,password=password)
+            User.objects.create_user(username=username,password=password)
             return HttpResponse('regist success!!')
     else:
         uf = UserForm()
