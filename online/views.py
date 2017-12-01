@@ -4,6 +4,8 @@ from django.template import RequestContext
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.conf import settings
+from django.db import models
 
 # form
 class UserForm(forms.Form): 
