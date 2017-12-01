@@ -25,7 +25,7 @@ SECRET_KEY = 'kt21qp(v(85%@^9)2++cs=49vull98^!^l82ya@1%fvvpcxuhx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['socialmonomania.herokuapp.com','127.0.0.1','localhost:8000']
+ALLOWED_HOSTS = ['socialmonomania.herokuapp.com','127.0.0.1', 'socialmonomania-dev.herokuapp.com', 'localhost:8000']
 
 
 # Application definition
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
@@ -128,8 +129,13 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, '../static','../assets'),
 )
 
-
-
+#email settings
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'socialmonomania@gmail.com'
+EMAIL_HOST_PASSWORD = 'socialmonomania123'
+DEFAULT_FROM_EMAIL = 'socialmonomania@gmail.com'
 
 """STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'assets/'

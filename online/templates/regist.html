@@ -1,0 +1,15 @@
+{% extends  "layout.html" %}
+
+{% block title %} Account Register {% endblock %}
+
+{% block heading %} Account Register {% endblock %}
+
+{% block content %}
+<form method = 'post' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{uf.as_p}}
+    <input type="submit" value = "Enter" />
+</form>
+<br>
+<a href="../login/">Login</a>
+{% endblock %}

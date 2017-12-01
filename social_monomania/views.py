@@ -15,6 +15,9 @@ def about(request):
 def faq(request):
 	return render(request, 'faq.html')
 	
+def thanks(request):
+	return render(request, 'thanks.html')
+	
 	
 def contact(request):
     if request.method == 'GET':
@@ -26,11 +29,8 @@ def contact(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                send_email(subject, message, from_email, ['mebaskin@email.sc.edu'])
+                send_mail(subject, message, from_email, ['socialmonomania@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('thanks')
+            return HttpResponseRedirect('/thanks/')
     return render(request, "contact.html", {'form': form})
-
-def thanks(request):
-    return HttpResponse('Thank you for your message.')
