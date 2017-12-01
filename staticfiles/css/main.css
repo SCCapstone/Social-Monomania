@@ -70,29 +70,25 @@ nav {
     border: 5px solid #6A589F;
     border-radius: 25px;
     outline: none;
-    
+    font-size: 40px !important;
 }
 
 #s_button {
 	font-size: 30px;
 }
 
-#mySearch input::-webkit-input-placeholder{
-	font-size: 40px !important;
+#mySearch input::placeholder{
+	font-size: 50px !important;
 }
 
 #mySearch input{
-	font-size: 30px !important;
+	font-size: 50px !important;
 }
 
 
 #question{
 border-bottom: 2px solid black;
 margin-bottom: 10px;
-}
-
-.email_input:: placeholder{
-	font-size: 16px !important;
 }
 
 .email_input{
@@ -108,6 +104,9 @@ margin-bottom: 10px;
     margin-bottom: 25px;
 }
 
+.email_input::placeholder{
+	font-size: 16px;
+}
 
 .subject_input{
 	display: block;
