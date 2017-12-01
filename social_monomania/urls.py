@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+admin.autodiscover()
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -28,5 +29,6 @@ urlpatterns = [
     url(r'^contact/', views.contact, name='contact'),
     url(r'^online/', include('online.urls')),
     url(r'^thanks/', views.thanks, name='thanks'),
+    
 ]
 
