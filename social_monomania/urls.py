@@ -26,11 +26,7 @@ urlpatterns = [
     url(r'^about/', views.about, name='about'),
     url(r'^faq/', views.faq, name='faq'),
     url(r'^contact/', views.contact, name='contact'),
-<<<<<<< HEAD
-=======
     url(r'^online/', include('online.urls')),
     url(r'^thanks/', views.thanks, name='thanks'),
->>>>>>> heroku-dev
-    
 ]
 
