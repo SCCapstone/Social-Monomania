@@ -78,11 +78,11 @@ nav {
 }
 
 #mySearch input::-webkit-input-placeholder{
-	font-size: 30px;
+	font-size: 30px !important;
 }
 
 #mySearch input{
-	font-size: 30px;
+	font-size: 30px !important;
 }
 
 
