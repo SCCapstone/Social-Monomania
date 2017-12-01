@@ -25,8 +25,8 @@ def contact(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
+            email = form.get['from_email']
             subject = form.cleaned_data['subject']
-            email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
             	fullemail = subject + " " + "<" + email + ">"
