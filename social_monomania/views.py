@@ -29,7 +29,8 @@ def contact(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['socialmonomania@gmail.com'])
+            	fullemail = subject + " " + "<" + from_email + ">"
+                send_mail(subject, message, fullemail, ['socialmonomania@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return HttpResponseRedirect('/thanks/')
