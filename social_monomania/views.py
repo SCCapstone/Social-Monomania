@@ -25,12 +25,12 @@ def contact(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
-            fullemail = form.cleaned_data['from_email']
+            email = form.cleaned_data['from_email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             try:
             	fullemail = subject + " " + "<" + email + ">"
-                send_mail(subject, message, fullemail, ['socialmonomania@gmail.com'])
+                send_mail(subject, message, email, ['socialmonomania@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return HttpResponseRedirect('/thanks/')
