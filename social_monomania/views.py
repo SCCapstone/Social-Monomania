@@ -25,7 +25,7 @@ def contact(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data['from_email']
+            email = str(form.cleaned_data['from_email'])
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             confirmation = 'We have received your report, and will review it shortly. Thank you!\n\nThe Social Monomania Team'
