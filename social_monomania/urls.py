@@ -29,6 +29,6 @@ urlpatterns = [
     url(r'^contact/', views.contact, name='contact'),
     url(r'^online/', include('online.urls')),
     url(r'^thanks/', views.thanks, name='thanks'),
-    
+    url(r'^graph/', views.graph, name='graph'),
 ]
 
