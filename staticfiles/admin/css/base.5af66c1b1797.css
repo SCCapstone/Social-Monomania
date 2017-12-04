@@ -2,7 +2,7 @@
     DJANGO Admin styles
 */
 
-@import url("fonts.cc6140298ba7.css");
+@import url("fonts.ecfb8916876b.css");
 
 body {
     margin: 0;
@@ -357,7 +357,7 @@ table thead th.sorted .sortoptions a {
     width: 14px;
     height: 14px;
     display: inline-block;
-    background: url("../img/sorting-icons.3a097b59f104.svg") 0 0 no-repeat;
+    background: url("../img/sorting-icons.bbfc41068350.svg") 0 0 no-repeat;
     background-size: 14px auto;
 }
 
@@ -548,18 +548,18 @@ ul.messagelist li {
     font-size: 13px;
     padding: 10px 10px 10px 65px;
     margin: 0 0 10px 0;
-    background: #dfd url("../img/icon-yes.d2f9f035226a.svg") 40px 12px no-repeat;
+    background: #dfd url("../img/icon-yes.06589da83e26.svg") 40px 12px no-repeat;
     background-size: 16px auto;
     color: #333;
 }
 
 ul.messagelist li.warning {
-    background: #ffc url("../img/icon-alert.034cc7d8a67f.svg") 40px 14px no-repeat;
+    background: #ffc url("../img/icon-alert.21c61971fb51.svg") 40px 14px no-repeat;
     background-size: 14px auto;
 }
 
 ul.messagelist li.error {
-    background: #ffefef url("../img/icon-no.439e821418cd.svg") 40px 12px no-repeat;
+    background: #ffefef url("../img/icon-no.233633bc1364.svg") 40px 12px no-repeat;
     background-size: 16px auto;
 }
 
@@ -633,7 +633,7 @@ div.system-message p.system-message-title {
     padding: 4px 5px 4px 25px;
     margin: 0;
     color: #c11;
-    background: #ffefef url("../img/icon-no.439e821418cd.svg") 5px 5px no-repeat;
+    background: #ffefef url("../img/icon-no.233633bc1364.svg") 5px 5px no-repeat;
 }
 
 .description {
@@ -664,17 +664,17 @@ div.breadcrumbs a:focus, div.breadcrumbs a:hover {
 
 .addlink {
     padding-left: 16px;
-    background: url("../img/icon-addlink.d519b3bab011.svg") 0 1px no-repeat;
+    background: url("../img/icon-addlink.4001bb35b6f9.svg") 0 1px no-repeat;
 }
 
 .changelink, .inlinechangelink {
     padding-left: 16px;
-    background: url("../img/icon-changelink.18d2fd706348.svg") 0 1px no-repeat;
+    background: url("../img/icon-changelink.9f469bf75d66.svg") 0 1px no-repeat;
 }
 
 .deletelink {
     padding-left: 16px;
-    background: url("../img/icon-deletelink.564ef9dc3854.svg") 0 1px no-repeat;
+    background: url("../img/icon-deletelink.4059963bd772.svg") 0 1px no-repeat;
 }
 
 a.deletelink:link, a.deletelink:visited {
@@ -743,11 +743,11 @@ a.deletelink:focus, a.deletelink:hover {
 }
 
 .object-tools a.viewsitelink, .object-tools a.golink {
-    background-image: url("../img/tooltag-arrowright.bbfb788a849e.svg");
+    background-image: url("../img/tooltag-arrowright.5d363e8887ce.svg");
 }
 
 .object-tools a.addlink {
-    background-image: url("../img/tooltag-add.e59d620a9742.svg");
+    background-image: url("../img/tooltag-add.cf20e2410f14.svg");
 }
 
 /* OBJECT HISTORY */
