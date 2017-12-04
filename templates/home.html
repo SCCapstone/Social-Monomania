@@ -10,15 +10,26 @@
 <input class="w3-input w3-border w3-round-large"type="search" id="mySearch" placeholder="Search..">
 
 <p>Click the button to get the placeholder text of the search field.</p>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<button  id='s_button' onclick="return myFunction()">Search</button>
 
-<button  id= 's_button' onclick="myFunction()">Search</button>
+<div id="demo" style="height:700px; width:90%; display:none; padding-top: 30px; position: absolute !important; padding-left: 3.5%"> </div>
 
-<p id="demo"></p>
-
-<script>
+<script language="javascript" type="text/javascript">
 function myFunction() {
-    var x = document.getElementById("mySearch").placeholder;
-    document.getElementById("demo").innerHTML = x;
+	document.getElementById("demo").style.display = "block";
+	document.getElementById("demo").innerHTML = '<object type="text/html" style="height:700px; width:90%; max-width: 100%" data="graph/graph.html" > </object> ';
+    //var x = document.getElementById("mySearch").placeholder;
+   /* $.ajax({
+    	type: "GET",
+    	dataType: "html",
+    	url: "graph/graph.html",
+    	success: function(data){
+    		document.getElementById("demo").innerHTML = data;
+    	}
+    });
+    */
+    //document.getElementById("demo").innerHTML = x;
 }
 </script>
 {% endblock %}

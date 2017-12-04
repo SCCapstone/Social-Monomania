@@ -1,5 +1,6 @@
 {% load static from staticfiles %}
-<canvas id="myChart" width="500px" height="500px"></canvas>
+<canvas id="myChart" style="width:90%; height:95%; position: absolute !important; margin: 0px !important">
+</canvas>
 <script src="{% static 'scripts/Chart.js' %}"></script>
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
@@ -37,6 +38,8 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        responsive: false,
+        maintainAspectRatio: false,
         scales: {
             yAxes: [{
                 ticks: {
