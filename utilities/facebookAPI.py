@@ -15,7 +15,7 @@ def search(args = None):
 	# response = urllib.request.urlopen(url)
 	# tokenJSON = response.readline().decode('utf-8')
 	# token = json.loads(tokenJSON)
-		graph = facebook.GraphAPI(access_token="EAACMUxD9QFwBAPBhuWV7berbZB7PCoI8uqhaqFatOYhWXnZAWYXjsky2nZCJezytZAzT4CU3H0uwIbAQRIXZCgy94RdhqCZBO4p3lfYtUkbZCNrWIrGCM8vw0YSqQZBg7LkLJSZBTnKtf8DZAwYgKQlcUzh1A51JW3m4fkZBwYFNuRKwwmE9rKIR16MtshnHe48S1QZD", 
+		graph = facebook.GraphAPI(access_token="EAACMUxD9QFwBAIWJ1Oy6aW7cSOb2t4Udyu7rMhS8pQoZARMulQKawhhdzOKDnrj3pXZC0RkBcnNx2InPTcz4I43sIcUs8vUkhCZCJgkoCTaH8mI2yUJknt3kNr09rZBN3bpYXQfjPb0eGHfTWm5zn03UD4zw5GnicUT8CVdRbv1OOkUsmoX9iZBvkbsk3CHDFApWgvbpacAZDZD", 
 		version="2.10")
 	except Exception as e:
 		print(e)
