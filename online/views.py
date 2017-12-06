@@ -24,7 +24,7 @@ def regist(req):
             # add to cookie base
             user = User.objects.create_user(username=username,password=password)
             user.save()
-            return HttpResponse('regist success!!')
+            return HttpResponse('register success!!')
     else:
         uf = UserForm()
     return render(req, 'regist.html',{'uf':uf})
