@@ -13,6 +13,9 @@ class UserForm(forms.Form):
     password = forms.CharField(label='Password',widget=forms.PasswordInput())
 
 
+def registered(request):
+	return render(request, 'registered.html')
+
 # register
 def regist(req):
     if req.method == 'POST':
@@ -24,7 +27,7 @@ def regist(req):
             # add to cookie base
             user = User.objects.create_user(username=username,password=password)
             user.save()
-            return HttpResponse('register success!!')
+            return HttpResponseRedirect('/online/registered/')
     else:
         uf = UserForm()
     return render(req, 'regist.html',{'uf':uf})
