@@ -10,6 +10,7 @@ def search(args = None):
 	if(args == None):
 		args = sys.argv[1:]
 	try:
+		##### Call to get a different kind of access token commented out.  Using a 'User Access Token'
 	# url = "https://graph.facebook.com/oauth/access_token?client_id=154288395206748&client_secret=b31c53b79daff5a17ac4849c839ae998&grant_type=client_credentials"
 	# response = urllib.request.urlopen(url)
 	# tokenJSON = response.readline().decode('utf-8')
@@ -24,7 +25,6 @@ def search(args = None):
 
 
 	data = graph.search(type='event', q=args[0])
-	#dataReadable = json.loads(data)
 	print(data)
 
 	results = ''
@@ -36,7 +36,8 @@ def search(args = None):
 				print(str(d) + ":" + str(k))
 			except Exception as e:
 				print(e)
+			#Once we discover the fields we want to pull on return we can use this loop to append them to a string and display that to the user.
 			results += str(d) + ":" + str(k) + " \n"
 		i += 1
 
-	return results
+	return data
