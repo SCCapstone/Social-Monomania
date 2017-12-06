@@ -18,9 +18,15 @@ def search(args = None):
 	r = urllib2.urlopen(url)
 	resultJSON = r.readline().decode('utf-8')
 	result = json.loads(resultJSON)
-	
+
 	result['data'] = [ item for item in result['data']
                    if query.lower() in item['name'].lower() ]
 
 	print [ item['name'] for item in result['data'] ]
+
+if __name__ == '__main__':
+
+	args = sys.argv[1:]
+
+	search(args[0])
 
