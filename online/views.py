@@ -38,10 +38,10 @@ def regist(req):
 
 # login
 def login(req):
+    if req.user.is_authenticated():
+            return HttpResponseRedirect('../logout')
     if req.method == 'POST':
         uf = UserForm(req.POST)
-        if req.user.is_authenticated():
-            return HttpResponseRedirect('../logout')
         if uf.is_valid():
             # get password and username from user
             username = uf.cleaned_data['username']
