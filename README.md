@@ -14,6 +14,8 @@ gunicorn==19.6.0
 psycopg2==2.6.2
 whitenoise==3.3.1``
 
+**Note: This application directly restarts and updates after each commit, applying all changes. It uses the commands found in both this README and the URL below.**
+
 *This app follows standard Heroku deployment procedures for python, which can be found here:*
 https://devcenter.heroku.com/articles/getting-started-with-python#introduction
 
@@ -22,5 +24,6 @@ The command that Heroku's standard procfile uses (and that we use as well) to de
 ```web: gunicorn social_monomania.wsgi --log-file -```
 
 
-Example Results Graph:
+
+## Example Results Graph:
 ![image](https://user-images.githubusercontent.com/31394858/33293040-5d804612-d399-11e7-8a5e-8e43b2f0e376.png)
