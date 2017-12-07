@@ -90,7 +90,11 @@ def index(req):
 # Logout
 def logout(req):
     auth.logout(req)
-    response = HttpResponse('logout !!')
+    username = req.COOKIES.get('username','')
+    response = HttpResponseRedirect('../loggedout', username)
     # clear cookie username
     response.delete_cookie('username')
     return response
+# Logged Out
+def loggedout(req):
+    return render(req, 'loggedout.html')
