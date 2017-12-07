@@ -70,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 WSGI_APPLICATION = 'social_monomania.wsgi.application'
 
 

@@ -7,8 +7,16 @@
 
 {% block content %}
 <h3>Enter your search in the bar below and press enter. </h3>
-<input class="w3-input w3-border w3-round-large"type="search" id="mySearch" placeholder="Search..">
-
+<input class="w3-input w3-border w3-round-large"type="search" id="mySearch" placeholder="Search.." >
+<script type="text/javascript" language="javascript">
+document.getElementById("mySearch")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("s_button").click();
+    }
+});
+</script>
 <p>Click the button to get the placeholder text of the search field.</p>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <button  id='s_button' style="vertical-align: top;margin-left:auto;margin-right:auto" onclick="return myFunction()">Search</button>

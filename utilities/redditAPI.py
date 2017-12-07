@@ -15,4 +15,4 @@ def search(args = None):
                      user_agent='Social Monomania API Searcher (by /u/Sorrento110')
 
 	for submission in reddit.subreddit('news').all(limit=100):
-		
+		##Not decided on which reddit calls will give us the best results. Still experimenting.
