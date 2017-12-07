@@ -6,5 +6,21 @@ The USC International Center for Event Research and Education housed in the Coll
 
 This will be a web application.
 
+## Requirements To Run
+``python=2.7.12
+Django==1.11.7
+dj-database-url==0.4.1
+gunicorn==19.6.0
+psycopg2==2.6.2
+whitenoise==3.3.1``
+
+*This app follows standard Heroku deployment procedures for python, which can be found here:*
+https://devcenter.heroku.com/articles/getting-started-with-python#introduction
+
+The command that Heroku's standard procfile uses (and that we use as well) to deploy is:
+
+```web: gunicorn social_monomania.wsgi --log-file -```
+
+
 Example Results Graph:
 ![image](https://user-images.githubusercontent.com/31394858/33293040-5d804612-d399-11e7-8a5e-8e43b2f0e376.png)
