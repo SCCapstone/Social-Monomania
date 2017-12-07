@@ -1,12 +1,19 @@
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
+from django.template import RequestContext
 from .forms import ContactForm
-
+from django import forms
+from django.contrib.auth.models import User
+from django.contrib.sessions.models import Session
+from django.contrib.auth import authenticate
+from django.db import models
 
 def hello(request):
-	return render(request, 'home.html')
-
+        if request.user.is_authenticated():
+                return render(request, 'home.html')
+        if not request.user.is_authenticated():
+                return HttpResponseRedirect('online/login')
 
 def about(request):
 	return render(request, 'about.html')

@@ -3,7 +3,9 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.sessions.models import Session
+from django.contrib import auth
+from django.contrib.auth import authenticate, login as auth_login
 from django.conf import settings
 from django.db import models
 
@@ -24,6 +26,8 @@ def regist(req):
             # get data from base
             username = uf.cleaned_data['username']
             password = uf.cleaned_data['password']
+            if User.objects.filter(username=uf.cleaned_data['username']).exists():
+                return HttpResponseRedirect('../regist')
             # add to cookie base
             user = User.objects.create_user(username=username,password=password)
             user.save()
@@ -36,6 +40,8 @@ def regist(req):
 def login(req):
     if req.method == 'POST':
         uf = UserForm(req.POST)
+        if req.user.is_authenticated():
+            return HttpResponseRedirect('../logout')
         if uf.is_valid():
             # get password and username from user
             username = uf.cleaned_data['username']
@@ -46,6 +52,7 @@ def login(req):
         try:    
             if user is not None:
                 # login succeed return to index page
+                auth_login(req,user)
                 response = HttpResponseRedirect('/online/index/')
                 # save username into cookie,resetting time 3600
                 response.set_cookie('username',username,3600)
@@ -80,8 +87,9 @@ def index(req):
     username = req.COOKIES.get('username','')
     return render(req, 'index.html' ,{'username':username})
 
-# Failed to Login
+# Logout
 def logout(req):
+    auth.logout(req)
     response = HttpResponse('logout !!')
     # clear cookie username
     response.delete_cookie('username')
