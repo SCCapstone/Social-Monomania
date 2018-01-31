@@ -25,7 +25,7 @@ SECRET_KEY = 'kt21qp(v(85%@^9)2++cs=49vull98^!^l82ya@1%fvvpcxuhx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['socialmonomania.herokuapp.com','127.0.0.1', 'socialmonomania-dev.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['socialmonomania.herokuapp.com','127.0.0.1', 'socialmonomania-dev.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -150,3 +150,8 @@ STATICFILES_DIRS = [
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+
+import sys
+if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'

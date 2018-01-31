@@ -1,6 +1,5 @@
 import sys, os
 
-import urllib.request
 import json
 
 import praw
