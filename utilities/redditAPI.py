@@ -14,5 +14,20 @@ def search(args = None):
                      client_secret='ek3X-TenXuiWDRzbXfSPROUglvg',
                      user_agent='Social Monomania API Searcher (by /u/Sorrento110')
 
-	for submission in reddit.subreddit('news').all(limit=100):
+	relevant_submissions = []
+
+	for submission in reddit.subreddit('southcarolina').new(limit=100):
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
+		if (args in submission.title):
+			relevant_submissions.append(submission)
+
+	print(relevant_submissions)
+
+	return relevant_submissions
+
+if __name__ == '__main__':
+
+	args = sys.argv[1:]
+
+	search(args[0])
+
