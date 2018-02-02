@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>Initial Testing Suite</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Initial Behavioral Testing</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://socialmonomania.herokuapp.com/online/login/<datalist><option>http://socialmonomania.herokuapp.com/online/login/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Home<datalist><option>link=Home</option><option>css=nav &gt; a</option><option>//a[contains(text(),'Home')]</option><option>xpath=(//a[contains(@href, '/')])[3]</option><option>//nav/a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=About<datalist><option>link=About</option><option>//a[contains(text(),'About')]</option><option>//a[contains(@href, '/about/')]</option><option>//a[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Login<datalist><option>link=Login</option><option>//a[contains(text(),'Login')]</option><option>//a[contains(@href, '/online/login/')]</option><option>//a[3]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=FAQ<datalist><option>link=FAQ</option><option>//a[contains(text(),'FAQ')]</option><option>//a[contains(@href, '/faq/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Contact Us<datalist><option>link=Contact Us</option><option>//a[contains(text(),'Contact Us')]</option><option>//a[contains(@href, '/contact/')]</option><option>//a[5]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td>test</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td>${KEY_DOWN}</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td>${KEY_TAB}</td>
+</tr>
+<tr><td>type</td><td>id=id_subject<datalist><option>id=id_subject</option><option>name=subject</option><option>css=#id_subject</option><option>//input[@id='id_subject']</option><option>//input[3]</option></datalist></td><td>test</td>
+</tr>
+<tr><td>type</td><td>id=id_message<datalist><option>id=id_message</option><option>name=message</option><option>css=#id_message</option><option>//textarea[@id='id_message']</option><option>//textarea</option></datalist></td><td>test message</td>
+</tr>
+<tr><td>click</td><td>id=submit_b<datalist><option>id=submit_b</option><option>css=#submit_b</option><option>//button[@id='submit_b']</option><option>//button</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
