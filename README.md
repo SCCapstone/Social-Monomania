@@ -23,6 +23,15 @@ The command that Heroku's standard procfile uses (and that we use as well) to de
 
 ```web: gunicorn social_monomania.wsgi --log-file -```
 
+## Testing
+### Behavioral Testing
+We are using Selenium to conduct our behavioral testing.  Selenium uses a Firefox addon called Katalon Automation Recorder.  To use this addon:
+
+1.) Download the latest version of Firefox: https://www.mozilla.org/en-US/firefox/new/
+2.) Install the addon: https://addons.mozilla.org/en-US/firefox/addon/katalon-automation-record/
+3.) Run the addon from the browser toolbar
+4.) Open the test suite from our github
+5.) Play the test cases in the suite to simulate behavioral testing
 
 
 ## Example Results Graph:
