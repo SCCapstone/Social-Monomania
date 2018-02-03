@@ -8,3 +8,7 @@ This will be a web application.
 
 Example Results Graph:
 ![image](https://user-images.githubusercontent.com/31394858/33293040-5d804612-d399-11e7-8a5e-8e43b2f0e376.png)
+
+TESTING:
+
+redditAPI.py unit test: Using Django unit testing, run the manage.py script with testing conditions and the path to the unit test folder. Examples follow: "./manage.py test utilites.tests"; "python manage.py test utilities.tests"
