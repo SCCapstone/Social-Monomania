@@ -12,3 +12,5 @@ Example Results Graph:
 TESTING:
 
 redditAPI.py unit test: Using Django unit testing, run the manage.py script with testing conditions and the path to the unit test folder. Examples follow: "./manage.py test utilites.tests"; "python manage.py test utilities.tests"
+
+Note: If you don't have PRAW installed, run 'pip install praw'.  PRAW is the Python Reddit API Wrapper and is needed for testing.
