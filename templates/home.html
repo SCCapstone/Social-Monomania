@@ -6,6 +6,8 @@
 {% block heading %} Home {% endblock %}
 
 {% block content %}
+
+<form method='get' action='https://www.reddit.com/search'>
 <h3>Enter your search in the bar below and press enter. </h3>
 <input class="w3-input w3-border w3-round-large"type="search" id="mySearch" placeholder="Search.." >
 <script type="text/javascript" language="javascript">
@@ -20,6 +22,7 @@ document.getElementById("mySearch")
 <p>Click the button to get the placeholder text of the search field.</p>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <button  id='s_button' style="vertical-align: top;margin-left:auto;margin-right:auto" onclick="return myFunction()">Search</button>
+</form>
 <br></br>
 <div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
 
@@ -27,7 +30,7 @@ document.getElementById("mySearch")
 function myFunction() {
 	document.getElementById("demo").style.display = "inline-block";
 	document.getElementById("demo").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="graph/graph.html" > </object> ';
-    //var x = document.getElementById("mySearch").placeholder;
+    var x = document.getElementById("mySearch").placeholder;
    
    /* $.ajax({
     	type: "GET",
