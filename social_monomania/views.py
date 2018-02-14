@@ -44,3 +44,7 @@ def contact(request):
 
 def graph(request):
         return render(request, 'graph.html')
+        
+def results(request):
+	return render(request, 'results.html')
+	

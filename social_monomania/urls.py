@@ -30,5 +30,7 @@ urlpatterns = [
     url(r'^online/', include('online.urls')),
     url(r'^thanks/', views.thanks, name='thanks'),
     url(r'^graph/', views.graph, name='graph'),
+    url(r'^results/', views.results, name='results'),
+    
 ]
 
