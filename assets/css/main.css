@@ -181,10 +181,15 @@ margin-bottom: 10px;
     margin-bottom: 25px;
     }
     
-#boxes{
+#redditBox{
 	text-align: left;
+	}
 	
+#testBox{
+	test-align: right;
+	}
 }
+
 
 /*# sourceMappingURL=layout.css.map */
 
