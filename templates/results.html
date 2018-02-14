@@ -5,5 +5,27 @@
 {% block content %}
       <h3>Results</h3>
       <p>Here is where your results WOULD be....if we had any.....</p>
+    
+ <br></br>     
+ <div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
+
+<script language="javascript" type="text/javascript">
+function myFunction() {
+	document.getElementById("demo").style.display = "inline-block";
+	document.getElementById("demo").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="graph/graph.html" > </object> ';
+    var x = document.getElementById("mySearch").placeholder;
+   
+   /* $.ajax({
+    	type: "GET",
+    	dataType: "html",
+    	url: "graph/graph.html",
+    	success: function(data){
+    		document.getElementById("demo").innerHTML = data;
+    	}
+    });
+    */
+    //document.getElementById("demo").innerHTML = x;
+}
+</script>
 {% endblock content %}
   
