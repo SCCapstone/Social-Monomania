@@ -7,11 +7,16 @@
       <p>Here is where your results WOULD be....if we had any.....</p>
     	<p> you searched for </p>
     	<p id='searchQ'></p>
-    	
+  
+  
+  <div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
+  	
 <script type="text/javascript">
 
 function my_code(){
 document.getElementById("searchQ").innerHTML = document.getElementById('mySearch').value;
+document.getElementById("demo").style.display = "inline-block";
+document.getElementById("demo").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="graph/graph.html" > </object> ';
 }
 
 window.onload=my_code();
