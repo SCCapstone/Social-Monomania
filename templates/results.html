@@ -5,7 +5,17 @@
 {% block content %}
       <h3>Results</h3>
       <p>Here is where your results WOULD be....if we had any.....</p>
+    	<p> you searched for </p>
+    	<p id='searchQ'></p>
     	
+<script type="text/javascript">
+
+function my_code(){
+document.getElementById("demo").innerHTML = document.getElementById('mySearch');
+}
+
+window.onload=my_code();
+</script>
  
 {% endblock content %}
   
