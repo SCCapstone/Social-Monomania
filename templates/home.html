@@ -22,9 +22,9 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<br>&nbsp;</br>
 	<div id='Box'>
-		<input type="checkbox"  name="reddit" value="https://www.reddit.com/search.json?"/> Reddit<br />
-		<input type="checkbox"  name="twitter" value="https://twitter.com/search-home"/> Twitter<br />
-		<input type="checkbox"  name="test" value="http://socialmonomania-dev.herokuapp.com/" />Our Site<br />
+		<input type="checkbox"  name="reddit" onclick="redditSearch(checkbox)" value="https://www.reddit.com/search.json?"/> Reddit<br />
+		<input type="checkbox"  name="twitter" onclick="twitterSearch(checkbox)"value="https://twitter.com/search-home"/> Twitter<br />
+		<input type="checkbox"  name="test" onclick="testSearch(checkbox)"value="http://socialmonomania-dev.herokuapp.com/" />Our Site<br />
 	</div>
 	<p>&nbsp;</p>
 	<button  id='s_button' style="vertical-align: top;margin-left:auto;margin-right:auto" onclick="myFunction()">Search</button>
@@ -35,12 +35,44 @@
 <br></br>
 <div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
 
+
+
 <script language="javascript" type="text/javascript">
 function myFunction() {
 	document.getElementById("demo").style.display = "inline-block";
 	document.getElementById("demo").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="graph/graph.html" > </object> ';
 }
-   
+
+function redditSearch(checkbox)
+{ if (checkbox.checked)
+	{ //search using Reddit
+	
+	}
+
+
+}
+
+function twitterSearch(checkbox)
+{ if (checkbox.checked)
+	{ //search using twitter
+	
+	}
+
+
+}
+
+
+function validateForm(){
+    if((reddit.checked) || (twitter.checked) || (test.checked))
+    {
+        return true;
+    } else{ 
+    	alert('Please Check a Checkbox');
+        return false;
+    }
+}
+
+document.getElementById('searchForm').addEventListener('onsubmit', validateForm);
    /* $.ajax({
     	type: "GET",
     	dataType: "html",
@@ -51,6 +83,6 @@ function myFunction() {
     });
     */
     //document.getElementById("demo").innerHTML = x;
-}
+
 </script>
 {% endblock %}
