@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<form id='searchForm' method='get' action='return validateForm()' >
+<form id='searchForm' method='get' onsubmit='return validateForm()' >
 	<h3>Enter your search in the bar below and press enter. </h3>
 	<input class="w3-input w3-border w3-round-large"type="search" id="mySearch"  name='q' placeholder="Search.." >
 	<script type="text/javascript" language="javascript">
@@ -63,14 +63,14 @@ function twitterSearch(checkbox)
 
 
 function validateForm(){
-    
+    var filled = false;
 	var elements = document.getElementsByName("boxes[]");
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
-			return true;
+			filled = true;
 		}
 	}
-	else{
+	if (!filled){
 		alert('Please Check At Least One Box');
 		return false;
 	}
