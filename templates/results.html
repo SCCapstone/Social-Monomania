@@ -19,7 +19,8 @@
 
 function my_code(){
 
-var term = window.location.search.slice(3,);
+var longTerms = window.location.search;
+var term = longTerm.slice(3,longTerm.indexOf('&'));
 document.getElementById("searchQ").innerHTML = term;
 
 if(term.search('test') !== -1)
