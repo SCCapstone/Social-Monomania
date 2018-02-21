@@ -63,16 +63,20 @@ function twitterSearch(checkbox)
 
 
 function validateForm(){
-    if((document.getElementById('reddit').checked) || (document.getElementById('twitter').checked) || (document.getElementById('test').checked))
-    {
-        return true;
-    } else{ 
-    	alert('Please Check a Checkbox');
-        return false;
-    }
+    var checked=false;
+	var elements = document.getElementsByName("boxes[]");
+	for(var i=0; i < elements.length; i++){
+		if(elements[i].checked) {
+			checked = true;
+		}
+	}
+	if (!checked) {
+		alert('Please Check At Least One Box');
+	}
+	return checked;
 }
 
-document.getElementById('searchForm').addEventListener('onsubmit', validateForm);
+//document.getElementById('searchForm').addEventListener('onsubmit', validateForm);
    /* $.ajax({
     	type: "GET",
     	dataType: "html",
