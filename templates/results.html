@@ -7,6 +7,7 @@
       <p>Here is where your results WOULD be....if we had any.....</p>
     	<p> you searched for </p>
     	<p id='searchQ'></p>
+    	<p id='type'></p>
 
 
 <a href="{% url 'home' %}" class='button'>New Search</a>  
@@ -20,9 +21,15 @@ function my_code(){
 
 var term = window.location.search.slice(3,);
 document.getElementById("searchQ").innerHTML = term;
-//document.getElementById("demo").style.display = "inline-block";
-//document.getElementById("demo").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="graph/graph.html" > </object> ';
 
+if(term.search('test') !== -1)
+	{ 
+	document.getElementById("type").innerHTML = 'TESTTESTTESTTEST;
+	}
+if(term.search('reddit') !== -1)
+	{
+	document.getElementById("type").innerHTML = 'REDDITREDDITREDDITREDDIT;
+	}
 }
 
 window.onload=my_code();
