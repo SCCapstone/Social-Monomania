@@ -26,6 +26,10 @@
 		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'onclick="twitterSearch(checkbox)"/> Twitter<br />
 		<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" />Our Site<br />
 	</div>
+	<div id='redditSubmenu'>
+		<p> Select subreddit to search</p>
+		<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
+		<input type="checkbox" name='subboxes[]' id="SC" value='SC'checked/> SC<br />
 	<p>&nbsp;</p>
 	<button  id='s_button' style="vertical-align: top;margin-left:auto;margin-right:auto" onclick="myFunction()">Search</button>
 
@@ -46,7 +50,10 @@ function myFunction() {
 function redditSearch(checkbox)
 { if (checkbox.checked)
 	{ //search using Reddit
+		("#mySubMenu").show();
 	
+	}else{
+		("#mySubMenu").hide();
 	}
 
 
