@@ -17,7 +17,9 @@ def hello(request):
 
 def search(request):
 	return render(request, 'home.html')
-	
+
+def help(request):
+	return render(request, 'help.html')	
 	
 def faq(request):
 	return render(request, 'faq.html')

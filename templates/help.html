@@ -1,0 +1,15 @@
+{% extends  "layout.html" %}
+
+{% block title %} Help {% endblock %}
+
+{% block heading %} Help {% endblock %}
+
+{% block content %}
+
+<p> Have a question? Check the FAQ first, then feel free to contact us if the issue isn't resolved. </p>
+
+<a href="{% url 'faq' %}">FAQ</a>
+<a href="{% url 'contact' %}">Contact Us</a>
+
+
+{% endblock %}
