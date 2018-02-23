@@ -24,7 +24,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.hello, name='home'),
-    url(r'^about/', views.about, name='about'),
+    url(r'^search/', views.search, name='search'),
     url(r'^faq/', views.faq, name='faq'),
     url(r'^contact/', views.contact, name='contact'),
     url(r'^online/', include('online.urls')),

@@ -11,12 +11,12 @@ from django.db import models
 
 def hello(request):
         if request.user.is_authenticated():
-                return render(request, 'home.html')
+                return render(request, 'about.html')
         if not request.user.is_authenticated():
                 return HttpResponseRedirect('online/login')
 
-def about(request):
-	return render(request, 'about.html')
+def search(request):
+	return render(request, 'home.html')
 	
 	
 def faq(request):
