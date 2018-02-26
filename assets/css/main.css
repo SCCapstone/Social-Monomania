@@ -1,7 +1,9 @@
 
 .site-container {
   width: cover;
-  margin: -8px;
+  margin-left: -8px;
+  margin-top: -8px;
+  margin-right: -8px;
   font-family:"Arial Black", Gadget, sans-serif;
    }
   
@@ -37,7 +39,6 @@
   
   
 nav {
-    margin: 10px;
     width: 100%;
     display: table;
     width: 100%;
