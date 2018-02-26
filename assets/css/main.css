@@ -9,6 +9,7 @@
   
 .header{
 	width:cover;
+	text-align: center;
 	background-color: #56699B;
 	font-size: 30px;
 	color: black;
@@ -33,6 +34,7 @@
 	display: block;
         margin-left: auto;
         margin-right: auto;
+	width: 50%;
 }
   
   
