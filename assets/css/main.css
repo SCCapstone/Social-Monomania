@@ -47,7 +47,7 @@ nav {
     .site-container nav a {
       display: table-cell;
       width: 8.33333%;
-      padding: 10px;
+      padding: 0px;
       border-bottom: 2px solid #642039;
       color: #56699B;
       letter-spacing: 0.075em;
