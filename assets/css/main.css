@@ -1,9 +1,9 @@
 
 .site-container {
-  max-width: 68em;
+  width: cover;
   margin-left: auto;
   margin-right: auto;
-  font-family:"Lucida Console", Monaco, monospace;
+  font-family:"Arial Black", Gadget, sans-serif;
   padding-bottom: 100px;
    }
   
