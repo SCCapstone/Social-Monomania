@@ -68,16 +68,5 @@
 </div>
 
 <a href="{% url 'contact' %}">Contact Us</a>
-<div>
-	<h4> Please let us know about any issues, concerns, or suggested features. </h4>
-</div>
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <div class="form-actions">
-      <button id='submit_b' type="submit">Send</button>
-    </div>
-</form>
-
 
 {% endblock %}
