@@ -11,6 +11,12 @@ Example Results Graph:
 
 TESTING:
 
+1) Install Python 2.X
+2) Follow this guide for setting up a Django virtual env: https://tutorial.djangogirls.org/en/django_installation/
+3) Activate your virtualenv (if not already active)
+4) Run 'pip install -r requirements.txt' from a cmd in the root directory of the project
+5) Use 'python manage.py runserver' to launch the app from cmd.
+
 redditAPI.py unit test: Using Django unit testing, run the manage.py script with testing conditions and the path to the unit test folder. Examples follow: "./manage.py test utilites.tests"; "python manage.py test utilities.tests"
 
 Note: If you don't have PRAW installed, run 'pip install praw'.  PRAW is the Python Reddit API Wrapper and is needed for testing.
