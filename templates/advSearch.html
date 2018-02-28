@@ -20,29 +20,31 @@
           </p>
     
 	<input class="w3-input w3-border w3-round-large"type="search" id="searchSecond"  name='q' placeholder="Search.." >
-
-	<div id='redditBox'>
-		<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' onclick="redditSearch(this)" checked/> Reddit<br />
-		<div id='redditSubmenu'>
-			<p> Select subreddit to search</p>
-			<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
-			<input type="checkbox" name='subboxes[]' id="SC" value='SC'checked/> SC<br />
+	<div id='choices'>
+		<div id='redditBox'>
+			<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' onclick="redditSearch(this)" checked/> Reddit<br />
+			<div id='redditSubmenu'>
+				<p> Select subreddit to search</p>
+				<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
+				<input type="checkbox" name='subboxes[]' id="SC" value='SC'checked/> SC<br />
+			</div>
 		</div>
-	</div>
 		
-	<div id='twitterBox'>	
-		<input type="checkbox" name='boxes[]' id="twitter" value='twitter' onclick="twitterSearch(this)" checked/> Twitter<br />
-		<div id='twitterSubmenu'>
-				<p>Location</p>
-				<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
-				<p>Date and Time Filter </p>
-				<input type='date' name='startDate'>
-				<input type='date' name='endDate'>
+		<div id='twitterBox'>	
+			<input type="checkbox" name='boxes[]' id="twitter" value='twitter' onclick="twitterSearch(this)" checked/> Twitter<br />
+			<div id='twitterSubmenu'>
+					<p>Location</p>
+					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
+					<p>Date and Time Filter </p>
+					<input type='date' name='startDate'>
+					<input type='date' name='endDate'>
+			</div>
 		</div>
-	</div>
 	
-	<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" />Instagram<br />
-
+		<div id='instagramBox'>
+			<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" />Instagram<br />
+		<div>
+	</div>
 	
 	<button  id='s_button' style onclick="myFunction()">Search</button>
 	
