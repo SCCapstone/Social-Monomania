@@ -33,7 +33,7 @@
 	</div>
 		
 	<div id='twitterBox'>	
-		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'onclick="twitterSearch(this)" checked/> Twitter<br />
+		<input type="checkbox" name='boxes[]' id="twitter" value='twitter' onclick="twitterSearch(this)" checked/> Twitter<br />
 		<div id='twitterSubmenu'>
 				<p>Location</p>
 				<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
@@ -62,6 +62,7 @@ function redditSearch(checkbox)
 	}else{
 		document.getElementById('redditSubmenu').style.display = 'none';
 	}
+}
 
 function twitterSearch(checkbox)
 { if (checkbox.checked)
@@ -71,5 +72,6 @@ function twitterSearch(checkbox)
 	}else{
 		document.getElementById('twitterSubmenu').style.display = 'none';
 	}
+}
 </script>
 {% endblock %}
