@@ -227,7 +227,16 @@ a.button {
 	height: 350px;
 	}
 
+#instagramBox{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 200px;
+	height: 350px;
+	}
 
+#choices{
+	display:flex;
+	}
 }
 
 
