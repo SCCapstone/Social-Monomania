@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Home Page</title>
+
+</head>
+<body>
+<div class="flex-center">
+    <div class="container">
+        <div>
+            <h1 class="logo"><a href="{% url 'index' %}">Social Monomania</a></h1>
+            {% if user.is_authenticated %}
+                <p>you have successfully logged in：<a href="#">{{ user.username }}</a></p>
+                <button class="btn btn-default"><a href="{% url 'logout' %}?next={{ request.path }}">Log off</a>
+                </button>
+                <button class="btn btn-default"><a href="{% url 'password_change' %}?next={{ request.path }}">Change Password</a>
+                </button>
+            {% else %}
+                <p>You have not logged in yet, Please
+                    <button class="btn btn-default"><a href="{% url 'login' %}?next={{ request.path }}">Login</a>
+                    </button>
+                    or
+                    <button class="btn btn-default"><a href="{% url 'users:register' %}?next={{ request.path }}">Register</a>
+                    </button>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
