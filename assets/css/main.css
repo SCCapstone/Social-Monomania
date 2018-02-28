@@ -238,7 +238,7 @@ a.button {
 	}
 
 #choices{
-	display:flex;
+	display:inline-flex;
 	}
 }
 
