@@ -45,7 +45,7 @@
 		</div>
 	
 		<div id='instagramBox'>
-			<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" />Instagram<br />
+			<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" checked/>Instagram<br />
 		</div>
 	</div>
 	
@@ -76,5 +76,18 @@ function twitterSearch(checkbox)
 		document.getElementById('twitterSubmenu').style.display = 'none';
 	}
 }
+
+function validateForm(){
+    var filled = false;
+	var elements = document.getElementsByName("boxes[]");
+	for(var i=0; i < elements.length; i++){
+		if(elements[i].checked) {
+			filled = true;
+		}
+	}
+	if (!filled){
+		alert('Please Check At Least One Box');
+		return false;
+	}
 </script>
 {% endblock %}
