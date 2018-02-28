@@ -10,6 +10,7 @@
 <form id='searchForm' method='get' onsubmit='return validateForm()' action='http://socialmonomania-dev.herokuapp.com/results' >
 	<h3>Enter your search in the bar below and press enter. </h3>
 	<input class="w3-input w3-border w3-round-large"type="search" id="mySearch"  name='q' placeholder="Search.." >
+	<button  id='s_button' style onclick="myFunction()">Search</button>
 	<script type="text/javascript" language="javascript">
 		document.getElementById("mySearch")
   	  	.addEventListener("keyup", function(event) {
@@ -31,13 +32,16 @@
 		<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
 		<input type="checkbox" name='subboxes[]' id="SC" value='SC'checked/> SC<br />
 	</div>
-	<p>&nbsp;</p>
-	<button  id='s_button' style="vertical-align: top;margin-left:auto;margin-right:auto" onclick="myFunction()">Search</button>
+	
 
 	
 
 </form>
 <br></br>
+
+<a href="{% url 'advSearch' %}">Advanced Search</a>
+
+
 <div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
 
 

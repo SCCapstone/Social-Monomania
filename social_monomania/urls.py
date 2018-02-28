@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^graph/', views.graph, name='graph'),
     url(r'^results/', views.results, name='results'),
     url(r'^help/', views.help, name='help'),
+    url(r'^advSearch/', views.advSearch, name='advSearch'),
     
 ]
 
