@@ -1,0 +1,75 @@
+{% extends  "layout.html" %}
+
+{% block title %} Advanced Search {% endblock %}
+
+{% block heading %} Advanced Search {% endblock %}
+
+{% block content %}
+<form id='advSearch' method='get' onsubmit='return validateForm()' action='http://socialmonomania-dev.herokuapp.com/results' >
+	<h3>Enter your search in the bar below and press enter. </h3>
+	<input class="w3-input w3-border w3-round-large"type="search" id="searchMain"  name='q' placeholder="Search.." >
+	
+	
+	<fieldset>
+          <p>
+             <select id = "myList">
+               <option value = "AND">AND</option>
+               <option value = "OR">OR</option>
+               <option value = "NOT">NOT</option>
+             </select>
+          </p>
+       </fieldset>
+       
+    
+	<input class="w3-input w3-border w3-round-large"type="search" id="searchSecond"  name='q' placeholder="Search.." >
+
+	<div id='redditBox'>
+		<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' onclick="redditSearch(this)" checked/> Reddit<br />
+		<div id='redditSubmenu'>
+			<p> Select subreddit to search</p>
+			<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
+			<input type="checkbox" name='subboxes[]' id="SC" value='SC'checked/> SC<br />
+		</div>
+	</div>
+		
+	<div id='twitterBox'>	
+		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'onclick="twitterSearch(this)" checked/> Twitter<br />
+		<div id='twitterSubmenu'>
+				<p>Location</p>
+				<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
+				<p>Date and Time Filter </p>
+				<input type='date' name='startDate'>
+				<input type='date' name='endDate'>
+
+	</div>
+			<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" />Instagram<br />
+
+	
+	<button  id='s_button' style onclick="myFunction()">Search</button>
+	
+</form>	
+	
+
+
+
+<script language="javascript" type="text/javascript">
+
+function redditSearch(checkbox)
+{ if (checkbox.checked)
+	{ //search using Reddit
+		document.getElementById('redditSubmenu').style.display = 'block';
+	
+	}else{
+		document.getElementById('redditSubmenu').style.display = 'none';
+	}
+
+function twitterSearch(checkbox)
+{ if (checkbox.checked)
+	{ //search using Reddit
+		document.getElementById('twitterSubmenu').style.display = 'block';
+	
+	}else{
+		document.getElementById('twitterSubmenu').style.display = 'none';
+	}
+</script>
+{% endblock %}
