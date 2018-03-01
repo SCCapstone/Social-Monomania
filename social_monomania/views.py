@@ -18,6 +18,10 @@ def hello(request):
 def search(request):
 	return render(request, 'home.html')
 
+def advSearch(request):
+	return render(request, 'advSearch.html')
+
+
 def help(request):
 	return render(request, 'help.html')	
 	
