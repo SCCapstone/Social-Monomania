@@ -2,8 +2,8 @@ import sys, os
 
 import urllib
 import urllib2
-import json
-
+import json, csv
+import pandas
 import oauth2
 import unicodedata
 
@@ -22,11 +22,16 @@ def search(args):
 	resultJSON = oauth_req(url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
 	result_parsed = json.loads(resultJSON)
 	statuses = result_parsed.get("statuses")
+	#data = json.dumps(resultJSON)
 	f = open('twitter.txt', 'w')
+	#output_csv = open('output_csv', 'w')
 	for x in statuses:
 		print x.get("user").get("screen_name")
 		f.write(x.get("user").get("screen_name").encode("UTF-8") +": " + x.get("text").encode("UTF-8") +"\n")
 	f.close()
+	#output = csv.writer(output_csv)
+	#df = pandas.read_json(resultJSON)
+	#df.to_csv()
 	return result_parsed
 
 def oauth_req(url, key, secret, http_method="GET", post_body="", http_headers=None):
