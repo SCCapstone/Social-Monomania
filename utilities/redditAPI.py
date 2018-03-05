@@ -15,7 +15,7 @@ def search(args = None):
 
 	relevant_submissions = []
 	submission_titles = []
-
+	f = open('reddit.txt', 'w')
 	for submission in reddit.subreddit('southcarolina').new(limit=100):
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
 		if (args in submission.title):
@@ -25,8 +25,9 @@ def search(args = None):
 	# print(relevant_submissions)
 	##Testing submission accesses; this submission will be stored in specific variables and passed to the handler,
 	## which will then access these specifics
-	print (submission_titles)
-
+	for x in submission_titles:
+		f.write(x + "\n")
+		print(x)
 	return relevant_submissions
 
 if __name__ == '__main__':
