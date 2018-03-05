@@ -22,7 +22,7 @@ def search(args = None):
 			relevant_submissions.append(submission)
 			submission_titles.append(submission.title)
 
-	print(relevant_submissions)
+	# print(relevant_submissions)
 	##Testing submission accesses; this submission will be stored in specific variables and passed to the handler,
 	## which will then access these specifics
 	print (submission_titles)
