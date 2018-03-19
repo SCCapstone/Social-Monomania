@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response
 from django.template import RequestContext
 from .forms import ContactForm
-from .forms import searchForm
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
@@ -17,14 +16,7 @@ def hello(request):
                 return HttpResponseRedirect('online/login')
 
 def search(request):
-	if request.method == 'GET':
-		form = searchForm(request.GET)
-			if form.is_valid():
-				search_Field = form.cleaned_data['search_Field']
-				return render(request, 'results.html')
-	else:
-		form = searchForm()
-	return render(request, 'home.html', {'form': form})
+	return render(request, 'home.html')
 
 def advSearch(request):
 	return render(request, 'advSearch.html')

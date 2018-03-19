@@ -7,10 +7,9 @@
 
 {% block content %}
 
-<form method="post" class='contact_form'>
-  <h3>Enter your search in the bar below and press enter. </h3>
-    {% csrf_token %}
-    {{ form }}	
+<form id='searchForm' method='get' onsubmit='return validateForm()' action='http://socialmonomania-dev.herokuapp.com/results' >
+	<h3>Enter your search in the bar below and press enter. </h3>
+	<input class="w3-input w3-border w3-round-large"type="search" id="mySearch"  name='q' placeholder="Search.." >
 	<button  id='s_button' style onclick="myFunction()">Search</button>
 	
 </form>

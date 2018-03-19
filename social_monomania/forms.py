@@ -8,6 +8,3 @@ class ContactForm(forms.Form):
                     'class': 'subject_input', 'placeholder': 'Please keep your subject concise...'}))
     message = forms.CharField(widget=forms.Textarea(attrs={
                     'class': 'message_input', 'placeholder': 'Your message here...'}))
-
-class searchForm(forms.Form):
-	search_Field = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'search_Field', 'placeholder': 'Search...'}))
