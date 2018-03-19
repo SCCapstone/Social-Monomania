@@ -12,27 +12,7 @@
     {% csrf_token %}
     {{ form }}	
 	<button  id='s_button' style onclick="myFunction()">Search</button>
-	<script type="text/javascript" language="javascript">
-		document.getElementById("mySearch")
-  	  	.addEventListener("keyup", function(event) {
-	    event.preventDefault();
-	    if (event.keyCode === 13) {
- 	       document.getElementById("s_button").click();
-  	  	}
-	});
-	</script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<br>&nbsp;</br>
-	<div id='Box'>
-		<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' onclick="redditSearch(this)" checked/> Reddit<br />
-		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'onclick="twitterSearch(checkbox)"/> Twitter<br />
-		<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" />Instagram<br />
-	</div>
 	
-	
-
-	
-
 </form>
 <br></br>
 
