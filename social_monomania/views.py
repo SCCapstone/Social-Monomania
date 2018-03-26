@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 from django.contrib.auth import authenticate
 from django.db import models
+from utilities import basicHandler
 
 def hello(request):
         if request.user.is_authenticated():
@@ -52,5 +53,13 @@ def graph(request):
         return render(request, 'graph.html')
         
 def results(request):
-	return render(request, 'results.html')
+
+    if request.method == 'POST':
+        print(request.POST)
+        # print(request.POST['q'])
+        # print(request.POST['boxes[]'])
+
+        redditReturn, twitterReturn = basicHandler.searchHandle(request.POST['q'], dict(request.POST)['boxes[]'])
+
+	return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn})
 	

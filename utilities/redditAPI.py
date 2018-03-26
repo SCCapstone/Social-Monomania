@@ -14,13 +14,18 @@ def search(args = None):
                      user_agent='Social Monomania API Searcher (by /u/Sorrento110')
 
 	relevant_submissions = []
+	retInfo = {}
 	for submission in reddit.subreddit('southcarolina').new(limit=100):
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
 		if (args in submission.title):
 			relevant_submissions.append(submission)
 
-	# print(relevant_submissions)
-	return relevant_submissions
+	for submission in relevant_submissions:
+
+		retInfo[submission.title] = submission.url
+
+	#print("DID REDDIT!")
+	return retInfo
 
 if __name__ == '__main__':
 
