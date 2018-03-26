@@ -12,7 +12,9 @@
 <a href="{% url 'search' %}" class='button'>New Search</a>  
 
 		<p> Reddit Object </p>
-		{{ redditReturn }}
+		{% for entry in redditReturn %}
+   			 {{ entry }}
+		{% endfor %}
 
 		<p>Twitter Object </p>
 		{{ twitterReturn }}
