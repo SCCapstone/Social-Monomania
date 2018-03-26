@@ -2,12 +2,8 @@ import sys, os
 
 import urllib
 import urllib2
-<<<<<<< HEAD
 import json, csv
-=======
-import json
 
->>>>>>> 23bd960834ff0c99a612351cd8a179ce097cc813
 import oauth2
 
 
@@ -23,7 +19,6 @@ def search(args):
 	#r = urllib2.urlopen(url)
 	#resultJSON = r.readline().decode('utf-8')
 	resultJSON = oauth_req(url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
-<<<<<<< HEAD
 	result_parsed = json.loads(resultJSON)
 	statuses = result_parsed.get("statuses")
 	# f = open('twitter.txt', 'w')
@@ -33,13 +28,7 @@ def search(args):
 	# f.close()
 	#print("DID TWITTER!")
 	return result_parsed
-=======
-	result = json.loads(resultJSON)
 
-	print result
-
-	return result
->>>>>>> 23bd960834ff0c99a612351cd8a179ce097cc813
 
 def oauth_req(url, key, secret, http_method="GET", post_body="", http_headers=None):
 
