@@ -13,7 +13,11 @@
 
 		<p> Reddit Object </p>
 		{% for entry in redditReturn %}
-   			 {{ entry }}
+		<div>
+       		<h1>{{ entry.title }}</h1>
+        	<p>{{ entry.text|linebreaksbr }}</p>
+   			 
+   		</div>
 		{% endfor %}
 
 		<p>Twitter Object </p>
