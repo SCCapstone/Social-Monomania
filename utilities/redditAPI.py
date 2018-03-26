@@ -15,10 +15,19 @@ def search(args = None):
 
 	relevant_submissions = []
 	retInfo = {}
+
+	submission_titles = []
+
 	for submission in reddit.subreddit('southcarolina').new(limit=100):
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
 		if (args in submission.title):
 			relevant_submissions.append(submission)
+			submission_titles.append(submission.title)
+
+	print(relevant_submissions)
+	##Testing submission accesses; this submission will be stored in specific variables and passed to the handler,
+	## which will then access these specifics
+	print (submission_titles)
 
 	for submission in relevant_submissions:
 
