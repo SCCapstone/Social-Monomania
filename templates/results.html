@@ -12,16 +12,16 @@
 <a href="{% url 'search' %}" class='button'>New Search</a>  
 
 		<p> Reddit Object </p>
-		{% for entry in redditReturn %}
+		{{redditReturn}}
+
+		<p>Twitter Object </p>
+		{% for entry in twitterReturn %}
 		<div>
        		<h3>{{ entry.title }}</h3>
         	<p>{{ entry.published_date|linebreaksbr }}</p>
    			 
    		</div>
 		{% endfor %}
-
-		<p>Twitter Object </p>
-		{{ twitterReturn }}
 		<!-- Might want to use a template function to do a foreach in both of these objects to display -->
 
     	
