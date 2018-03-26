@@ -14,7 +14,7 @@
 		<p> Reddit Object </p>
 		{% for entry, url in redditReturn.items %}
 		<div style="border-style: solid; margin-bottom: 10px;">
-        	<h3>{{ entry.title }} " : " {{ url }}</h3>
+        	<h3>{{ entry.title }}  :  {{ url }}</h3> <!-- .title just does the python .title function to string (caps all words) -->
 
         	
         	<!-- 
@@ -26,7 +26,13 @@
 		{% endfor %}
 
 		<p>Twitter Object </p>
-		{{ twitterReturn }}
+		{% for entry in twitterReturn.statuses %}
+		<div style="border-style: solid; margin-bottom: 10px;"> 
+			<h3> User: {{ entry.user.screen_name }}
+			<h3>Text: {{ entry.text }}</h3>
+
+		</div>
+		{% endfor %}
 		<!-- Might want to use a template function to do a foreach in both of these objects to display -->
 
     	
