@@ -14,9 +14,7 @@
 		<p> Reddit Object </p>
 		{% for entry in redditReturn %}
 		<div>
-       		<h3>{{ entry.title }}</h3>
-       		<p> {{entry.link}} </p>
-        	<p>{{ entry.published_date|linebreaksbr }}</p>
+        	<p>{{ entry.text|linebreaksbr }}</p>
    			 
    		</div>
 		{% endfor %}
