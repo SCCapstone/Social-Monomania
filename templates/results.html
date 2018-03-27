@@ -13,11 +13,6 @@
         	<div id='redditUrl'>
         		<p>{{ url }}</p> <!-- .title just does the python .title function to string (caps all words) -->
 			</div>
-        	
-        	<!-- 
-			tried {{ entry.url}} and entry.link
-        	tried all of the same for twitter with no luck
- --> 
    		</div>
 		{% endfor %}
 
@@ -40,6 +35,7 @@
  -->
 <a href="{% url 'search' %}" class='button'>New Search</a>  
 
+<!-- 
 <script type="text/javascript">
 
 function my_code(){
@@ -64,6 +60,7 @@ if(term.search('twitter') !== -1)
 
 window.onload=my_code();
 </script>
+ -->
 
 
  
