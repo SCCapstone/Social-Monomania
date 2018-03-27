@@ -6,24 +6,30 @@
       
 		<p> Reddit Object </p>
 		{% for entry, url in redditReturn.items %}
-		<div style="border-style: solid; margin-bottom: 10px;">
-        	<h3>{{ entry.title }}  :  {{ url }}</h3> <!-- .title just does the python .title function to string (caps all words) -->
-
+		<div id='redditResult' style="border-style: solid; margin-bottom: 10px;">
+        	<div id='redditTitle'>
+        		<h3>{{ entry.title }}</h3>
+        	</div>
+        	<div id='redditUrl'>
+        		<h6>{{ url }}</h6> <!-- .title just does the python .title function to string (caps all words) -->
+			</div>
         	
         	<!-- 
 			tried {{ entry.url}} and entry.link
         	tried all of the same for twitter with no luck
- -->
-   			 
+ --> 
    		</div>
 		{% endfor %}
 
 		<p>Twitter Object </p>
 		{% for entry in twitterReturn.statuses %}
-		<div style="border-style: solid; margin-bottom: 10px;"> 
-			<h3> User: {{ entry.user.screen_name }}
-			<h3>Text: {{ entry.text }}</h3>
-
+		<div id='twitterResult' style="border-style: solid; margin-bottom: 10px;"> 
+			<div id='twitterUser'>
+				<h6> User: {{ entry.user.screen_name }} </h6>
+			</div>
+			<div id='twitterText'>
+				<h3>Text: {{ entry.text }}</h3>
+			</div>
 		</div>
 		{% endfor %}
 		<!-- Might want to use a template function to do a foreach in both of these objects to display -->
