@@ -11,7 +11,7 @@
         		<h3>{{ entry.title }}</h3>
         	</div>
         	<div id='redditUrl'>
-        		<h6>{{ url }}</h6> <!-- .title just does the python .title function to string (caps all words) -->
+        		<p>{{ url }}</p> <!-- .title just does the python .title function to string (caps all words) -->
 			</div>
         	
         	<!-- 
@@ -25,7 +25,7 @@
 		{% for entry in twitterReturn.statuses %}
 		<div id='twitterResult' style="border-style: solid; margin-bottom: 10px;"> 
 			<div id='twitterUser'>
-				<h6> User: {{ entry.user.screen_name }} </h6>
+				<p> User: {{ entry.user.screen_name }} </p>
 			</div>
 			<div id='twitterText'>
 				<h3>Text: {{ entry.text }}</h3>
