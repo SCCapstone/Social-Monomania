@@ -3,22 +3,29 @@
 
 
 {% block content %}
-      
-		<p> Reddit Object </p>
+<div class="row">
+  <div class="column">
+	  <p> Reddit Object </p>
 		{% for entry, url in redditReturn.items %}
 		<div id='redditResult' style="border-style: solid; margin-bottom: 10px;">
         	<h2 id='redditTitle'>{{ entry.title }}</h2>
         	<p id='redditUrl'>{{ url }}</p> <!-- .title just does the python .title function to string (caps all words) -->
    		</div>
 		{% endfor %}
-
-		<p>Twitter Object </p>
+  </div>
+  <div class="column">
+  		<p>Twitter Object </p>
 		{% for entry in twitterReturn.statuses %}
 		<div id='twitterResult' style="border-style: solid; margin-bottom: 10px;"> 
 			<p id='twitterUser'> User: {{ entry.user.screen_name }} </p>
 			<h2 id='twitterText'>Text: {{ entry.text }}</h2>
 		</div>
 		{% endfor %}
+  </div>
+</div>
+		
+
+		
 		<!-- Might want to use a template function to do a foreach in both of these objects to display -->
 
     	

@@ -245,6 +245,14 @@ a.button {
 	display: flex;
 }
 
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
 
 /*# sourceMappingURL=layout.css.map */
 
