@@ -9,8 +9,7 @@
 		{% for entry, url in redditReturn.items %}
 		<div id='redditResult' style="border-style: solid; margin: 10px; padding">
         	<h2 id='redditTitle'>{{ entry.title }}</h2>
-        	<a href="{{ url }}">link</a>  
-        	<p id='redditUrl'>{{ url }}</p> <!-- .title just does the python .title function to string (caps all words) -->
+        	<a id='redditUrl' href="{{ url }}">link</a>  
    		</div>
 		{% endfor %}
   </div>

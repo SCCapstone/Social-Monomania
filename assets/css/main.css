@@ -245,6 +245,10 @@ a.button {
 	display: flex;
 }
 
+#redditUrl{
+	display: flex;
+}
+
 .column {
     float: left;
     width: 50%;
