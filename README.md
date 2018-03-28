@@ -6,8 +6,22 @@ The USC International Center for Event Research and Education housed in the Coll
 
 This will be a web application.
 
-Example Results Graph:
-![image](https://user-images.githubusercontent.com/31394858/33293040-5d804612-d399-11e7-8a5e-8e43b2f0e376.png)
+## Requirements To Run
+``python=2.7.12
+Django==1.11.7
+dj-database-url==0.4.1
+gunicorn==19.6.0
+psycopg2==2.6.2
+whitenoise==3.3.1``
+
+**Note: This application directly restarts and updates after each commit, applying all changes. It uses the commands found in both this README and the URL below.**
+
+*This app follows standard Heroku deployment procedures for python, which can be found here:*
+https://devcenter.heroku.com/articles/getting-started-with-python#introduction
+
+The command that Heroku's standard procfile uses (and that we use as well) to deploy is:
+
+```web: gunicorn social_monomania.wsgi --log-file -```
 
 ## TESTING:
 
@@ -29,3 +43,6 @@ We are using Selenium to conduct our behavioral testing.  Selenium uses a Firefo
 redditAPI.py unit test: Using Django unit testing, run the manage.py script with testing conditions and the path to the unit test folder. Examples follow: "./manage.py test utilites.tests"; "python manage.py test utilities.tests"
 
 Note: If you don't have PRAW installed, run 'pip install praw'.  PRAW is the Python Reddit API Wrapper and is needed for testing.
+
+Example Results Graph:
+![image](https://user-images.githubusercontent.com/31394858/33293040-5d804612-d399-11e7-8a5e-8e43b2f0e376.png)
