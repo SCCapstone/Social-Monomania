@@ -242,7 +242,7 @@ a.button {
 	}
 	
 #twitterUser{
-	display: flex;
+	display: table-cell;
 }
 
 #redditUrl{
