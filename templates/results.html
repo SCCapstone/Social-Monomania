@@ -8,10 +8,10 @@
 		{% for entry, url in redditReturn.items %}
 		<div id='redditResult' style="border-style: solid; margin-bottom: 10px;">
         	<div id='redditTitle'>
-        		<h3>{{ entry.title }}</h3>
+        		<h3 id='redditT'>{{ entry.title }}</h3>
         	</div>
         	<div id='redditUrl'>
-        		<p>{{ url }}</p> <!-- .title just does the python .title function to string (caps all words) -->
+        		<p id='redditU'>{{ url }}</p> <!-- .title just does the python .title function to string (caps all words) -->
 			</div>
    		</div>
 		{% endfor %}
