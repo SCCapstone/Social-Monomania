@@ -9,9 +9,18 @@ This will be a web application.
 Example Results Graph:
 ![image](https://user-images.githubusercontent.com/31394858/33293040-5d804612-d399-11e7-8a5e-8e43b2f0e376.png)
 
-TESTING:
+## TESTING:
 
-1) Install Python 2.X
+### Behavioral Testing
+We are using Selenium to conduct our behavioral testing.  Selenium uses a Firefox addon/Chrome Plugin called Katalon Automation Recorder.  To use this addon:
+1. Download the latest version of Firefox: https://www.mozilla.org/en-US/firefox/new/
+2. Install the addon from: https://addons.mozilla.org/en-US/firefox/addon/katalon-automation-record/ *or* https://chrome.google.com/webstore/detail/katalon-recorder-selenium/ljdobmomdgdljniojadhoplhkpialdid?hl=en-US
+3. Run the addon from the browser toolbar
+4. Open the test suite from our GitHub Repository (i.e. open the folder Behavioral Testing, and then the .html file for each test)
+5. Play the test cases in the suite to simulate behavioral testing (you can open each file as an individualized test case, and play them each by one or play the entire suite!)
+
+### Unit Testing
+1) Install Python 2.X.X
 2) Follow this guide for setting up a Django virtual env: https://tutorial.djangogirls.org/en/django_installation/
 3) Activate your virtualenv (if not already active)
 4) Run 'pip install -r requirements.txt' from a cmd in the root directory of the project
