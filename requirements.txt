@@ -5,3 +5,4 @@ psycopg2==2.6.2
 whitenoise==3.3.1
 praw==5.3.0
 oauth2==1.9.0.post1
+xlsxwriter==1.0.2
