@@ -3,6 +3,7 @@ chardet==3.0.4
 dj-database-url==0.4.2
 Django==1.11.7
 facebook-sdk
+gunicorn
 httplib2==0.10.3
 idna==2.6
 numpy==1.14.1
