@@ -7,12 +7,28 @@ The USC International Center for Event Research and Education housed in the Coll
 This will be a web application.
 
 ## Requirements To Run
-``python=2.7.12
+``certifi==2018.1.18
+chardet==3.0.4
+dj-database-url==0.4.2
 Django==1.11.7
-dj-database-url==0.4.1
-gunicorn==19.6.0
-psycopg2==2.6.2
-whitenoise==3.3.1``
+facebook-sdk
+gunicorn
+httplib2==0.10.3
+idna==2.6
+numpy==1.14.1
+oauth2==1.9.0.post1
+pandas==0.22.0
+praw==5.4.0
+prawcore==0.14.0
+psycopg2==2.7.3.2
+python-dateutil==2.6.1
+pytz==2017.3
+requests==2.18.4
+six==1.11.0
+update-checker==0.16
+urllib3==1.22
+whitenoise==3.3.1
+XlsxWriter==1.0.2``
 
 **Note: This application directly restarts and updates after each commit, applying all changes. It uses the commands found in both this README and the URL below.**
 
