@@ -160,38 +160,18 @@
 </tbody></table>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Accessing / Modifying Admin Privileges Pages1</td></tr>
+<tr><td rowspan="1" colspan="3">Accessing Admin Privileges Pages1</td></tr>
 </thead>
 <tbody>
-<tr><td>open</td><td>http://127.0.0.1:8000/admin/login/?next=/admin/<datalist><option>http://127.0.0.1:8000/admin/login/?next=/admin/</option></datalist></td><td></td>
+<tr><td>open</td><td>http://socialmonomania-dev.herokuapp.com/admin/login/<datalist><option>http://socialmonomania-dev.herokuapp.com/admin/login/</option></datalist></td><td></td>
 </tr>
-<tr><td>click</td><td>link=Users<datalist><option>link=Users</option><option>//a[contains(text(),'Users')]</option><option>//div[@id='content-main']/div/table/tbody/tr[2]/th/a</option><option>//a[contains(@href, '/admin/auth/user/')]</option><option>//tr[2]/th/a</option><option>css=tr.model-user &gt; th &gt; a</option></datalist></td><td></td>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//form[@id='login-form']/div[2]/input</option><option>//div[2]/input</option><option>css=#id_password</option></datalist></td><td></td>
 </tr>
-<tr><td>click</td><td>link=admin-philip<datalist><option>link=admin-philip</option><option>//a[contains(text(),'admin-philip')]</option><option>//table[@id='result_list']/tbody/tr[4]/th/a</option><option>//a[contains(@href, '/admin/auth/user/36/change/')]</option><option>//tr[4]/th/a</option></datalist></td><td></td>
+<tr><td>type</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//form[@id='login-form']/div/input</option><option>//div/input</option><option>css=#id_username</option></datalist></td><td>test</td>
 </tr>
-<tr><td>type</td><td>id=id_first_name<datalist><option>id=id_first_name</option><option>name=first_name</option><option>//input[@id='id_first_name']</option><option>//form[@id='user_form']/div/fieldset[2]/div/div/input</option><option>//fieldset[2]/div/div/input</option><option>css=#id_first_name</option></datalist></td><td>test</td>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//form[@id='login-form']/div[2]/input</option><option>//div[2]/input</option><option>css=#id_password</option></datalist></td><td>test</td>
 </tr>
-<tr><td>click</td><td>id=id_last_name<datalist><option>id=id_last_name</option><option>name=last_name</option><option>//input[@id='id_last_name']</option><option>//form[@id='user_form']/div/fieldset[2]/div[2]/div/input</option><option>//div[2]/div/input</option><option>css=#id_last_name</option></datalist></td><td></td>
-</tr>
-<tr><td>type</td><td>id=id_last_name<datalist><option>id=id_last_name</option><option>name=last_name</option><option>//input[@id='id_last_name']</option><option>//form[@id='user_form']/div/fieldset[2]/div[2]/div/input</option><option>//div[2]/div/input</option><option>css=#id_last_name</option></datalist></td><td>testing</td>
-</tr>
-<tr><td>click</td><td>id=id_email<datalist><option>id=id_email</option><option>name=email</option><option>//input[@id='id_email']</option><option>//form[@id='user_form']/div/fieldset[2]/div[3]/div/input</option><option>//div[3]/div/input</option><option>css=#id_email</option></datalist></td><td></td>
-</tr>
-<tr><td>click</td><td>id=id_is_active<datalist><option>id=id_is_active</option><option>name=is_active</option><option>//input[@id='id_is_active']</option><option>//form[@id='user_form']/div/fieldset[3]/div/div/input</option><option>//fieldset[3]/div/div/input</option><option>css=#id_is_active</option></datalist></td><td></td>
-</tr>
-<tr><td>click</td><td>id=id_is_active<datalist><option>id=id_is_active</option><option>name=is_active</option><option>//input[@id='id_is_active']</option><option>//form[@id='user_form']/div/fieldset[3]/div/div/input</option><option>//fieldset[3]/div/div/input</option><option>css=#id_is_active</option></datalist></td><td></td>
-</tr>
-<tr><td>click</td><td>//form[@id='user_form']/div/fieldset[4]/div[2]/div/p<datalist><option>//form[@id='user_form']/div/fieldset[4]/div[2]/div/p</option><option>//div[2]/div/p</option><option>css=div.form-row.field-date_joined &gt; div &gt; p.datetime</option></datalist></td><td></td>
-</tr>
-<tr><td>click</td><td>name=_continue<datalist><option>name=_continue</option><option>//input[@name='_continue']</option><option>//form[@id='user_form']/div/div/input[3]</option><option>//input[3]</option><option>css=input[name="_continue"]</option></datalist></td><td></td>
-</tr>
-<tr><td>click</td><td>link=Users<datalist><option>link=Users</option><option>//a[contains(text(),'Users')]</option><option>//div[@id='container']/div[2]/a[3]</option><option>//a[contains(@href, '/admin/auth/user/')]</option><option>//body/div/div[2]/a[3]</option></datalist></td><td></td>
-</tr>
-<tr><td>click</td><td>link=Authentication and Authorization<datalist><option>link=Authentication and Authorization</option><option>//a[contains(text(),'Authentication and Authorization')]</option><option>//div[@id='container']/div[2]/a[2]</option><option>//a[contains(@href, '/admin/auth/')]</option><option>//body/div/div[2]/a[2]</option></datalist></td><td></td>
-</tr>
-<tr><td>click</td><td>link=Groups<datalist><option>link=Groups</option><option>//a[contains(text(),'Groups')]</option><option>//div[@id='content-main']/div/table/tbody/tr/th/a</option><option>//a[contains(@href, '/admin/auth/group/')]</option><option>//th/a</option><option>css=th &gt; a</option></datalist></td><td></td>
-</tr>
-<tr><td>click</td><td>link=Authentication and Authorization<datalist><option>link=Authentication and Authorization</option><option>//a[contains(text(),'Authentication and Authorization')]</option><option>//div[@id='container']/div[2]/a[2]</option><option>//a[contains(@href, '/admin/auth/')]</option><option>//body/div/div[2]/a[2]</option></datalist></td><td></td>
+<tr><td>click</td><td>//input[@value='Log in']<datalist><option>//input[@value='Log in']</option><option>//form[@id='login-form']/div[3]/input</option><option>//div[3]/input</option><option>css=input[type="submit"]</option></datalist></td><td></td>
 </tr>
 </tbody></table>
 <table cellpadding="1" cellspacing="1" border="1">
