@@ -10,14 +10,13 @@ from django.contrib.auth import authenticate
 from django.db import models
 from utilities import basicHandler
 from django.views import View
-from xlsxwriter import Workbook
 
 try:
         import cStringIO as StringIO
 except ImportError:
         import StringIO
 
-#from xlsxwriter.workbook import Workbook
+from xlsxwriter.workbook import Workbook
 
 def hello(request):
         if request.user.is_authenticated():
