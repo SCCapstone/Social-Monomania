@@ -9,6 +9,14 @@ from django.contrib.sessions.models import Session
 from django.contrib.auth import authenticate
 from django.db import models
 from utilities import basicHandler
+from django.views import View
+
+try:
+        import cStringIO as StringIO
+except ImportError:
+        import StringIO
+
+from xlsxwriter.workbook import Workbook
 
 def hello(request):
         if request.user.is_authenticated():
@@ -52,6 +60,30 @@ def contact(request):
 def graph(request):
         return render(request, 'graph.html')
         
+#Attempting to get the results and download functions into this class,
+#so the same variable can be used for the spreadsheet.  The variable will
+#go where it says 'material goes here'
+class Test(View):
+        pass  #pass is just so it'll run
+
+def download(request):
+        #view logic here?
+
+        #create workbook
+        output = StringIO.StringIO()
+
+        book = Workbook(output)
+        sheet = book.add_worksheet('test')
+        sheet.write(0, 0, 'material goes here, row 0 line 0')
+        book.close()
+
+        #construct response
+        output.seek(0)
+        response = HttpResponse(output.read(), content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        response['Content-Disposition'] = "attachment; filename=test.xlsx"
+
+        return response
+
 def results(request):
 
     if request.method == 'POST':

@@ -33,6 +33,6 @@ urlpatterns = [
     url(r'^results/', views.results, name='results'),
     url(r'^help/', views.help, name='help'),
     url(r'^advSearch/', views.advSearch, name='advSearch'),
-    
+	url(r'^download/', views.download, name='download')    
 ]
 
