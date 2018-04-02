@@ -19,7 +19,7 @@
    		</div>
 		{% endfor %}
   </div>
-  <div class="column">
+  <div class="column" id='Twitter'>
   		<p>Twitter Object </p>
 		{% for entry in twitterReturn.statuses %}
 		<div id='twitterResult' style="border-style: solid; margin: 10px; padding: 10px;"> 
@@ -50,9 +50,19 @@ var longTerm = window.location.search;
 var term = longTerm.substring(3,longTerm.indexOf('&'));
 document.getElementById("searchQ").innerHTML = longTerm;
 
+
+
+}
+function twitterSearch(checkbox)
+{ if (!checkbox.checked)
+	{ 
+		document.getElementById("Twitter").style.display = "none";
+	}
+
+
 }
 
-window.onload= my_code();
+window.onload= twitterSearch(document.getElementById("twitter");
 </script>
 
 
