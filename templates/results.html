@@ -6,7 +6,7 @@
 {% block content %}
 
 <p> You searched for</p>
-<p onload='mycode()' id='searchQ'> </p>
+<p id='searchQ'> </p>
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
 
 <div class="row">
@@ -52,7 +52,7 @@ document.getElementById("searchQ").innerHTML = term;
 
 }
 
-//window.onload=my_code();
+window.onload='my_code()';
 </script>
 
 
