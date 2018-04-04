@@ -70,13 +70,13 @@ function validateForm(){
 	var twitter = document.getElementById("twitter").value;
 	var insta = document.getElementById("instagram").value;
 
-    var filled = false;
 	var elements = document.getElementsByName("boxes[]");
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
 			filled = true;
 			window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?price=" + q +
 	"&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
+			alert('checked');
 		}
 	} else {
 		alert('Please Check At Least One Box');
