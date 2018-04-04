@@ -59,15 +59,17 @@ function validateForm(){
 	var insta = document.getElementById("instagram").value;
 
 	var elements = document.getElementsByName("boxes[]");
+	var filled = false;
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
 			window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
-			alert('checked');
-			return true;
+			filled = true;
+			return filled;
 		}
-	} else {
+	}
+	if(!filled){
 		alert('Please Check At Least One Box');
-		return false;
+		return filled;
 	}
 
 }
