@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<form id='searchForm' method='post' onsubmit='return validateForm()' action='/results/' >
+<form id='searchForm' method='post' onsubmit='validateForm()' action='/results/' >
 	{% csrf_token %}
 	<h3>Enter your search in the bar below and press enter. </h3>
 	<input class="w3-input w3-border w3-round-large" type="search" id="mySearch"  name='q' placeholder="Search.." >
@@ -51,18 +51,6 @@ function myFunction() {
 }
 
 
-function appendURL(checkbox)
-{var price = document.getElementById("price").value;
-var desc = document.getElementById("desc").value;
-var color = document.purchase.item1_color.options[ document.purchase.item1_color.selectedIndex ].value;
-var amount = document.getElementById("amount").value;
-if (color) {
-window.location.href = "testform2.htm?price=" + price +
-"&desc=" + desc + "&color=" + color + "&amount=" + amount;
-
-}
-
-
 function validateForm(){
 
 	var q = document.getElementById("q").value;
@@ -73,10 +61,9 @@ function validateForm(){
 	var elements = document.getElementsByName("boxes[]");
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
-			filled = true;
-			window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?price=" + q +
-	"&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
+			window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
 			alert('checked');
+			return true;
 		}
 	} else {
 		alert('Please Check At Least One Box');
