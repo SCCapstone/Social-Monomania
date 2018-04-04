@@ -64,12 +64,12 @@ function validateForm(){
 		if(elements[i].checked) {
 			window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
 			filled = true;
-			return filled;
+			return true;
 		}
 	}
 	if(!filled){
 		alert('Please Check At Least One Box');
-		return filled;
+		return false;
 	}
 
 }
