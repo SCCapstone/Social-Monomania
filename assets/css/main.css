@@ -245,6 +245,9 @@ a.button {
 	display: table-cell;
 }
 
+#twitterDate{
+	text-align:right; 
+
 #redditUrl{
 	display: flex;
 }
