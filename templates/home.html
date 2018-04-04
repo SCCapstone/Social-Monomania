@@ -27,7 +27,7 @@
 	<div id='Box'>
 		<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' onclick="redditSearch(this)" checked/> Reddit<br />
 		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'onclick="twitterSearch(checkbox)"/> Twitter<br />
-		<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" />Instagram<br />
+		<input type="checkbox" name='boxes[]' id="instagram" value='instagram' onclick="testSearch(checkbox)" />Instagram<br />
 	</div>
 	
 	
@@ -51,22 +51,32 @@ function myFunction() {
 }
 
 
-function twitterSearch(checkbox)
-{ if (checkbox.checked)
-	{ 
-	
-	}
-
+function appendURL(checkbox)
+{var price = document.getElementById("price").value;
+var desc = document.getElementById("desc").value;
+var color = document.purchase.item1_color.options[ document.purchase.item1_color.selectedIndex ].value;
+var amount = document.getElementById("amount").value;
+if (color) {
+window.location.href = "testform2.htm?price=" + price +
+"&desc=" + desc + "&color=" + color + "&amount=" + amount;
 
 }
 
 
 function validateForm(){
+
+	var q = document.getElementById("q").value;
+	var reddit = document.getElementById("reddit").value;
+	var twitter = document.getElementById("twitter").value;
+	var insta = document.getElementById("instagram").value;
+
     var filled = false;
 	var elements = document.getElementsByName("boxes[]");
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
 			filled = true;
+			window.location.href = "results?price=" + q +
+	"&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta
 		}
 	}
 	if (!filled){
