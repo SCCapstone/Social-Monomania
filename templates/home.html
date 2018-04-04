@@ -78,8 +78,7 @@ function validateForm(){
 			window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?price=" + q +
 	"&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
 		}
-	}
-	if (!filled){
+	} else {
 		alert('Please Check At Least One Box');
 		return false;
 	}
