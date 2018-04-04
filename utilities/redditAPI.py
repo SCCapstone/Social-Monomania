@@ -1,6 +1,7 @@
 import sys, os
 
 import json
+import datetime
 
 import praw
 
@@ -18,7 +19,7 @@ def search(args = None):
 
 	submission_titles = []
 
-	for submission in reddit.subreddit('southcarolina').new(limit=100):
+	for submission in reddit.subreddit('news').new(limit=500):
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
 		if (args in submission.title):
 			relevant_submissions.append(submission)
@@ -31,9 +32,16 @@ def search(args = None):
 
 	for submission in relevant_submissions:
 
-		retInfo[submission.title] = submission.url
+		time = submission.created
+		timestamp = datetime.date.fromtimestamp(time)
 
-	#print("DID REDDIT!")
+		retInfo[submission.title] = {
+			'time' : timestamp,
+			'url'  : submission.url
+		}
+
+	print("DID REDDIT!")
+	print(retInfo)
 	return retInfo
 
 if __name__ == '__main__':

@@ -19,5 +19,6 @@ def searchHandle(query, apiSelectArray):
 
 		twitterResults = twitterAPI.search(query)
 
-	#print(twitterResults)
+	# print(twitterResults)
+	# print(redditResults)
 	return redditResults, twitterResults
