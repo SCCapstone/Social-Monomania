@@ -53,7 +53,7 @@ function myFunction() {
 
 function validateForm(){
 
-	var q = document.getElementById("q").value;
+	var q = document.getElementById("mySearch").value;
 	var reddit = document.getElementById("reddit").value;
 	var twitter = document.getElementById("twitter").value;
 	var insta = document.getElementById("instagram").value;
@@ -62,7 +62,7 @@ function validateForm(){
 	var filled = false;
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
-			window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
+			//window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
 			filled = true;
 			return true;
 		}
