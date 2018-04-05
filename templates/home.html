@@ -68,7 +68,7 @@ function validateForm(){
 	
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
-			location.href = "results.htm?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
+			location.href = "results/?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
 			filled = true;
 			return true;
 		}
