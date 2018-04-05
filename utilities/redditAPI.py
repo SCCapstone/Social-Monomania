@@ -21,7 +21,7 @@ def search(args = None):
 
 	for submission in reddit.subreddit('news').new(limit=500):
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
-		if (args in submission.title):
+		if (args.lower() in submission.title.lower()):
 			relevant_submissions.append(submission)
 			submission_titles.append(submission.title)
 
