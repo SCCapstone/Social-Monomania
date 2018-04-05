@@ -9,13 +9,13 @@
 <p id='searchQ'> </p>
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
 
-<div class="row">
+
   <div class="column">
 	  <p> Reddit Object </p>
 		{% for entry, sub in redditReturn.iteritems %}
 		<div id='redditResult' style="border-style: solid; margin: 10px; padding: 10px;">
-        	<h4 id='redditTitle'>{{ entry.title }}</h4>
         	<h6 id='redditDate' >{{ sub.time }} </h6>
+        	<h4 id='redditTitle'>{{ entry.title }}</h4>
         	<a id='redditUrl' href="{{ sub.url }}">link</a>  
    		</div>
 		{% endfor %}
@@ -30,7 +30,6 @@
 		</div>
 		{% endfor %}
   </div>
-</div>
 		
 
 		

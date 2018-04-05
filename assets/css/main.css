@@ -252,6 +252,10 @@ a.button {
 	display: flex;
 }
 
+#redditDate{
+	text-align: right;
+}
+
 .column {
     float: left;
     width: 50%;
