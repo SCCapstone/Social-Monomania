@@ -253,7 +253,7 @@ a.button {
 }
 
 #redditDate{
-	text-align: right;
+	text-align:right;
 }
 
 .column {
@@ -262,10 +262,12 @@ a.button {
 }
 
 /* Clear floats after the columns */
+/* 
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
+ */
 /*# sourceMappingURL=layout.css.map */
 
