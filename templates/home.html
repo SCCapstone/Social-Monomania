@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<form id='searchForm' method='post' onsubmit='return validateForm()' action='/results/' >
+<form id='searchForm' method='post' onsubmit='return validateForm()' action='/results/'>
 	{% csrf_token %}
 	<h3>Enter your search in the bar below and press enter. </h3>
 	<input class="w3-input w3-border w3-round-large" type="search" id="mySearch"  name='q' placeholder=" Search.." >
@@ -25,9 +25,9 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<br>&nbsp;</br>
 	<div id='Box'>
-		<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' onclick="redditSearch(this)" checked/> Reddit<br />
-		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'onclick="twitterSearch(checkbox)"/> Twitter<br />
-		<input type="checkbox" name='boxes[]' id="instagram" value='instagram' onclick="testSearch(checkbox)" />Instagram<br />
+		<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' " checked/> Reddit<br />
+		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'"/> Twitter<br />
+		<input type="checkbox" name='boxes[]' id="instagram" value='instagram'" />Instagram<br />
 	</div>
 	
 	
@@ -50,7 +50,6 @@ function myFunction() {
 	//document.getElementById("demo").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="graph/graph.html" > </object> ';
 }
 
-
 function validateForm(){
 
 	var q = document.getElementById("mySearch").value;
@@ -60,7 +59,6 @@ function validateForm(){
 
 	var elements = document.getElementsByName("boxes[]");
 	var filled = false;
-	
 	if(!q){
 		alert('Please Enter A Search Term');
 		return false;

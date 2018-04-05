@@ -5,8 +5,8 @@
 
 {% block content %}
 
-<p> You searched for</p>
-<p id='searchQ'> </p>
+<p> You searched for: {{ searchQuery }}</p>
+<p id='searchQ'></p>
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
 
 <div class="row">
@@ -47,12 +47,10 @@
 <script type="text/javascript" language="javascript">
 
 function my_code(){
-
+//Finds the URL, makes the substring of it, and applies to your search query
 var longTerm = window.location.search;
 var term = longTerm.substring(3,longTerm.indexOf('&'));
 document.getElementById("searchQ").innerHTML = longTerm;
-
-
 
 }
 

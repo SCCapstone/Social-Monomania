@@ -162,7 +162,8 @@ def results(request):
         print(request.POST)
         # print(request.POST['q'])
         # print(request.POST['boxes[]'])
-
+        global searchQuery
+        searchQuery = request.POST['q']
         redditReturn, twitterReturn = basicHandler.searchHandle(request.POST['q'], dict(request.POST)['boxes[]'])
         #reddit global variables
         global redditVariable
@@ -175,5 +176,5 @@ def results(request):
         
         
 
-	return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn})
+	return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn, 'searchQuery': searchQuery})
 	
