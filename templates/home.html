@@ -62,7 +62,7 @@ function validateForm(){
 	var filled = false;
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
-			window.location.href = "http://socialmonomania-dev.herokuapp.com/results.htm?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
+			window.location.href = "results.htm?q=" + q + "&reddit=" + reddit + "&twitter=" + twitter + "&insta=" + insta;
 			filled = true;
 			return true;
 		}
@@ -72,7 +72,7 @@ function validateForm(){
 		return false;
 	}
 	
-	if(q==null){
+	if(q===""){
 		alert('Please Enter A Search Term');
 		return false;
 	}
