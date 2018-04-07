@@ -52,7 +52,7 @@
 		</div>
 	
 		<div id='instagramBox'>
-			<input type="checkbox" name='boxes[]' id="test" value='test' onclick="testSearch(checkbox)" checked/>Instagram<br />
+			<input type="checkbox" name='boxes[]' id="test" value='test' onclick="instagramSearch()" checked/>Instagram<br />
 			<div id='instagramSubmenu'>
 					<p>Location</p>
 					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
@@ -90,6 +90,16 @@ function twitterSearch(checkbox)
 	
 	}else{
 		document.getElementById('twitterSubmenu').style.display = 'none';
+	}
+}
+
+function instagramSearch(checkbox)
+{ if (checkbox.checked)
+	{ //search using Reddit
+		document.getElementById('instagramSubmenu').style.display = 'block';
+	
+	}else{
+		document.getElementById('instagramSubmenu').style.display = 'none';
 	}
 }
 
