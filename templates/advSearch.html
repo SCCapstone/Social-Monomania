@@ -30,9 +30,11 @@
 				<p> Select subreddit to search</p>
 				<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
 				<input type="checkbox" name='subboxes[]' id="SC" value='SC'checked/> SC<br />
-				<p>Date and Time Filter </p>
-					<input type='date' name='startDate'>
-					<input type='date' name='endDate'>
+				<p>Date Filter </p>
+					<label for="redditFromDate">From</label>
+					<input type='date' name='startDate' id='redditFromDate'>
+					<label for="redditEndDate">To</label>
+					<input type='date' name='endDate' id='redditEndDate'>
 			</div>
 		</div>
 		
@@ -41,9 +43,11 @@
 			<div id='twitterSubmenu'>
 					<p>Location</p>
 					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
-					<p>Date and Time Filter </p>
-					<input type='date' name='startDate'>
-					<input type='date' name='endDate'>
+					<p>Date Filter </p>
+					<label for="twitterFromDate">From</label>
+					<input type='date' name='startDate' id='twitterFromDate'>
+					<label for="twitterEndDate">To</label>
+					<input type='date' name='endDate' id='twitterEndDate'>
 			</div>
 		</div>
 	
@@ -52,9 +56,11 @@
 			<div id='instagramSubmenu'>
 					<p>Location</p>
 					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
-					<p>Date and Time Filter </p>
-					<input type='date' name='startDate'>
-					<input type='date' name='endDate'>
+					<p>Date Filter </p>
+					<label for="instagramFromDate">From</label>
+					<input type='date' name='startDate' id='instagramFromDate'>
+					<label for="instagramEndDate">To</label>
+					<input type='date' name='endDate' id='instagramEndDate'>
 			</div>
 		</div>
 	</div>
