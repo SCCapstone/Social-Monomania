@@ -49,7 +49,7 @@
 		</div>
 	
 		<div id='instagramBox'>
-			<input type="checkbox" name='boxes[]' id="instagramAdvBox" value='test' onclick="instagramSearch()" checked/>Instagram<br />
+			<input type="checkbox" name='boxes[]' id="instagramAdvBox" value='test' onclick="instagramSearch(this)" checked/>Instagram<br />
 			<div id='instagramSubmenu'>
 					<p>Location</p>
 					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
@@ -94,9 +94,18 @@ function instagramSearch(checkbox)
 	}
 }
 
+
+
 function validateForm(){
     var filled = false;
 	var elements = document.getElementsByName("boxes[]");
+	var q = document.getElementById("searchMain").value;
+	var r = document.getElementById('searchSecond').value;
+	
+	if(!q && !r){
+		alert('Please Enter A Search Term');
+		return false;
+	}
 	for(var i=0; i < elements.length; i++){
 		if(elements[i].checked) {
 			filled = true;
