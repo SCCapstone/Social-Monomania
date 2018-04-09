@@ -25,7 +25,7 @@
 	<br>&nbsp;</br>
 	<div id='choices'>
 		<div id='redditBox'>
-			<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' onclick="redditSearch(this);" checked/> Reddit<br />
+			<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' checked/> Reddit<br />
 			<div id='redditSubmenu'>
 				<p> Select subreddit to search</p>
 				<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
@@ -73,14 +73,8 @@
 
 <script language="javascript" type="text/javascript">
 
-function redditSearch(checkbox)
-{ if (checkbox.checked)
-	{ //search using Reddit
-		document.getElementById('redditSubmenu').style.display = 'block';
-	
-	}else{
-		document.getElementById('redditSubmenu').style.display = 'none';
-	}
+document.getElementById('reddit').onchange = function() {
+ document.getElementById('redditSubmenu').style.display = this.checked ? 'block' : 'none';
 }
 
 function twitterSearch(checkbox)
