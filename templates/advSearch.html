@@ -8,16 +8,13 @@
 <form id='advSearch' method='get' onsubmit='return validateForm()' action='http://socialmonomania-dev.herokuapp.com/results' >
 	<h3>Enter your search in the bar below and press enter. </h3>
 	<input class="w3-input w3-border w3-round-large"type="search" id="searchMain"  name='q' placeholder="Search.." >
-	
-	
-	
-          <p>
-             <select id = "myList">
-               <option value = "AND">AND</option>
-               <option value = "OR">OR</option>
-               <option value = "NOT">NOT</option>
-             </select>
-          </p>
+	<p>
+    	<select id = "myList">
+            <option value = "AND">AND</option>
+            <option value = "OR">OR</option>
+            <option value = "NOT">NOT</option>
+        </select>
+    </p>
     
 	<input class="w3-input w3-border w3-round-large"type="search" id="searchSecond"  name='q' placeholder="Search.." >
 	<br>&nbsp;</br>
@@ -39,7 +36,7 @@
 		</div>
 		
 		<div id='twitterBox'>	
-			<input type="checkbox" name='boxes[]' id="twitterAdvBox" value='twitter' onclick="twitterSearch(this);" checked/> Twitter<br />
+			<input type="checkbox" name='boxes[]' id="twitterAdvBox" value='twitter' onchange="twitterSearch(this)" checked/> Twitter<br />
 			<div id='twitterSubmenu'>
 					<p>Location</p>
 					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
@@ -74,7 +71,7 @@
 <script language="javascript" type="text/javascript">
 
 document.getElementById('redditAdvBox').onchange = function() {
- document.getElementById('redditSubmenu').style.display = this.checked ? 'none' : 'block';
+ document.getElementById('redditSubmenu').style.display = this.checked ? 'block' : 'none';
 }
 
 function twitterSearch(checkbox)
