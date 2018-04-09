@@ -25,7 +25,7 @@
 	<br>&nbsp;</br>
 	<div id='choices'>
 		<div id='redditBox'>
-			<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' checked/> Reddit<br />
+			<input type="checkbox" name='boxes[]' id="redditAdvBox" value= 'reddit' checked/> Reddit<br />
 			<div id='redditSubmenu'>
 				<p> Select subreddit to search</p>
 				<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
@@ -39,7 +39,7 @@
 		</div>
 		
 		<div id='twitterBox'>	
-			<input type="checkbox" name='boxes[]' id="twitter" value='twitter' onclick="twitterSearch(this);" checked/> Twitter<br />
+			<input type="checkbox" name='boxes[]' id="twitterAdvBox" value='twitter' onclick="twitterSearch(this);" checked/> Twitter<br />
 			<div id='twitterSubmenu'>
 					<p>Location</p>
 					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
@@ -52,7 +52,7 @@
 		</div>
 	
 		<div id='instagramBox'>
-			<input type="checkbox" name='boxes[]' id="test" value='test' onclick="instagramSearch()" checked/>Instagram<br />
+			<input type="checkbox" name='boxes[]' id="instagramAdvBox" value='test' onclick="instagramSearch()" checked/>Instagram<br />
 			<div id='instagramSubmenu'>
 					<p>Location</p>
 					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
@@ -73,7 +73,7 @@
 
 <script language="javascript" type="text/javascript">
 
-document.getElementById('reddit').onchange = function() {
+document.getElementById('redditAdvBox').onchange = function() {
  document.getElementById('redditSubmenu').style.display = this.checked ? 'block' : 'none';
 }
 
