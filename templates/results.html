@@ -8,6 +8,18 @@
 <p> You searched for: {{ searchQuery }}</p>
 <p id='searchQ'></p>
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
+<br>
+<br>
+<button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
+
+<div id="wordCloud" style="display:none">
+<li>On results page, CTRL+A to select all</li>
+<li>CTRL+C to copy selected text</li>
+<li>Click inside "Word It Out" Original text box</li>
+<li>Paste into box with CTRL+V</li>
+<li>Click green Generate button to view word cloud</li>
+<iframe src="https://worditout.com/word-cloud/create" height="500" width="100%"> </iframe>
+</div>
 
 <div class="row">
   <div class="column">
@@ -43,6 +55,19 @@
 
 <a href="{% url 'search' %}" class='button'>New Search</a>  
 
+<!--
+the function wordCloudFunction() is used to hide/reveal the word cloud feature
+-->
+<script>
+function wordCloudFunction(){
+	var x = document.getElementById("wordCloud");
+	if(x.style.display == "none"){
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+</script>
 
 <script type="text/javascript" language="javascript">
 
