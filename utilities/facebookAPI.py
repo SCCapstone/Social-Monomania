@@ -24,6 +24,8 @@ def search(args = None):
 
 	print [ item['name'] for item in result['data'] ]
 
+	return result
+
 if __name__ == '__main__':
 
 	args = sys.argv[1:]

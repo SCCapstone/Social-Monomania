@@ -1,33 +1,84 @@
 
 {% extends  "layout.html" %}
 
-{% block title %} Home {% endblock %}
+{% block title %} Search {% endblock %}
 
-{% block heading %} Home {% endblock %}
+{% block heading %} Search {% endblock %}
 
 {% block content %}
-<h3>Enter your search in the bar below and press enter. </h3>
-<input class="w3-input w3-border w3-round-large"type="search" id="mySearch" placeholder="Search.." >
-<script type="text/javascript" language="javascript">
-document.getElementById("mySearch")
-    .addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-        document.getElementById("s_button").click();
-    }
-});
-</script>
-<p>Click the button to get the placeholder text of the search field.</p>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<button  id='s_button' style="vertical-align: top;margin-left:auto;margin-right:auto" onclick="return myFunction()">Search</button>
+
+<form id='searchForm' method='post' onsubmit='return validateForm()' action='/results/'>
+	{% csrf_token %}
+	<h3>Enter your search in the bar below and press enter. </h3>
+	<input class="w3-input w3-border w3-round-large" type="search" id="mySearch"  name='q' placeholder=" Search.." >
+	{{ form }}
+	<button  id='s_button' style onclick="myFunction()">Search</button>
+	<script type="text/javascript" language="javascript">
+		document.getElementById("mySearch")
+  	  	.addEventListener("keyup", function(event) {
+	    event.preventDefault();
+	    if (event.keyCode === 13) {
+ 	       document.getElementById("s_button").click();
+  	  	}
+	});
+	</script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<br>&nbsp;</br>
+	<div id='Box'>
+		<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' " checked/> Reddit<br />
+		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'"/> Twitter<br />
+		<input type="checkbox" name='boxes[]' id="instagram" value='instagram'" />Instagram<br />
+	</div>
+	
+	
+
+	
+
+</form>
 <br></br>
+
+<a href="{% url 'advSearch' %}">Advanced Search</a>
+
+
 <div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
+
+
 
 <script language="javascript" type="text/javascript">
 function myFunction() {
-	document.getElementById("demo").style.display = "inline-block";
-	document.getElementById("demo").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="graph/graph.html" > </object> ';
-    //var x = document.getElementById("mySearch").placeholder;
+	//document.getElementById("demo").style.display = "inline-block";
+	//document.getElementById("demo").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="graph/graph.html" > </object> ';
+}
+
+function validateForm(){
+
+	var q = document.getElementById("mySearch").value;
+	var reddit = document.getElementById("reddit").value;
+	var twitter = document.getElementById("twitter").value;
+	var insta = document.getElementById("instagram").value;
+
+	var elements = document.getElementsByName("boxes[]");
+	var filled = false;
+	if(!q){
+		alert('Please Enter A Search Term');
+		return false;
+	}
+	
+	for(var i=0; i < elements.length; i++){
+		if(elements[i].checked) {
+			filled = true;
+			return true;
+		}
+	}
+	if(!filled){
+		alert('Please Check At Least One Box');
+		return false;
+	}
+	
+
+}
+
+//document.getElementById('searchForm').addEventListener('onsubmit', validateForm);
    /* $.ajax({
     	type: "GET",
     	dataType: "html",
@@ -38,6 +89,6 @@ function myFunction() {
     });
     */
     //document.getElementById("demo").innerHTML = x;
-}
+
 </script>
 {% endblock %}

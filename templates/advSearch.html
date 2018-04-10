@@ -1,0 +1,120 @@
+{% extends  "layout.html" %}
+
+{% block title %} Advanced Search {% endblock %}
+
+{% block heading %} Advanced Search {% endblock %}
+
+{% block content %}
+<form id='advSearch' method='get' onsubmit='return validateForm()' action='http://socialmonomania-dev.herokuapp.com/results' >
+	<h3>Enter your search in the bar below and press enter. </h3>
+	<input class="w3-input w3-border w3-round-large"type="search" id="searchMain"  name='q' placeholder="Search.." >
+	<p>
+    	<select id = "myList">
+            <option value = "AND">AND</option>
+            <option value = "OR">OR</option>
+            <option value = "NOT">NOT</option>
+        </select>
+    </p>
+    
+	<input class="w3-input w3-border w3-round-large"type="search" id="searchSecond"  name='q' placeholder="Search.." >
+	<br>&nbsp;</br>
+	<button  id='s_button' style onclick="myFunction()">Search</button>
+	<br>&nbsp;</br>
+	<div id='choices'>
+		<div id='redditBox'>
+			<input type="checkbox" name='boxes[]' id="redditAdvBox" value= 'reddit' checked/> Reddit<br />
+			<div id='redditSubmenu'>
+				<p> Select subreddit to search</p>
+				<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
+				<input type="checkbox" name='subboxes[]' id="SC" value='SC'checked/> SC<br />
+				<p>Date Filter </p>
+					<label for="redditFromDate">From</label>
+					<input type='date' name='startDate' id='redditFromDate'>
+					<label for="redditEndDate">To</label>
+					<input type='date' name='endDate' id='redditEndDate'>
+			</div>
+		</div>
+		
+		<div id='twitterBox'>	
+			<input type="checkbox" name='boxes[]' id="twitterAdvBox" value='twitter' onchange="twitterSearch(this)" checked/> Twitter<br />
+			<div id='twitterSubmenu'>
+					<p>Location</p>
+					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
+					<p>Date Filter </p>
+					<label for="twitterFromDate">From</label>
+					<input type='date' name='startDate' id='twitterFromDate'>
+					<label for="twitterEndDate">To</label>
+					<input type='date' name='endDate' id='twitterEndDate'>
+			</div>
+		</div>
+	
+		<div id='instagramBox'>
+			<input type="checkbox" name='boxes[]' id="instagramAdvBox" value='test' onclick="instagramSearch(this)" checked/>Instagram<br />
+			<div id='instagramSubmenu'>
+					<p>Location</p>
+					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
+					<p>Date Filter </p>
+					<label for="instagramFromDate">From</label>
+					<input type='date' name='startDate' id='instagramFromDate'>
+					<label for="instagramEndDate">To</label>
+					<input type='date' name='endDate' id='instagramEndDate'>
+			</div>
+		</div>
+	</div>
+	
+	
+</form>	
+	
+
+
+
+<script language="javascript" type="text/javascript">
+
+document.getElementById('redditAdvBox').onchange = function() {
+ document.getElementById('redditSubmenu').style.display = this.checked ? 'block' : 'none';
+}
+
+function twitterSearch(checkbox)
+{ if (checkbox.checked)
+	{ //search using Reddit
+		document.getElementById('twitterSubmenu').style.display = 'block';
+	
+	}else{
+		document.getElementById('twitterSubmenu').style.display = 'none';
+	}
+}
+
+function instagramSearch(checkbox)
+{ if (checkbox.checked)
+	{ //search using Reddit
+		document.getElementById('instagramSubmenu').style.display = 'block';
+	
+	}else{
+		document.getElementById('instagramSubmenu').style.display = 'none';
+	}
+}
+
+
+
+function validateForm(){
+    var filled = false;
+	var elements = document.getElementsByName("boxes[]");
+	var q = document.getElementById("searchMain").value;
+	var r = document.getElementById('searchSecond').value;
+	
+	if(!q && !r){
+		alert('Please Enter A Search Term');
+		return false;
+	}
+	for(var i=0; i < elements.length; i++){
+		if(elements[i].checked) {
+			filled = true;
+		}
+	}
+	if (!filled){
+		alert('Please Check At Least One Box');
+		return false;
+	}
+}
+</script>
+{% endblock %}

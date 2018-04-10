@@ -1,15 +1,16 @@
 
 .site-container {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  font-family:"Lucida Console", Monaco, monospace;
-  padding-bottom: 100px;
+  width: cover;
+  margin-left: -8px;
+  margin-top: -8px;
+  margin-right: -8px;
+  font-family:"Arial Black", Gadget, sans-serif;
    }
   
 .header{
-	width:100%;
-	background: linear-gradient(to right, #56699B, white);
+	width:cover;
+	text-align: center;
+	background-color: #56699B;
 	font-size: 30px;
 	color: black;
 	text-decoration: none;
@@ -31,8 +32,9 @@
 
 .graphic{
 	display: block;
-	margin: auto;
-    width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+	width: 65%;
 }
   
   
@@ -47,7 +49,8 @@ nav {
     .site-container nav a {
       display: table-cell;
       width: 8.33333%;
-      padding: 10px;
+      padding: 0px;
+      border-top: 2px solid #642039;
       border-bottom: 2px solid #642039;
       color: #56699B;
       letter-spacing: 0.075em;
@@ -62,6 +65,8 @@ nav {
 
 .content{
 	text-align: center;
+	margin-left: 25px;
+	margin-right: 25px;
 }
 
 #mySearch {
@@ -180,6 +185,88 @@ margin-bottom: 10px;
     padding: 5px;
     margin-bottom: 25px;
     }
+    
+#Box{
+	display: inline-flex;
+	}
+	
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+	font-size: 30px;
+    text-decoration: none;
+    color: initial;
+    padding: 5px;
+    }
+#searchMain{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 300px;
+    height: 40px;
+	}
+
+#searchSecond{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 300px;
+    height: 40px;
+    }
+    
+#redditBox{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 200px;
+	height: 350px;
+	margin: 10px;
+	}
+	
+#twitterBox{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 200px;
+	height: 350px;
+	margin: 10px;
+	}
+
+#instagramBox{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 200px;
+	height: 350px;
+	margin: 10px;
+	}
+
+#choices{
+	display:inline-flex;
+	}
+	
+#twitterUser{
+	display: table-cell;
+}
+
+#twitterDate{
+	text-align:right; 
+}
+#redditUrl{
+	display: flex;
+}
+
+#redditDate{
+	text-align:right;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 /*# sourceMappingURL=layout.css.map */
 

@@ -24,11 +24,15 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.hello, name='home'),
-    url(r'^about/', views.about, name='about'),
+    url(r'^search/', views.search, name='search'),
     url(r'^faq/', views.faq, name='faq'),
     url(r'^contact/', views.contact, name='contact'),
     url(r'^online/', include('online.urls')),
     url(r'^thanks/', views.thanks, name='thanks'),
     url(r'^graph/', views.graph, name='graph'),
+    url(r'^results/', views.results, name='results'),
+    url(r'^help/', views.help, name='help'),
+    url(r'^advSearch/', views.advSearch, name='advSearch'),
+    url(r'^download/', views.download, name='download')    
 ]
 
