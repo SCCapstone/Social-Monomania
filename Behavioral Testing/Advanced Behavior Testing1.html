@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>behavior</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Initial Behavioral Testing</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://socialmonomania.herokuapp.com/online/login/<datalist><option>http://socialmonomania.herokuapp.com/online/login/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Home<datalist><option>link=Home</option><option>css=nav &gt; a</option><option>//a[contains(text(),'Home')]</option><option>xpath=(//a[contains(@href, '/')])[3]</option><option>//nav/a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=About<datalist><option>link=About</option><option>//a[contains(text(),'About')]</option><option>//a[contains(@href, '/about/')]</option><option>//a[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Login<datalist><option>link=Login</option><option>//a[contains(text(),'Login')]</option><option>//a[contains(@href, '/online/login/')]</option><option>//a[3]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=FAQ<datalist><option>link=FAQ</option><option>//a[contains(text(),'FAQ')]</option><option>//a[contains(@href, '/faq/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Contact Us<datalist><option>link=Contact Us</option><option>//a[contains(text(),'Contact Us')]</option><option>//a[contains(@href, '/contact/')]</option><option>//a[5]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td>test</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td>${KEY_DOWN}</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>css=#id_from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option></datalist></td><td>${KEY_TAB}</td>
+</tr>
+<tr><td>type</td><td>id=id_subject<datalist><option>id=id_subject</option><option>name=subject</option><option>css=#id_subject</option><option>//input[@id='id_subject']</option><option>//input[3]</option></datalist></td><td>test</td>
+</tr>
+<tr><td>type</td><td>id=id_message<datalist><option>id=id_message</option><option>name=message</option><option>css=#id_message</option><option>//textarea[@id='id_message']</option><option>//textarea</option></datalist></td><td>test message</td>
+</tr>
+<tr><td>click</td><td>id=submit_b<datalist><option>id=submit_b</option><option>css=#submit_b</option><option>//button[@id='submit_b']</option><option>//button</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Registering Account</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://socialmonomania-dev.herokuapp.com/online/login/<datalist><option>http://socialmonomania-dev.herokuapp.com/online/login/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Login<datalist><option>link=Login</option><option>//a[contains(text(),'Login')]</option><option>//a[contains(@href, '/online/login/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=exact:Don't Have An Account? Register Now!<datalist><option>link=exact:Don't Have An Account? Register Now!</option><option>//a[contains(@href, '../regist/')]</option><option>//div[2]/a</option><option>css=div.content &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>click</td><td>//input[@value='Enter']<datalist><option>//input[@value='Enter']</option><option>//input[2]</option><option>css=input[type="submit"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Login<datalist><option>link=Login</option><option>//a[contains(text(),'Login')]</option><option>//a[contains(@href, '/online/login/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>click</td><td>link=Back to Home<datalist><option>link=Back to Home</option><option>//a[contains(text(),'Back to Home')]</option><option>//a[contains(@href, '../../')]</option><option>//div[2]/a</option><option>css=div.content &gt; a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Logging In</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://socialmonomania-dev.herokuapp.com/online/login/<datalist><option>http://socialmonomania-dev.herokuapp.com/online/login/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Login<datalist><option>link=Login</option><option>//a[contains(text(),'Login')]</option><option>//a[contains(@href, '/online/login/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>click</td><td>link=Home<datalist><option>link=Home</option><option>//a[contains(text(),'Home')]</option><option>xpath=(//a[contains(@href, '/')])[3]</option><option>//nav/a</option><option>css=nav &gt; a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Sending Support E-mails</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://socialmonomania-dev.herokuapp.com/online/login/<datalist><option>http://socialmonomania-dev.herokuapp.com/online/login/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Login<datalist><option>link=Login</option><option>//a[contains(text(),'Login')]</option><option>//a[contains(@href, '/online/login/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>click</td><td>link=Contact<datalist><option>link=Contact</option><option>//a[contains(text(),'Contact')]</option><option>//a[contains(@href, '/contact/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option><option>css=#id_from_email</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_from_email<datalist><option>id=id_from_email</option><option>name=from_email</option><option>//input[@id='id_from_email']</option><option>//input[2]</option><option>css=#id_from_email</option></datalist></td><td>pschmalf@gmail.com</td>
+</tr>
+<tr><td>type</td><td>id=id_subject<datalist><option>id=id_subject</option><option>name=subject</option><option>//input[@id='id_subject']</option><option>//input[3]</option><option>css=#id_subject</option></datalist></td><td>Can you add this feature?</td>
+</tr>
+<tr><td>type</td><td>id=id_message<datalist><option>id=id_message</option><option>name=message</option><option>//textarea[@id='id_message']</option><option>//textarea</option><option>css=#id_message</option></datalist></td><td>Can you please add a location modifier to the twitter search results?</td>
+</tr>
+<tr><td>click</td><td>id=submit_b<datalist><option>id=submit_b</option><option>//button[@id='submit_b']</option><option>//button</option><option>css=#submit_b</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Navigation to Pages</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://socialmonomania-dev.herokuapp.com/<datalist><option>http://socialmonomania-dev.herokuapp.com/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Home<datalist><option>link=Home</option><option>//a[contains(text(),'Home')]</option><option>xpath=(//a[contains(@href, '/')])[3]</option><option>//nav/a</option><option>css=nav &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Search<datalist><option>link=Search</option><option>//a[contains(text(),'Search')]</option><option>//a[contains(@href, '/search/')]</option><option>//a[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Help<datalist><option>link=Help</option><option>//a[contains(text(),'Help')]</option><option>//a[contains(@href, '/help/')]</option><option>//a[3]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>xpath=(//div[@id='question']/p)[20]<datalist><option>xpath=(//div[@id='question']/p)[20]</option><option>//div[9]/p</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//p<datalist><option>//p</option><option>css=p</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Contact<datalist><option>link=Contact</option><option>//a[contains(text(),'Contact')]</option><option>//a[contains(@href, '/contact/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_message<datalist><option>id=id_message</option><option>name=message</option><option>//textarea[@id='id_message']</option><option>//textarea</option><option>css=#id_message</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Logout<datalist><option>link=Logout</option><option>//a[contains(text(),'Logout')]</option><option>//a[contains(@href, '/online/logout/')]</option><option>//a[5]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Back to Login<datalist><option>link=Back to Login</option><option>//a[contains(text(),'Back to Login')]</option><option>//a[contains(@href, '../login')]</option><option>//div[2]/a</option><option>css=div.content &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>click</td><td>link=Home<datalist><option>link=Home</option><option>//a[contains(text(),'Home')]</option><option>xpath=(//a[contains(@href, '/')])[3]</option><option>//nav/a</option><option>css=nav &gt; a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Accessing / Modifying Admin Privileges Pages1</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://127.0.0.1:8000/admin/login/?next=/admin/<datalist><option>http://127.0.0.1:8000/admin/login/?next=/admin/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Users<datalist><option>link=Users</option><option>//a[contains(text(),'Users')]</option><option>//div[@id='content-main']/div/table/tbody/tr[2]/th/a</option><option>//a[contains(@href, '/admin/auth/user/')]</option><option>//tr[2]/th/a</option><option>css=tr.model-user &gt; th &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=admin-philip<datalist><option>link=admin-philip</option><option>//a[contains(text(),'admin-philip')]</option><option>//table[@id='result_list']/tbody/tr[4]/th/a</option><option>//a[contains(@href, '/admin/auth/user/36/change/')]</option><option>//tr[4]/th/a</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_first_name<datalist><option>id=id_first_name</option><option>name=first_name</option><option>//input[@id='id_first_name']</option><option>//form[@id='user_form']/div/fieldset[2]/div/div/input</option><option>//fieldset[2]/div/div/input</option><option>css=#id_first_name</option></datalist></td><td>test</td>
+</tr>
+<tr><td>click</td><td>id=id_last_name<datalist><option>id=id_last_name</option><option>name=last_name</option><option>//input[@id='id_last_name']</option><option>//form[@id='user_form']/div/fieldset[2]/div[2]/div/input</option><option>//div[2]/div/input</option><option>css=#id_last_name</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_last_name<datalist><option>id=id_last_name</option><option>name=last_name</option><option>//input[@id='id_last_name']</option><option>//form[@id='user_form']/div/fieldset[2]/div[2]/div/input</option><option>//div[2]/div/input</option><option>css=#id_last_name</option></datalist></td><td>testing</td>
+</tr>
+<tr><td>click</td><td>id=id_email<datalist><option>id=id_email</option><option>name=email</option><option>//input[@id='id_email']</option><option>//form[@id='user_form']/div/fieldset[2]/div[3]/div/input</option><option>//div[3]/div/input</option><option>css=#id_email</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_is_active<datalist><option>id=id_is_active</option><option>name=is_active</option><option>//input[@id='id_is_active']</option><option>//form[@id='user_form']/div/fieldset[3]/div/div/input</option><option>//fieldset[3]/div/div/input</option><option>css=#id_is_active</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_is_active<datalist><option>id=id_is_active</option><option>name=is_active</option><option>//input[@id='id_is_active']</option><option>//form[@id='user_form']/div/fieldset[3]/div/div/input</option><option>//fieldset[3]/div/div/input</option><option>css=#id_is_active</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//form[@id='user_form']/div/fieldset[4]/div[2]/div/p<datalist><option>//form[@id='user_form']/div/fieldset[4]/div[2]/div/p</option><option>//div[2]/div/p</option><option>css=div.form-row.field-date_joined &gt; div &gt; p.datetime</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=_continue<datalist><option>name=_continue</option><option>//input[@name='_continue']</option><option>//form[@id='user_form']/div/div/input[3]</option><option>//input[3]</option><option>css=input[name="_continue"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Users<datalist><option>link=Users</option><option>//a[contains(text(),'Users')]</option><option>//div[@id='container']/div[2]/a[3]</option><option>//a[contains(@href, '/admin/auth/user/')]</option><option>//body/div/div[2]/a[3]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Authentication and Authorization<datalist><option>link=Authentication and Authorization</option><option>//a[contains(text(),'Authentication and Authorization')]</option><option>//div[@id='container']/div[2]/a[2]</option><option>//a[contains(@href, '/admin/auth/')]</option><option>//body/div/div[2]/a[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Groups<datalist><option>link=Groups</option><option>//a[contains(text(),'Groups')]</option><option>//div[@id='content-main']/div/table/tbody/tr/th/a</option><option>//a[contains(@href, '/admin/auth/group/')]</option><option>//th/a</option><option>css=th &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Authentication and Authorization<datalist><option>link=Authentication and Authorization</option><option>//a[contains(text(),'Authentication and Authorization')]</option><option>//div[@id='container']/div[2]/a[2]</option><option>//a[contains(@href, '/admin/auth/')]</option><option>//body/div/div[2]/a[2]</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Accessing / Modifying Acc Details Pages</td></tr>
+</thead>
+<tbody>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Basic Search functionality / Results Returns</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://socialmonomania-dev.herokuapp.com/online/login/<datalist><option>http://socialmonomania-dev.herokuapp.com/online/login/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Login<datalist><option>link=Login</option><option>//a[contains(text(),'Login')]</option><option>//a[contains(@href, '/online/login/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>click</td><td>link=Search<datalist><option>link=Search</option><option>//a[contains(text(),'Search')]</option><option>//a[contains(@href, '/search/')]</option><option>//a[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td>food</td>
+</tr>
+<tr><td>click</td><td>id=s_button<datalist><option>id=s_button</option><option>//button[@id='s_button']</option><option>//form[@id='searchForm']/button</option><option>//button</option><option>css=#s_button</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=New Search<datalist><option>link=New Search</option><option>//a[contains(text(),'New Search')]</option><option>xpath=(//a[contains(@href, '/search/')])[2]</option><option>//div[2]/a[2]</option><option>css=a.button</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=reddit<datalist><option>id=reddit</option><option>name=boxes[]</option><option>//input[@id='reddit']</option><option>//div[@id='Box']/input</option><option>//div/input</option><option>css=#reddit</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=twitter<datalist><option>id=twitter</option><option>//input[@id='twitter']</option><option>//div[@id='Box']/input[2]</option><option>//div/input[2]</option><option>css=#twitter</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td>food</td>
+</tr>
+<tr><td>click</td><td>id=s_button<datalist><option>id=s_button</option><option>//button[@id='s_button']</option><option>//form[@id='searchForm']/button</option><option>//button</option><option>css=#s_button</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=New Search<datalist><option>link=New Search</option><option>//a[contains(text(),'New Search')]</option><option>xpath=(//a[contains(@href, '/search/')])[2]</option><option>//div[2]/a[2]</option><option>css=a.button</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td>food</td>
+</tr>
+<tr><td>click</td><td>id=reddit<datalist><option>id=reddit</option><option>name=boxes[]</option><option>//input[@id='reddit']</option><option>//div[@id='Box']/input</option><option>//div/input</option><option>css=#reddit</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=test<datalist><option>id=test</option><option>//input[@id='test']</option><option>//div[@id='Box']/input[3]</option><option>//input[3]</option><option>css=#test</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=s_button<datalist><option>id=s_button</option><option>//button[@id='s_button']</option><option>//form[@id='searchForm']/button</option><option>//button</option><option>css=#s_button</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=New Search<datalist><option>link=New Search</option><option>//a[contains(text(),'New Search')]</option><option>xpath=(//a[contains(@href, '/search/')])[2]</option><option>//div[2]/a[2]</option><option>css=a.button</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=twitter<datalist><option>id=twitter</option><option>//input[@id='twitter']</option><option>//div[@id='Box']/input[2]</option><option>//div/input[2]</option><option>css=#twitter</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=test<datalist><option>id=test</option><option>//input[@id='test']</option><option>//div[@id='Box']/input[3]</option><option>//input[3]</option><option>css=#test</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td>food</td>
+</tr>
+<tr><td>click</td><td>id=s_button<datalist><option>id=s_button</option><option>//button[@id='s_button']</option><option>//form[@id='searchForm']/button</option><option>//button</option><option>css=#s_button</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Search<datalist><option>link=Search</option><option>//a[contains(text(),'Search')]</option><option>//a[contains(@href, '/search/')]</option><option>//a[2]</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Data Exportation</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://socialmonomania-dev.herokuapp.com/online/login/<datalist><option>http://socialmonomania-dev.herokuapp.com/online/login/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Login<datalist><option>link=Login</option><option>//a[contains(text(),'Login')]</option><option>//a[contains(@href, '/online/login/')]</option><option>//a[4]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=id_username<datalist><option>id=id_username</option><option>name=username</option><option>//input[@id='id_username']</option><option>//p/input</option><option>css=#id_username</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>type</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>newuser123</td>
+</tr>
+<tr><td>sendKeys</td><td>id=id_password<datalist><option>id=id_password</option><option>name=password</option><option>//input[@id='id_password']</option><option>//p[2]/input</option><option>css=#id_password</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>click</td><td>link=Search<datalist><option>link=Search</option><option>//a[contains(text(),'Search')]</option><option>//a[contains(@href, '/search/')]</option><option>//a[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=twitter<datalist><option>id=twitter</option><option>//input[@id='twitter']</option><option>//div[@id='Box']/input[2]</option><option>//div/input[2]</option><option>css=#twitter</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td>food</td>
+</tr>
+<tr><td>sendKeys</td><td>id=mySearch<datalist><option>id=mySearch</option><option>name=q</option><option>//input[@id='mySearch']</option><option>//form[@id='searchForm']/input[2]</option><option>//input[2]</option><option>css=#mySearch</option></datalist></td><td>${KEY_ENTER}</td>
+</tr>
+<tr><td>click</td><td>id=DownloadButton<datalist><option>id=DownloadButton</option><option>link=Export Data</option><option>//a[contains(text(),'Export Data')]</option><option>//a[@id='DownloadButton']</option><option>//a[contains(@href, '/download/')]</option><option>//div[2]/a</option><option>css=#DownloadButton</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
