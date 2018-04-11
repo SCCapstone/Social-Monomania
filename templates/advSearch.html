@@ -5,7 +5,7 @@
 {% block heading %} Advanced Search {% endblock %}
 
 {% block content %}
-<form id='advSearch' method='get' onsubmit='return validateForm()' action='http://socialmonomania-dev.herokuapp.com/results' >
+<form id='advSearch' method='get' onsubmit='return validateForm()' action='/advancedresults/' >
 	<h3>Enter your search in the bar below and press enter. </h3>
 	<input class="w3-input w3-border w3-round-large"type="search" id="searchMain"  name='q' placeholder="Search.." >
 	<p>
@@ -27,6 +27,9 @@
 				<p> Select subreddit to search</p>
 				<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
 				<input type="checkbox" name='subboxes[]' id="SC" value='southcarolina' checked/> SC<br />
+
+				<p>Custom Subreddit (Please check subreddit's proper name before searching)</p>
+				<input class="w3-input w3-border w3-round-large"type="search" id="searchCustomSub"  name='searchCustomSub' placeholder="Search.." >
 
 			</div>
 		</div>

@@ -20,7 +20,7 @@ def search(args = None, subreddits = ['news']):
 	
 	query_these_subreddits = subredditStringGenerator(subreddits)
 
-	Redditbatch = reddit.subreddit(query_these_subreddits).search(args, sort='new', time_filter='all')
+	Redditbatch = reddit.subreddit('news').search(args, sort='new', time_filter='all')
 
 	for submission in Redditbatch:
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
