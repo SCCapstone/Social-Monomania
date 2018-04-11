@@ -99,7 +99,7 @@ def download(request):
         sheet.set_column('C:C', 50)
         twittersheet.set_column('A:A', 35)
         twittersheet.set_column('B:F', 15)
-        twittersheet.set_column('G:G', 35)
+        twittersheet.set_column('G:H', 25)
         sheet.freeze_panes(1, 0)
         twittersheet.freeze_panes(1, 0)
         
@@ -123,7 +123,7 @@ def download(request):
         #----------------------TWITTER------------------------------------------
         
         #titles in the sheet
-        headerObj = ['Text', 'User', 'Date', 'Retweets', 'Favorited', 'Location']
+        headerObj = ['Text', 'User', 'Date', 'Retweets', 'Favorited', 'Location', 'Link to Tweet', 'User Profile Link']
         twitcol = 0
         for header in headerObj:
                 twittersheet.write(0,twitcol, header, titles_format)
@@ -140,8 +140,8 @@ def download(request):
                 twittersheet.write(twitrow, twitcol+3, entry['retweet_count'], posts_format)
                 twittersheet.write(twitrow, twitcol+4, entry['favorite_count'], posts_format)
                 twittersheet.write(twitrow, twitcol+5, entry['user']['location'], posts_format)
-                #below is profile link.  can't get it working.  removing 'Profile Link' from headerObj
-                #twittersheet.write(twitrow, twitcol+6, entry['entities']['urls']['url'], url_format)
+		twittersheet.write_url(twitrow, twitcol+6, 'https://www.twitter.com/statuses/'+str(entry['id']), url_format)
+                twittersheet.write_url(twitrow, twitcol+7, 'https://www.twitter.com/'+str(entry['user']['screen_name']), url_format)           
                 twitrow += 1
 
         #------------------------------------------------------------------
