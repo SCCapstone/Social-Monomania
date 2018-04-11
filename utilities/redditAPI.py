@@ -45,6 +45,7 @@ def search(args = None, subreddits = ['news']):
 	print(retInfo)
 	return retInfo
 
+"""
 def subredditStringGenerator(subreddits):
 
 	subreddit_string =""
@@ -56,7 +57,7 @@ def subredditStringGenerator(subreddits):
 
 	subreddit_string -= '+'
 
-
+"""
 
 if __name__ == '__main__':
 
