@@ -26,7 +26,7 @@ def hello(request):
                 return HttpResponseRedirect('online/login')
 
 def search(request):
-	return render(request, 'home.html')
+	return render(request, 'search.html')
 
 def advSearch(request):
 	return render(request, 'advSearch.html')
