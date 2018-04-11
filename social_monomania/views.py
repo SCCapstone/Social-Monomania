@@ -174,6 +174,8 @@ def results(request):
         twitterVariable = twitterReturn
         global twitterVariable1
 
+    return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn, 'searchQuery': searchQuery})
+
 def advancedresults(request):
 
     if request.method == 'POST':
