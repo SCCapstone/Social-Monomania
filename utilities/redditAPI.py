@@ -18,7 +18,7 @@ def search(args = None, subreddits = ['news']):
 	relevant_submissions = []
 	retInfo = {}
 	
-	query_these_subreddits = subredditStringGenerator(subreddits)
+	#query_these_subreddits = subredditStringGenerator(subreddits)
 
 	Redditbatch = reddit.subreddit('news').search(args, sort='new', time_filter='all')
 
