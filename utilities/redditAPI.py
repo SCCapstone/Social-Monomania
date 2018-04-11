@@ -1,7 +1,7 @@
 import sys, os
 
 import json
-import time, datetime
+import datetime
 
 import praw
 
@@ -14,13 +14,13 @@ def search(args = None):
                      client_secret='ek3X-TenXuiWDRzbXfSPROUglvg',
                      user_agent='Social Monomania API Searcher (by /u/Sorrento110')
 
+	all_submissions = []
 	relevant_submissions = []
 	retInfo = {}
 
-	# params = {'sort':'new', 'limit':None, 'syntax':'cloudsearch'}
-	# time_now = datetime.datetime.now()
+	Redditbatch = reddit.subreddit('news').search(args, sort='new', time_filter='all')
 
-	for submission in reddit.subreddit('news').new(limit=None):
+	for submission in Redditbatch:
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
 		if (args.lower() in submission.title.lower()):
 			relevant_submissions.append(submission)
@@ -31,8 +31,8 @@ def search(args = None):
 
 	for submission in relevant_submissions:
 
-		timep = submission.created
-		timestamp = datetime.date.fromtimestamp(timep)
+		time = submission.created_utc
+		timestamp = datetime.date.fromtimestamp(time)
 
 		retInfo[submission.title] = {
 			'time' : timestamp,
@@ -43,11 +43,21 @@ def search(args = None):
 	print(retInfo)
 	return retInfo
 
+
 if __name__ == '__main__':
 
 	args = sys.argv[1:]
 
 	search(args[0])
+
+
+
+
+
+
+
+
+
 
 
 

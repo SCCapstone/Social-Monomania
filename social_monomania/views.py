@@ -116,7 +116,7 @@ def download(request):
         redcol = 0
         for entry in redditVariable:
                 sheet.write(redrow, redcol, entry, posts_format)
-                sheet.write(redrow, redcol+1, redditVariable[entry]['time'], posts_format)
+                sheet.write(redrow, redcol+1, str(redditVariable[entry]['time']), posts_format)
                 sheet.write(redrow, redcol+2, redditVariable[entry]['url'], url_format)
                 redrow += 1
 
