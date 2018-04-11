@@ -5,7 +5,7 @@ import datetime
 
 import praw
 
-def search(args = None):
+def search(args = None, subreddits = ['news']):
 
 	if(args == None):
 		args = sys.argv[1:]
@@ -17,8 +17,10 @@ def search(args = None):
 	all_submissions = []
 	relevant_submissions = []
 	retInfo = {}
+	
+	query_these_subreddits = subredditStringGenerator(subreddits)
 
-	Redditbatch = reddit.subreddit('news').search(args, sort='new', time_filter='all')
+	Redditbatch = reddit.subreddit(query_these_subreddits).search(args, sort='new', time_filter='all')
 
 	for submission in Redditbatch:
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
@@ -42,6 +44,18 @@ def search(args = None):
 	#print("DID REDDIT!")
 	print(retInfo)
 	return retInfo
+
+def subredditStringGenerator(subreddits):
+
+	subreddit_string =""
+
+	#Getting the proper subreddit string
+	for string in subreddits:
+		subreddit_string += string
+		subreddit_string += '+'
+
+	subreddit_string -= '+'
+
 
 
 if __name__ == '__main__':

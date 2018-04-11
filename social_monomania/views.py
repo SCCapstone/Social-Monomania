@@ -173,6 +173,24 @@ def results(request):
         global twitterVariable
         twitterVariable = twitterReturn
         global twitterVariable1
+
+def advancedresults(request):
+
+    if request.method == 'POST':
+        print(request.POST)
+        # print(request.POST['q'])
+        # print(request.POST['boxes[]'])
+        global searchQuery
+        searchQuery = request.POST['q']
+        redditReturn, twitterReturn = advancedHandler.searchHandle(request.POST['q'], dict(request.POST)['boxes[]'])
+        #reddit global variables
+        global redditVariable
+        redditVariable = redditReturn
+        global redditVariable1
+        #twitter global variables
+        global twitterVariable
+        twitterVariable = twitterReturn
+        global twitterVariable1
         
         
 
