@@ -1,7 +1,7 @@
 import sys, os
 
 import json
-import datetime
+import time, datetime
 
 import praw
 
@@ -17,30 +17,29 @@ def search(args = None):
 	relevant_submissions = []
 	retInfo = {}
 
-	submission_titles = []
+	# params = {'sort':'new', 'limit':None, 'syntax':'cloudsearch'}
+	# time_now = datetime.datetime.now()
 
-	for submission in reddit.subreddit('news').new(limit=500):
+	for submission in reddit.subreddit('news').new(limit=None):
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
 		if (args.lower() in submission.title.lower()):
 			relevant_submissions.append(submission)
-			submission_titles.append(submission.title)
 
 	print(relevant_submissions)
 	##Testing submission accesses; this submission will be stored in specific variables and passed to the handler,
 	## which will then access these specifics
-	print (submission_titles)
 
 	for submission in relevant_submissions:
 
-		time = submission.created
-		timestamp = datetime.date.fromtimestamp(time)
+		timep = submission.created
+		timestamp = datetime.date.fromtimestamp(timep)
 
 		retInfo[submission.title] = {
 			'time' : timestamp,
-			'url'  : submission.url
+			'url'  : "http://www.reddit.com" + submission.permalink
 		}
 
-	print("DID REDDIT!")
+	#print("DID REDDIT!")
 	print(retInfo)
 	return retInfo
 
@@ -50,3 +49,8 @@ if __name__ == '__main__':
 
 	search(args[0])
 
+
+
+
+
+#reddit.subreddit('news').search('timestamp:{0}..{1}'.format(int(time.mktime(time_now.timetuple()) - datetime.timedelta(days=365).total_seconds()), int(time.mktime(time_now.timetuple()))), params)
