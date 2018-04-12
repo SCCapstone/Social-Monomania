@@ -99,7 +99,7 @@ def download(request):
         sheet.set_column('C:C', 50)
         twittersheet.set_column('A:A', 35)
         twittersheet.set_column('B:F', 15)
-        twittersheet.set_column('G:H', 25)
+        twittersheet.set_column('G:K', 35)
         sheet.freeze_panes(1, 0)
         twittersheet.freeze_panes(1, 0)
         
@@ -123,7 +123,7 @@ def download(request):
         #----------------------TWITTER------------------------------------------
         
         #titles in the sheet
-        headerObj = ['Text', 'User', 'Date', 'Retweets', 'Favorited', 'Location', 'Link to Tweet', 'User Profile Link']
+        headerObj = ['Text', 'User', 'Date', 'Retweets', 'Favorited', 'Location', 'Link to Tweet', 'User Profile Link', '@Mention link']
         twitcol = 0
         for header in headerObj:
                 twittersheet.write(0,twitcol, header, titles_format)
@@ -132,6 +132,7 @@ def download(request):
         twitrow = 1
         twitcol = 0
         statusList = twitterVariable['statuses']
+	mentionList = []
         for entry in statusList:
                 #text, user, date, retweets, favorited, geolocation, link
                 twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
@@ -142,6 +143,10 @@ def download(request):
                 twittersheet.write(twitrow, twitcol+5, entry['user']['location'], posts_format)
 		twittersheet.write_url(twitrow, twitcol+6, 'https://www.twitter.com/statuses/'+str(entry['id']), url_format)
                 twittersheet.write_url(twitrow, twitcol+7, 'https://www.twitter.com/'+str(entry['user']['screen_name']), url_format)           
+                for mention in entry['entities']['user_mentions']:
+                        mentionList.append('https://www.twitter.com/'+mention['screen_name']+'\n')
+                twittersheet.write_url(twitrow, twitcol+8, ''.join(mentionList), url_format)
+                mentionList[:] = []
                 twitrow += 1
 
         #------------------------------------------------------------------
