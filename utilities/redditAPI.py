@@ -27,7 +27,7 @@ def search(args = None, subreddits = ['news']):
 		if (args.lower() in submission.title.lower()):
 			relevant_submissions.append(submission)
 
-	print(relevant_submissions)
+	#print(relevant_submissions)
 	##Testing submission accesses; this submission will be stored in specific variables and passed to the handler,
 	## which will then access these specifics
 
@@ -42,7 +42,7 @@ def search(args = None, subreddits = ['news']):
 		}
 
 	#print("DID REDDIT!")
-	print(retInfo)
+	#print(retInfo)
 	return retInfo
 
 """
