@@ -22,8 +22,9 @@ def search(args):
 	result_parsed = json.loads(resultJSON)
 	statuses = result_parsed.get("statuses")
 	# f = open('twitter.txt', 'w')
-	# # for x in statuses:
-	# # 	print x.get("user").get("screen_name")
+			#print x.get("entities").get("media")[0]
+		
+		#print x.get("entities").get("media").get("media_url")
 	# # 	f.write(x.get("user").get("screen_name").encode("UTF-8") +": " + x.get("text").encode("UTF-8") +"\n")
 	# f.close()
 	#print("DID TWITTER!")

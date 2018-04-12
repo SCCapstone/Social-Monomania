@@ -43,6 +43,16 @@
 			<h6 id='twitterUser'> Retweets: {{ entry.retweet_count }} / </h6>
 			<h6 id='twitterUser'> Favorited Count: {{ entry.favorite_count }}</h6>
 			<a href="https://www.twitter.com/statuses/{{ entry.id }}" target="_blank">Link to Tweet</a>
+			<!--<img src= "isImage({{entity.media.0.type}})" />-->
+			{% for x in entry.extended_entities %}
+			<!--<p>Test Entities: {{ x }}</p>-->
+			{% if x %}
+			{% for z in entry.extended_entities.media %}
+			<!--<p>Test: {{ z }}</p>-->
+			<a href="{{ z.media_url }}">Link to URL</a>
+			{% endfor %}
+			{% endif %}
+			{% endfor %}
 		</div>
 		{% endfor %}
   </div>
@@ -63,6 +73,13 @@
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
 <script>
+function isImage(type)
+{
+	if (type == "photo")
+		return {{ entity.media.0.display_url}}
+}
+
+
 function wordCloudFunction(){
 	var x = document.getElementById("wordCloud");
 	if(x.style.display == "none"){
