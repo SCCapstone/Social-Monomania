@@ -50,6 +50,9 @@
 			{% for z in entry.extended_entities.media %}
 			<!--<p>Test: {{ z }}</p>-->
 			<a href="{{ z.media_url }}">Link to Image/Media</a>
+			<br>
+			<img src="{{ z.media_url }}" alt="Twitter Img" height="250" width="250">
+			<br>
 			{% endfor %}
 			{% endif %}
 			{% endfor %}
