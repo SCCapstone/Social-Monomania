@@ -123,7 +123,7 @@ def download(request):
         #----------------------TWITTER------------------------------------------
         
         #titles in the sheet
-        headerObj = ['Text', 'User', 'Date', 'Retweets', 'Favorited', 'Location', 'Link to Tweet', 'User Profile Link', '@Mention link']
+        headerObj = ['Text', 'User', 'Date', 'Retweets', 'Favorited', 'Location', 'Link to Tweet', 'User Profile Link', '@Mention link', 'Media Link']
         twitcol = 0
         for header in headerObj:
                 twittersheet.write(0,twitcol, header, titles_format)
@@ -133,6 +133,7 @@ def download(request):
         twitcol = 0
         statusList = twitterVariable['statuses']
 	mentionList = []
+	mediaList = []
         for entry in statusList:
                 #text, user, date, retweets, favorited, geolocation, link
                 twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
@@ -143,10 +144,21 @@ def download(request):
                 twittersheet.write(twitrow, twitcol+5, entry['user']['location'], posts_format)
 		twittersheet.write_url(twitrow, twitcol+6, 'https://www.twitter.com/statuses/'+str(entry['id']), url_format)
                 twittersheet.write_url(twitrow, twitcol+7, 'https://www.twitter.com/'+str(entry['user']['screen_name']), url_format)           
+                #user mentions requires a bit more work.  The for-loop fills a list, and .join() is used in writing all the list elements
                 for mention in entry['entities']['user_mentions']:
                         mentionList.append('https://www.twitter.com/'+mention['screen_name']+'\n')
                 twittersheet.write_url(twitrow, twitcol+8, ''.join(mentionList), url_format)
+                #media links is similar to user mentions.  Was not possible to access
+                #with entry['extended_entities']['media']['media_url_https'], so had to
+                #work around it a bit.
+                if 'extended_entities' in entry:
+                        for item in entry['extended_entities']['media']:
+                                mediaList.append(item['media_url_https']+'\n')
+                twittersheet.write_url(twitrow, twitcol+9, ''.join(mediaList), url_format)
+
+                #clear lists for next entry, go to next row to fill
                 mentionList[:] = []
+                mediaList[:] = []
                 twitrow += 1
 
         #------------------------------------------------------------------
