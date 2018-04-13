@@ -114,11 +114,26 @@ def download(request):
         
         redrow = 1
         redcol = 0
-        for entry in redditVariable:
-                sheet.write(redrow, redcol, entry, posts_format)
-                sheet.write(redrow, redcol+1, str(redditVariable[entry]['time']), posts_format)
-                sheet.write(redrow, redcol+2, redditVariable[entry]['url'], url_format)
-                redrow += 1
+        #------------------REDDIT------------------------------------------------
+
+        #Spreadsheet titles for reddit sheet
+        headerObjReddit = ['Post Title', 'Time', 'URL']
+        redcol = 0
+        for header in headerObjReddit:
+                sheet.write(0,redcol, header, titles_format)
+                redcol = redcol + 1
+        
+        redrow = 1
+        redcol = 0
+        #error catching if Reddit isn't checked/returns 0 results
+        if not redditVariable:
+                sheet.write(1, 0, "No Reddit Data Found", posts_format)
+        else:
+                for entry in redditVariable:
+                        sheet.write(redrow, redcol, entry, posts_format)
+                        sheet.write(redrow, redcol+1, str(redditVariable[entry]['time']), posts_format)
+                        sheet.write(redrow, redcol+2, redditVariable[entry]['url'], url_format)
+                        redrow += 1
 
         #----------------------TWITTER------------------------------------------
         
@@ -131,43 +146,51 @@ def download(request):
         
         twitrow = 1
         twitcol = 0
-        statusList = twitterVariable['statuses']
-	mentionList = []
-	mediaList = []
-        for entry in statusList:
-                #text, user, date, retweets, favorited, geolocation, link
-                twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
-                twittersheet.write(twitrow, twitcol+1, entry['user']['screen_name'], posts_format)
-                twittersheet.write(twitrow, twitcol+2, entry['created_at'], posts_format)
-                twittersheet.write(twitrow, twitcol+3, entry['retweet_count'], posts_format)
-                twittersheet.write(twitrow, twitcol+4, entry['favorite_count'], posts_format)
-                twittersheet.write(twitrow, twitcol+5, entry['user']['location'], posts_format)
-		twittersheet.write_url(twitrow, twitcol+6, 'https://www.twitter.com/statuses/'+str(entry['id']), url_format)
-                twittersheet.write_url(twitrow, twitcol+7, 'https://www.twitter.com/'+str(entry['user']['screen_name']), url_format)           
-                #user mentions requires a bit more work.  The for-loop fills a list, and .join() is used in writing all the list elements
-                for mention in entry['entities']['user_mentions']:
-                        mentionList.append('https://www.twitter.com/'+mention['screen_name']+'\n')
-                twittersheet.write_url(twitrow, twitcol+8, ''.join(mentionList), url_format)
-                #media links is similar to user mentions.  Was not possible to access
-                #with entry['extended_entities']['media']['media_url_https'], so had to
-                #work around it a bit.
-                if 'extended_entities' in entry:
-                        for item in entry['extended_entities']['media']:
-                                mediaList.append(item['media_url_https']+'\n')
-                twittersheet.write_url(twitrow, twitcol+9, ''.join(mediaList), url_format)
-
-                #clear lists for next entry, go to next row to fill
-                mentionList[:] = []
-                mediaList[:] = []
-                twitrow += 1
-
-        #------------------------------------------------------------------
-
+        #error catching if Twitter box isn't checked/returns 0 results
+        if not twitterVariable:
+                twittersheet.write(1, 0, "No Twitter Data Found", posts_format)
+        else:
+                statusList = twitterVariable['statuses']
+                mentionList = []
+                mediaList = []
+                for entry in statusList:
+                        #text, user, date, retweets, favorited, geolocation, link
+                        twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
+                        twittersheet.write(twitrow, twitcol+1, entry['user']['screen_name'], posts_format)
+                        twittersheet.write(twitrow, twitcol+2, entry['created_at'], posts_format)
+                        twittersheet.write(twitrow, twitcol+3, entry['retweet_count'], posts_format)
+                        twittersheet.write(twitrow, twitcol+4, entry['favorite_count'], posts_format)
+                        twittersheet.write(twitrow, twitcol+5, entry['user']['location'], posts_format)
+                        twittersheet.write_url(twitrow, twitcol+6, 'https://www.twitter.com/statuses/'+str(entry['id']), url_format)
+                        twittersheet.write_url(twitrow, twitcol+7, 'https://www.twitter.com/'+str(entry['user']['screen_name']), url_format)
+                        #user mentions requires a bit more work.  The for-loop fills a list, and .join() is used in writing all the list elements
+                        for mention in entry['entities']['user_mentions']:
+                                mentionList.append('https://www.twitter.com/'+mention['screen_name']+'\n')
+                        twittersheet.write_url(twitrow, twitcol+8, ''.join(mentionList), url_format)
+                        #media links is similar to user mentions.  Was not possible to access
+                        #with entry['extended_entities']['media']['media_url_https'], so had to
+                        #work around it a bit.
+                        if 'extended_entities' in entry:
+                                for item in entry['extended_entities']['media']:
+                                        mediaList.append(item['media_url_https']+'\n')
+                        twittersheet.write_url(twitrow, twitcol+9, ''.join(mediaList), url_format)
+        
+                        #clear lists for next entry, go to next row to fill
+                        mentionList[:] = []
+                        mediaList[:] = []
+                        twitrow += 1
+        
+                #------------------------------------------------------------------
+        
         #Closing the workbook
         book.close()
-
+        
         #construct response
         output.seek(0)
+        response = HttpResponse(output.read(), content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        response['Content-Disposition'] = "attachment; filename=SM_Results.xlsx"
+
+        return response
         response = HttpResponse(output.read(), content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         response['Content-Disposition'] = "attachment; filename=SM_Results.xlsx"
 
