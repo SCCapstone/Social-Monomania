@@ -46,19 +46,6 @@
 					<input type='date' name='endDate' id='twitterEndDate'>
 			</div>
 		</div>
-	
-		<div id='instagramBox'>
-			<input type="checkbox" name='boxes[]' id="instagramAdvBox" value='test' onclick="instagramSearch(this)" checked/>Instagram<br />
-			<div id='instagramSubmenu'>
-					<p>Location</p>
-					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
-					<p>Date Filter </p>
-					<label for="instagramFromDate">From</label>
-					<input type='date' name='startDate' id='instagramFromDate'>
-					<label for="instagramEndDate">To</label>
-					<input type='date' name='endDate' id='instagramEndDate'>
-			</div>
-		</div>
 	</div>
 	
 	
@@ -80,16 +67,6 @@ function twitterSearch(checkbox)
 	
 	}else{
 		document.getElementById('twitterSubmenu').style.display = 'none';
-	}
-}
-
-function instagramSearch(checkbox)
-{ if (checkbox.checked)
-	{ //search using Reddit
-		document.getElementById('instagramSubmenu').style.display = 'block';
-	
-	}else{
-		document.getElementById('instagramSubmenu').style.display = 'none';
 	}
 }
 
