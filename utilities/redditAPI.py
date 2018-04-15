@@ -18,9 +18,10 @@ def search(args = None, subreddits = ['news']):
 	relevant_submissions = []
 	retInfo = {}
 	
-	#query_these_subreddits = subredditStringGenerator(subreddits)
+	print(subreddits)
+	query_these_subreddits = subredditStringGenerator(subreddits)
 
-	Redditbatch = reddit.subreddit('news').search(args, sort='new', time_filter='all')
+	Redditbatch = reddit.subreddit(query_these_subreddits).search(args, sort='new', time_filter='all')
 
 	for submission in Redditbatch:
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
@@ -45,7 +46,6 @@ def search(args = None, subreddits = ['news']):
 	#print(retInfo)
 	return retInfo
 
-"""
 def subredditStringGenerator(subreddits):
 
 	subreddit_string =""
@@ -55,9 +55,10 @@ def subredditStringGenerator(subreddits):
 		subreddit_string += string
 		subreddit_string += '+'
 
-	subreddit_string -= '+'
+	subreddit_string = subreddit_string[:-1]
 
-"""
+	return subreddit_string
+
 
 if __name__ == '__main__':
 

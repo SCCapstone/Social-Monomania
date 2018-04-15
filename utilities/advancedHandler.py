@@ -4,7 +4,7 @@ import praw
 
 import redditAPI, twitterAPI
 
-def searchHandle(query, apiSelectArray):
+def searchHandle(query, apiSelectArray, reddit_Subreddits, twitterDate):
 
 	redditResults = ""
 	twitterResults = ""
@@ -13,11 +13,11 @@ def searchHandle(query, apiSelectArray):
 
 	if 'reddit' in apiSelectArray:
 
-		redditResults = redditAPI.search(query)
+		redditResults = redditAPI.search(query, reddit_Subreddits)
 
 	if 'twitter' in apiSelectArray:
 
-		twitterResults = twitterAPI.search(query)
+		twitterResults = twitterAPI.search(query, twitterDate)
 
 	# print(twitterResults)
 	# print(redditResults)

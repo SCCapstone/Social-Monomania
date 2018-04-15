@@ -9,6 +9,7 @@ from django.contrib.sessions.models import Session
 from django.contrib.auth import authenticate
 from django.db import models
 from utilities import basicHandler
+from utilities import advancedHandler
 from django.views import View
 import json #added for export
 
@@ -200,8 +201,6 @@ def results(request):
 
     if request.method == 'POST':
         print(request.POST)
-        # print(request.POST['q'])
-        # print(request.POST['boxes[]'])
         global searchQuery
         searchQuery = request.POST['q']
         redditReturn, twitterReturn = basicHandler.searchHandle(request.POST['q'], dict(request.POST)['boxes[]'])
@@ -223,8 +222,16 @@ def advancedresults(request):
         # print(request.POST['q'])
         # print(request.POST['boxes[]'])
         global searchQuery
-        searchQuery = request.POST['q']
-        redditReturn, twitterReturn = advancedHandler.searchHandle(request.POST['q'], dict(request.POST)['boxes[]'])
+        queryOne  = request.POST['q1']
+        queryTwo  = request.POST['q2']
+        booleanOp = request.POST['booleanOperator']
+        searchQuery = queryOne + " " + booleanOp + " " + queryTwo
+        
+        twitterDate = request.POST['newestDate']
+
+        subredditsDict = dict(request.POST)['subboxes[]']
+        subredditsDict.append(request.POST['searchCustomSub'])
+        redditReturn, twitterReturn = advancedHandler.searchHandle(searchQuery, dict(request.POST)['boxes[]'], subredditsDict, twitterDate)
         #reddit global variables
         global redditVariable
         redditVariable = redditReturn

@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^thanks/', views.thanks, name='thanks'),
     url(r'^graph/', views.graph, name='graph'),
     url(r'^results/', views.results, name='results'),
+    url(r'^advancedresults/', views.advancedresults, name='advancedresults'),
     url(r'^help/', views.help, name='help'),
     url(r'^advSearch/', views.advSearch, name='advSearch'),
     url(r'^download/', views.download, name='download')    
