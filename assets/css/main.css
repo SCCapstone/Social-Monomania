@@ -9,6 +9,7 @@
   
 .header{
 	width:cover;
+	height: 75%;
 	text-align: center;
 	background-color: #56699B;
 	font-size: 30px;
@@ -80,6 +81,7 @@ nav {
 
 #s_button {
 	font-size: 30px;
+	border-radius:25px;
 }
 
 #mySearch input::placeholder{
