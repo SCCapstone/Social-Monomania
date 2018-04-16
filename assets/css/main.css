@@ -234,6 +234,7 @@ a.button {
 
 #choices{
 	display:inline-flex;
+	padding: 20px;
 	}
 	
 #twitterUser{
@@ -256,18 +257,14 @@ a.button {
     width: 50%;
 }
 
-.help_content{
-	text-align: left;
+#help_content{
+	text-align: left !important;
 }
 
 #searchCustomSub{
 	border: 5px solid #6A589F;
     border-radius: 25px;
     font-size: 20px;
-}
-#searchCustomSub:hover{
-	content: "Check subreddit's name before searching"
-	margin: 10px;
 }
 
 #searchLocation{
@@ -280,7 +277,6 @@ a.button {
 	border: 5px solid #6A589F;
     border-radius: 25px;
     font-size: 20px;
-    margin: 10px;
 }
 
 #myList{
