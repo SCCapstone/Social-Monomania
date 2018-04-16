@@ -67,7 +67,7 @@ nav {
 .content{
 	margin-left: 25px;
 	margin-right: 25px;
-	text-align: left;
+	text-align: center;
 	
 }
 
@@ -161,6 +161,7 @@ margin-bottom: 10px;
 #submit_b{
 	font-size: 30px;
 	border-radius: 25px;
+	text-align:center;
 }
 
 #id_username{
@@ -283,6 +284,10 @@ a.button {
 
 #myList{
 	font-size: 20px;
+}
+
+#about-content{
+	text-align: left !important;
 }
 
 /* Clear floats after the columns */
