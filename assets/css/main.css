@@ -9,7 +9,7 @@
   
 .header{
 	width:cover;
-	height: 60%;
+	height: 45%;
 	text-align: center;
 	background-color: #56699B;
 	font-size: 30px;
@@ -67,7 +67,8 @@ nav {
 .content{
 	margin-left: 25px;
 	margin-right: 25px;
-	text-align: center;
+	text-align: left;
+	
 }
 
 #mySearch {
