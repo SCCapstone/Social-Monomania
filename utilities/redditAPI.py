@@ -5,7 +5,7 @@ import datetime
 
 import praw
 
-def search(args = None):
+def search(args = None, subreddits = ['news']):
 
 	if(args == None):
 		args = sys.argv[1:]
@@ -14,35 +14,51 @@ def search(args = None):
                      client_secret='ek3X-TenXuiWDRzbXfSPROUglvg',
                      user_agent='Social Monomania API Searcher (by /u/Sorrento110')
 
+	all_submissions = []
 	relevant_submissions = []
 	retInfo = {}
+	
+	print(subreddits)
+	query_these_subreddits = subredditStringGenerator(subreddits)
 
-	submission_titles = []
+	Redditbatch = reddit.subreddit(query_these_subreddits).search(args, sort='new', time_filter='all')
 
-	for submission in reddit.subreddit('news').new(limit=500):
+	for submission in Redditbatch:
 		##Not decided on which reddit calls will give us the best results. Still experimenting.
 		if (args.lower() in submission.title.lower()):
 			relevant_submissions.append(submission)
-			submission_titles.append(submission.title)
 
-	print(relevant_submissions)
+	#print(relevant_submissions)
 	##Testing submission accesses; this submission will be stored in specific variables and passed to the handler,
 	## which will then access these specifics
-	print (submission_titles)
 
 	for submission in relevant_submissions:
 
-		time = submission.created
+		time = submission.created_utc
 		timestamp = datetime.date.fromtimestamp(time)
 
 		retInfo[submission.title] = {
 			'time' : timestamp,
-			'url'  : submission.url
+			'url'  : "http://www.reddit.com" + submission.permalink
 		}
 
-	print("DID REDDIT!")
-	print(retInfo)
+	#print("DID REDDIT!")
+	#print(retInfo)
 	return retInfo
+
+def subredditStringGenerator(subreddits):
+
+	subreddit_string =""
+
+	#Getting the proper subreddit string
+	for string in subreddits:
+		subreddit_string += string
+		subreddit_string += '+'
+
+	subreddit_string = subreddit_string[:-1]
+
+	return subreddit_string
+
 
 if __name__ == '__main__':
 
@@ -50,3 +66,17 @@ if __name__ == '__main__':
 
 	search(args[0])
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+#reddit.subreddit('news').search('timestamp:{0}..{1}'.format(int(time.mktime(time_now.timetuple()) - datetime.timedelta(days=365).total_seconds()), int(time.mktime(time_now.timetuple()))), params)

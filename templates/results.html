@@ -11,7 +11,7 @@
 <br>
 <br>
 <button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <div id="wordCloud" style="display:none">
 <li>On results page, CTRL+A to select all</li>
 <li>CTRL+C to copy selected text</li>
@@ -21,24 +21,46 @@
 <iframe src="https://worditout.com/word-cloud/create" height="500" width="100%"> </iframe>
 </div>
 
+<button onclick="displayGraph()">TEST CHART.JS</button>
+<div id="lineGraph" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto">
+
+</div>
+
 <div class="row">
   <div class="column">
 	  <p> Reddit Object </p>
-		{% for entry, sub in redditReturn.iteritems %}
+		{% for entry, sub in redditReturn.iteritems|slice:":50" %}
 		<div id='redditResult' style="border-style: solid; margin: 10px; padding: 10px;">
         	<h6 id='redditDate' >{{ sub.time }} </h6>
         	<h4 id='redditTitle'>{{ entry.title }}</h4>
-        	<a id='redditUrl' href="{{ sub.url }}">link</a>  
+        	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>  
    		</div>
 		{% endfor %}
   </div>
   <div class="column" id='Twitter'>
   		<p>Twitter Object </p>
-		{% for entry in twitterReturn.statuses %}
+		{% for entry in twitterReturn.statuses|slice:":50" %}
 		<div id='twitterResult' style="border-style: solid; margin: 10px; padding: 10px;"> 
 			<h6 id='twitterDate'> {{entry.created_at}} </h6>
-			<h6 id='twitterUser'> User: {{ entry.user.screen_name }} </h6>
 			<h4 id='twitterText'>Text: {{ entry.text }}</h4>
+			<h6 id='twitterUser'> User Screen Name: {{ entry.user.screen_name }} / </h6>
+			<h6 id='twitterUser'> User Name: {{ entry.user.name }} / </h6>
+			<h6 id='twitterUser'> Retweets: {{ entry.retweet_count }} / </h6>
+			<h6 id='twitterUser'> Favorited Count: {{ entry.favorite_count }}</h6>
+			<a href="https://www.twitter.com/statuses/{{ entry.id }}" target="_blank">Link to Tweet</a>
+			<!--<img src= "isImage({{entity.media.0.type}})" />-->
+			{% for x in entry.extended_entities %}
+			<!--<p>Test Entities: {{ x }}</p>-->
+			{% if x %}
+			{% for z in entry.extended_entities.media %}
+			<!--<p>Test: {{ z }}</p>-->
+			<a href="{{ z.media_url }}">Link to Image/Media</a>
+			<br>
+			<img src="{{ z.media_url }}" alt="Twitter Img" height="250" width="250">
+			<br>
+			{% endfor %}
+			{% endif %}
+			{% endfor %}
 		</div>
 		{% endfor %}
   </div>
@@ -59,6 +81,18 @@
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
 <script>
+
+function displayGraph() {
+	var x = document.getElementById("lineGraph");
+	if(x.style.display == "none"){
+		document.getElementById("lineGraph").style.display = "block";
+		document.getElementById("lineGraph").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="{% url 'graph' %}" > </object> ';
+	} else {
+		x.style.display = "none";
+	}
+	
+}
+
 function wordCloudFunction(){
 	var x = document.getElementById("wordCloud");
 	if(x.style.display == "none"){

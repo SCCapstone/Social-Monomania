@@ -10,11 +10,15 @@ import oauth2
 CONSUMER_KEY = "VFDbTduxt6SeTwyOjOFIfwWIO"
 CONSUMER_SECRET = "MrfTScFm6APqTZxDC5cwVAfSVqy5UCbgj61nl6Q34psjcs7J5F"
 
-def search(args):
+def search(args, date = None, geocode = None):
 
 	query = urllib.quote_plus(args)
 
-	url = "https://api.twitter.com/1.1/search/tweets.json?q={0}".format(query)
+	if (date == None and geocode == None):
+		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}".format(query)
+
+	elif (geocode == None):
+		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&until={1}".format(query,date)
 
 	#r = urllib2.urlopen(url)
 	#resultJSON = r.readline().decode('utf-8')
@@ -22,8 +26,9 @@ def search(args):
 	result_parsed = json.loads(resultJSON)
 	statuses = result_parsed.get("statuses")
 	# f = open('twitter.txt', 'w')
-	# # for x in statuses:
-	# # 	print x.get("user").get("screen_name")
+			#print x.get("entities").get("media")[0]
+		
+		#print x.get("entities").get("media").get("media_url")
 	# # 	f.write(x.get("user").get("screen_name").encode("UTF-8") +": " + x.get("text").encode("UTF-8") +"\n")
 	# f.close()
 	#print("DID TWITTER!")
