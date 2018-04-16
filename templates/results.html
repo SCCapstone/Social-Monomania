@@ -11,7 +11,7 @@
 <br>
 <br>
 <button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <div id="wordCloud" style="display:none">
 <li>On results page, CTRL+A to select all</li>
 <li>CTRL+C to copy selected text</li>
@@ -19,6 +19,11 @@
 <li>Paste into box with CTRL+V</li>
 <li>Click green Generate button to view word cloud</li>
 <iframe src="https://worditout.com/word-cloud/create" height="500" width="100%"> </iframe>
+</div>
+
+<button onclick="displayGraph()">Click to show/hide Graph features</button>
+<div id="lineGraph" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto">
+
 </div>
 
 <div class="row">
@@ -76,12 +81,17 @@
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
 <script>
-function isImage(type)
-{
-	if (type == "photo")
-		return {{ entity.media.0.display_url}}
-}
 
+function displayGraph() {
+	var x = document.getElementById("lineGraph");
+	if(x.style.display == "none"){
+		document.getElementById("lineGraph").style.display = "block";
+		document.getElementById("lineGraph").innerHTML = '<object type="text/html" style="width:100%;height:100%" data="{% url 'graph' %}" > </object> ';
+	} else {
+		x.style.display = "none";
+	}
+	
+}
 
 function wordCloudFunction(){
 	var x = document.getElementById("wordCloud");

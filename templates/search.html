@@ -22,11 +22,11 @@
   	  	}
 	});
 	</script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	
 	<br>&nbsp;</br>
 	<div id='Box'>
-		<input type="checkbox" name='boxes[]' id="reddit" value= 'reddit' " checked/> Reddit<br />
-		<input type="checkbox" name='boxes[]' id="twitter" value='twitter'" checked/> Twitter<br />
+		<input type="checkbox" name='boxes[]' id="reddit" value='reddit'  checked/> Reddit<br />
+		<input type="checkbox" name='boxes[]' id="twitter" value='twitter' checked/> Twitter<br />
 	</div>
 	
 	
@@ -37,10 +37,6 @@
 <br></br>
 
 <a href="{% url 'advSearch' %}">Advanced Search</a>
-
-
-<div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
-
 
 
 <script language="javascript" type="text/javascript">
@@ -54,7 +50,6 @@ function validateForm(){
 	var q = document.getElementById("mySearch").value;
 	var reddit = document.getElementById("reddit").value;
 	var twitter = document.getElementById("twitter").value;
-	var insta = document.getElementById("instagram").value;
 
 	var elements = document.getElementsByName("boxes[]");
 	var filled = false;
