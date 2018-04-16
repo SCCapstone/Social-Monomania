@@ -234,7 +234,8 @@ a.button {
 
 #choices{
 	display:inline-flex;
-	padding: 20px;
+	padding: 50px;
+	margin:20px;
 	}
 	
 #twitterUser{
