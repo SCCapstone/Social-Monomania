@@ -8,7 +8,7 @@
 <form id='advSearch' method='post' onsubmit='return validateForm()' action='/advancedresults/' >
 	{% csrf_token %}
 	<h3>Enter your search in the bar below and press enter. </h3>
-	<input class="w3-input w3-border w3-round-large"type="search" id="searchMain"  name='q1' placeholder="Search.." >
+	<input class="w3-input w3-border w3-round-large"type="search" id="searchMain"  name='q1' placeholder="Search For This.." >
 	<p>
     	<select id = "myList" name="booleanOperator">
             <option value = "AND">AND</option>
@@ -17,7 +17,7 @@
         </select>
     </p>
     
-	<input class="w3-input w3-border w3-round-large" type="search" id="searchSecond"  name='q2' placeholder="Search.." >
+	<input class="w3-input w3-border w3-round-large" type="search" id="searchSecond"  name='q2' placeholder="This.." >
 	<br>&nbsp;</br>
 	<button  id='s_button' style onclick="myFunction()">Search</button>
 	<br>&nbsp;</br>

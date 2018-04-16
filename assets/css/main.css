@@ -220,6 +220,7 @@ a.button {
 	width: 200px;
 	height: 350px;
 	margin: 10px;
+	padding:20px;
 	text-align: left;
 	}
 	
@@ -229,13 +230,12 @@ a.button {
 	width: 200px;
 	height: 350px;
 	margin: 10px;
+	padding: 20px;
 	text-align: left;
 	}
 
 #choices{
 	display:inline-flex;
-	padding: 50px;
-	margin:20px;
 	}
 	
 #twitterUser{
