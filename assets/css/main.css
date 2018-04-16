@@ -113,7 +113,7 @@ margin-bottom: 10px;
 }
 
 .email_input::placeholder{
-	font-size: 50px;
+	font-size: 16px;
 }
 
 .subject_input{
@@ -131,15 +131,14 @@ margin-bottom: 10px;
 
 .subject_input:: placeholder{
  	margin-top: 20px;
- 	font-size: 50px;
- 	
+ 	font-size: 16px;
  	
  }
  
  
 .message_input:: placeholder{
  	margin-top: 20px;
- 	font-size: 50px;
+ 	font-size: 16px;
 }
 .message_input{
 	display: block;
