@@ -301,7 +301,8 @@ a.button {
 }
 
 input[type='checkbox'] {
-  -webkit-transform: scale(2);
+  -webkit-transform: scale(1.5);
+  margin: 5px;
 
 }
 
