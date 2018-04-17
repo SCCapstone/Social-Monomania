@@ -290,6 +290,10 @@ a.button {
 	text-align: left !important;
 }
 
+.graphic{
+	width:50%;
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";
