@@ -139,7 +139,19 @@ def download(request):
         #----------------------TWITTER------------------------------------------
         
         #titles in the sheet
-        headerObj = ['Text', 'User', 'Date', 'Retweets', 'Favorited', 'Location', 'Link to Tweet', 'User Profile Link', '@Mention link', 'Media Link']
+        headerObj = ['Text', 'User', 'Date', 'Retweets', 'Favorited',
+                     'Location', 'Link to Tweet', 'User Profile Link',
+                     '@Mention link', 'Media Link', 'lang','retweeted',
+                     'favorited', 'quoted_status_lang', 'quoted_status_retweeted',
+                     'quoted_status_favorited', 'quoted_status_favorite_count',
+                     'quoted_status_retweet_count', 'quoted_status_is_quote_status',
+                     'quoted_status_place', 'quoted_status_coordinates',
+                     'quoted_status_geo', 'quoted_status_user_created_at',
+                     'quoted_status_user_following', 'quoted_status_user_profile_img_url',
+                     'quoted_status_user_profile_background_image_url',
+                     'quoted_status_user_lang', 'quoted_status_user_time_zone',
+                     'quoted_status_favourites_count', 'quoted_status_listed_count',
+                     'quoted_status_friends_count', 'quoted_status_followers_count']
         twitcol = 0
         for header in headerObj:
                 twittersheet.write(0,twitcol, header, titles_format)
@@ -154,6 +166,7 @@ def download(request):
                 statusList = twitterVariable['statuses']
                 mentionList = []
                 mediaList = []
+                following = []
                 for entry in statusList:
                         #text, user, date, retweets, favorited, geolocation, link
                         twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
@@ -175,10 +188,71 @@ def download(request):
                                 for item in entry['extended_entities']['media']:
                                         mediaList.append(item['media_url_https']+'\n')
                         twittersheet.write_url(twitrow, twitcol+9, ''.join(mediaList), url_format)
+                        twittersheet.write(twitrow, twitcol+10, entry['lang'], posts_format)
+                        twittersheet.write(twitrow, twitcol+11, str(entry['retweeted']), posts_format)
+                        twittersheet.write(twitrow, twitcol+12, str(entry['favorited']), posts_format)
+                        #this if-else checks if quoted_status, exists, then writes the data of the
+                        #quoted status in the cell.  If quoted_status doesn't exist, it writes
+                        #'DNE' in the cell for Does Not Exist
+                        if 'quoted_status' in entry:
+                                print "FOR TESTING YESYESYEYSEYEYESYS"
+                                twittersheet.write(twitrow, twitcol+13, entry['quoted_status']['lang'], posts_format)
+                                twittersheet.write(twitrow, twitcol+14, str(entry['quoted_status']['retweeted']), posts_format)
+                                twittersheet.write(twitrow, twitcol+15, str(entry['quoted_status']['favorited']), posts_format)
+                                twittersheet.write(twitrow, twitcol+16, entry['quoted_status']['favorite_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+17, entry['quoted_status']['retweet_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+18, str(entry['quoted_status']['is_quote_status']), posts_format)
+                                #['quoted_status']['place'] was throwing errors if I didn't use this double if-statement
+                                if entry['quoted_status']['place'] != None:
+                                        if 'country' in entry['quoted_status']['place']:
+                                                twittersheet.write(twitrow, twitcol+19, entry['quoted_status']['place']['country'], posts_format)
+                                        else:
+                                                twittersheet.write(twitrow, twitcol+19, 'No country listed', posts_format)
+                                twittersheet.write(twitrow, twitcol+20, entry['quoted_status']['coordinates'], posts_format)
+                                twittersheet.write(twitrow, twitcol+21, entry['quoted_status']['geo'], posts_format)
+                                twittersheet.write(twitrow, twitcol+22, entry['quoted_status']['user']['created_at'], posts_format)
+                                twittersheet.write(twitrow, twitcol+23, bool(entry['quoted_status']['user']['following']), posts_format)
+                                twittersheet.write_url(twitrow, twitcol+24, entry['quoted_status']['user']['profile_image_url'], url_format)
+                                #background image required this error catching to function
+                                if entry['quoted_status']['user']['profile_background_image_url'] != None:
+                                        twittersheet.write_url(twitrow, twitcol+25, entry['quoted_status']['user']['profile_background_image_url'], url_format)
+                                else:
+                                        twittersheet.write(twitrow, twitcol+25, 'No background image url', posts_format)   
+                                twittersheet.write(twitrow, twitcol+26, entry['quoted_status']['user']['lang'], posts_format)
+                                twittersheet.write(twitrow, twitcol+27, entry['quoted_status']['user']['time_zone'], posts_format)
+                                twittersheet.write(twitrow, twitcol+28, entry['quoted_status']['user']['favourites_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+29, entry['quoted_status']['user']['listed_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+30, entry['quoted_status']['user']['friends_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+31, entry['quoted_status']['user']['followers_count'], posts_format)
+
+                                
+                        else:
+                                #could potentially make a loop out of this to condense code
+                                twittersheet.write(twitrow, twitcol+13, 'DNE', posts_format)                                
+                                twittersheet.write(twitrow, twitcol+14, 'DNE', posts_format)                                
+                                twittersheet.write(twitrow, twitcol+15, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+16, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+17, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+18, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+19, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+20, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+21, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+22, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+23, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+24, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+25, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+26, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+27, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+28, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+29, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+30, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+31, 'DNE', posts_format)
+                                #twittersheet.write(twitrow, twitcol+32, 'DNE', posts_format)
         
                         #clear lists for next entry, go to next row to fill
                         mentionList[:] = []
                         mediaList[:] = []
+                        following[:] = []
                         twitrow += 1
         
                 #------------------------------------------------------------------
