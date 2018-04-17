@@ -29,36 +29,6 @@
 					<a href="{% url 'login' %}">Login</a>
 				</nav>
 {% endif %}
-				<h1 style="margin-left: 10px; font-style: italic;">{% block heading %} {% endblock %}</h1>
-				<div class = 'content'>
-					{% block content %} {% endblock %}
-				</div>
-		
-		</div>
-	</body>
-</html>
-
-				<div class='graphic'>
-			 		<a href="{% url 'home' %}"><img src="{% static 'images/suckedin__revised.png' %}" alt="Header" style="width:50%"/></a>
-			 	</div>
-			 </div>
-{% if user.is_authenticated %}
-				<nav>
-    				<a href="{% url 'home' %}">Home</a>
-					<a href="{% url 'search' %}">Search</a>
-					<a href="{% url 'help' %}">Help</a>
-					<a href="{% url 'contact' %}">Contact</a>
-					<a href="{% url 'logout' %}">Logout</a>
-				</nav>
-{% else %}
-    			<nav>
-					<a href="{% url 'home' %}">Home</a>
-					<a href="{% url 'help' %}">Help</a>
-					<a href="{% url 'contact' %}">Contact</a>
-					<a href="{% url 'login' %}">Login</a>
-				</nav>
-{% endif %}
-				<h1 style="margin-left: 10px; font-style: italic;">{% block heading %} {% endblock %}</h1>
 				<div class = 'content'>
 					{% block content %} {% endblock %}
 				</div>
