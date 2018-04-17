@@ -195,6 +195,16 @@ margin-bottom: 10px;
 	display: inline-flex;
 	}
 	
+#reddit{
+	font-size: 18px;
+	padding: 5px;
+}
+
+#twitter{
+	font-size: 18px;
+	padding: 5px;
+}
+	
 a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
@@ -297,6 +307,10 @@ input[type='checkbox'] {
     background:white;
     border-radius:5px;
     border:2px solid #555;
+}
+
+input[type='checkbox']:checked {
+    background: #abd;
 }
 
 /* Clear floats after the columns */
