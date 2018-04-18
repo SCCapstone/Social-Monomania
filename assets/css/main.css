@@ -306,6 +306,10 @@ input[type='checkbox'] {
 
 }
 
+.highlight {
+  background-color: yellow;
+}
+
 
 /* Clear floats after the columns */
 .row:after {
