@@ -105,26 +105,7 @@ function wordCloudFunction(){
 
 <script type="text/javascript" language="javascript">
 
-function my_code(){
-//Finds the URL, makes the substring of it, and applies to your search query
-var longTerm = window.location.search;
-var term = longTerm.substring(3,longTerm.indexOf('&'));
-document.getElementById("searchQ").innerHTML = longTerm;
 
-}
-
-function highlight(text) {
-  var inputText = document.getElementById("inputText");
-  var innerHTML = inputText.innerHTML;
-  var index = innerHTML.indexOf(text);
-  if (index >= 0) { 
-   innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
-   inputText.innerHTML = innerHTML;
-  }
-}
-
-
-window.onload= 'highlight({{searchQuery }})';
 
 </script>
 
