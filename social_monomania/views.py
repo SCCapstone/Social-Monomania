@@ -151,7 +151,12 @@ def download(request):
                      'quoted_status_user_profile_background_image_url',
                      'quoted_status_user_lang', 'quoted_status_user_time_zone',
                      'quoted_status_favourites_count', 'quoted_status_listed_count',
-                     'quoted_status_friends_count', 'quoted_status_followers_count']
+                     'quoted_status_friends_count', 'quoted_status_followers_count',
+                     'quoted_status__user__entities__url__urls__expanded_url spreadsheet',
+                     'quoted_status_user_url', 'quoted_status_user_description',
+                     'quoted_status_user_location', 'quoted_status_user_location',
+                     'quoted_status_user_screen name', 'quoted_status_user_name'
+                     ]
         twitcol = 0
         for header in headerObj:
                 twittersheet.write(0,twitcol, header, titles_format)
@@ -224,7 +229,14 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+29, entry['quoted_status']['user']['listed_count'], posts_format)
                                 twittersheet.write(twitrow, twitcol+30, entry['quoted_status']['user']['friends_count'], posts_format)
                                 twittersheet.write(twitrow, twitcol+31, entry['quoted_status']['user']['followers_count'], posts_format)
-
+                                #skipping statuses__quoted_status__user__entities__url__urls__expanded_url for now, twitcol is 32
+                                twittersheet.write_url(twitrow, twitcol+33, str(entry['quoted_status']['user']['url']), url_format)
+                                twittersheet.write(twitrow, twitcol+34, entry['quoted_status']['user']['description'], posts_format)
+                                twittersheet.write(twitrow, twitcol+35, entry['quoted_status']['user']['location'], posts_format)
+                                twittersheet.write(twitrow, twitcol+36, entry['quoted_status']['user']['screen_name'], posts_format)
+                                twittersheet.write(twitrow, twitcol+37, entry['quoted_status']['user']['name'], posts_format)
+                                #if error is list indices must be integers not strings, it means that within the dictionary,
+                                #there is a list you must access.
                                 
                         else:
                                 #could potentially make a loop out of this to condense code
@@ -247,7 +259,12 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+29, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+30, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+31, 'DNE', posts_format)
-                                #twittersheet.write(twitrow, twitcol+32, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+32, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+33, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+34, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+35, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+36, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+37, 'DNE', posts_format)
         
                         #clear lists for next entry, go to next row to fill
                         mentionList[:] = []
