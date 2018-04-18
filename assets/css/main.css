@@ -7,7 +7,7 @@
   font-family:"Arial Black", Gadget, sans-serif;
    }
   
-.header{
+.header_1{
 	width:cover;
 	height: 45%;
 	text-align: center;
@@ -16,13 +16,16 @@
 	color: black;
 	text-decoration: none;
 	}
-	.header a {
+	.header_1 a {
 		color: black;
 		text-decoration: none;
 	}
 
   
-  
+h1{
+	margin-left:50px !important;
+}  
+
 .about_info{
 	padding-right: 100px;
 	padding-left: 100px;
@@ -45,7 +48,6 @@ nav {
     width: 100%;
     table-layout: fixed;
     background-color: #E7D473;
-    margin-bottom: 1em;
     overflow: hidden; }
     .site-container nav a {
       display: table-cell;
@@ -298,6 +300,7 @@ a.button {
 
 .about-content{
 	text-align: left !important;
+	margin: 0 25px;
 }
 
 input[type='checkbox'] {
@@ -306,6 +309,30 @@ input[type='checkbox'] {
 
 }
 
+.highlight {
+  background-color: yellow;
+}
+
+.header{
+	display:flex;
+	background-color: #56699B;
+	
+}
+#graphic_s{
+	text-align: left;
+	margin-left: 0;
+	margin-right: 0;
+	display: flex;
+}
+
+#nav_1,
+#nav_2{
+	float: right;
+	display: inline;
+	height: 75%;
+	margin-top:25px;
+	margin-right: 25px;
+}
 
 /* Clear floats after the columns */
 .row:after {

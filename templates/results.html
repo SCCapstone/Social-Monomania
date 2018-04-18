@@ -4,7 +4,6 @@
 
 
 {% block content %}
-
 <p> You searched for: {{ searchQuery }}</p>
 <p id='searchQ'></p>
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
@@ -31,7 +30,7 @@
 	  <p> Reddit Object </p>
 		{% for entry, sub in redditReturn.iteritems|slice:":50" %}
 		<div id='redditResult' style="border-style: solid; margin: 10px; padding: 10px;">
-        	<h6 id='redditDate' >{{ sub.time }} </h6>
+        	<h6 id='redditDate' > <em>{{ sub.time }} </em> </h6>
         	<h4 id='redditTitle'>{{ entry.title }}</h4>
         	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>  
    		</div>
@@ -76,7 +75,6 @@
  -->
 
 <a href="{% url 'search' %}" class='button'>New Search</a>  
-
 <!--
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
@@ -101,15 +99,20 @@ function wordCloudFunction(){
 		x.style.display = "none";
 	}
 }
+
+function 
+
+window.onload = highlight({{searchQuery}}) {
+  var inputText = document.getElementById("inputText");
+  var innerHTML = inputText.innerHTML;
+  var index = innerHTML.indexOf(text);
+  if (index >= 0) { 
+   innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
+   inputText.innerHTML = innerHTML;
+   console.log("highlight: " {{searchQuery}});
+  }
+}
 </script>
-
-<script type="text/javascript" language="javascript">
-
-
-
-</script>
-
-
 
  
 {% endblock content %}
