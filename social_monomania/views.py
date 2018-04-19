@@ -154,8 +154,16 @@ def download(request):
                      'quoted_status_friends_count', 'quoted_status_followers_count',
                      'quoted_status__user__entities__url__urls__expanded_url spreadsheet',
                      'quoted_status_user_url', 'quoted_status_user_description',
-                     'quoted_status_user_location', 'quoted_status_user_location',
-                     'quoted_status_user_screen name', 'quoted_status_user_name'
+                     'quoted_status_user_location',
+                     'quoted_status_user_screen name', 'quoted_status_user_name',
+                     'quoted_status_in_reply_to_screen_name',
+                     'quoted_status_extended_entities_media_media_url',
+                     'quoted_status_extended_entities_media_id_str',
+                     'quoted_status_entities_media_expanded_url',
+                     'quoted_status_entities_media_id_str', 'quoted_status_entities_media_url',
+                     'quoted_status_entities_media_id_str', 'quoted_status_text',
+                     'quoted_status_id_str', 'quoted_status_created_at',
+                     'quoted_status_id_str'
                      ]
         twitcol = 0
         for header in headerObj:
@@ -172,6 +180,8 @@ def download(request):
                 mentionList = []
                 mediaList = []
                 following = []
+                quotedMediaList = []
+                quotedMediaIDList = []
                 for entry in statusList:
                         #text, user, date, retweets, favorited, geolocation, link
                         twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
@@ -200,6 +210,8 @@ def download(request):
                         #quoted status in the cell.  If quoted_status doesn't exist, it writes
                         #'DNE' in the cell for Does Not Exist
                         if 'quoted_status' in entry:
+                                #to make sure you get hits for search results that have a quoted status, search for
+                                #'statuses' for twitter
                                 print "FOR TESTING YESYESYEYSEYEYESYS"
                                 twittersheet.write(twitrow, twitcol+13, entry['quoted_status']['lang'], posts_format)
                                 twittersheet.write(twitrow, twitcol+14, str(entry['quoted_status']['retweeted']), posts_format)
@@ -230,13 +242,24 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+30, entry['quoted_status']['user']['friends_count'], posts_format)
                                 twittersheet.write(twitrow, twitcol+31, entry['quoted_status']['user']['followers_count'], posts_format)
                                 #skipping statuses__quoted_status__user__entities__url__urls__expanded_url for now, twitcol is 32
+                                #if error is list indices must be integers not strings, it means that within the dictionary,
+                                #there is a list you must access.  Haven't found the best way to do this
                                 twittersheet.write_url(twitrow, twitcol+33, str(entry['quoted_status']['user']['url']), url_format)
                                 twittersheet.write(twitrow, twitcol+34, entry['quoted_status']['user']['description'], posts_format)
                                 twittersheet.write(twitrow, twitcol+35, entry['quoted_status']['user']['location'], posts_format)
                                 twittersheet.write(twitrow, twitcol+36, entry['quoted_status']['user']['screen_name'], posts_format)
                                 twittersheet.write(twitrow, twitcol+37, entry['quoted_status']['user']['name'], posts_format)
-                                #if error is list indices must be integers not strings, it means that within the dictionary,
-                                #there is a list you must access.
+                                twittersheet.write(twitrow, twitcol+38, entry['quoted_status']['in_reply_to_screen_name'], posts_format)
+                                if 'extended_entities' in entry['quoted_status']:
+                                        for item in entry['quoted_status']['extended_entities']['media']:
+                                                quotedMediaList.append(item['media_url']+'\n')
+                                                quotedMediaIDList.append(item['id_str']+'\n')
+                                        twittersheet.write_url(twitrow, twitcol+39, ''.join(quotedMediaList), url_format)                                
+                                        twittersheet.write_url(twitrow, twitcol+40, ''.join(quotedMediaIDList), url_format)
+                                else: 
+                                        twittersheet.write_url(twitrow, twitcol+39, 'No media url', url_format)                                
+                                        twittersheet.write_url(twitrow, twitcol+40, 'No media url ID', url_format)
+                                
                                 
                         else:
                                 #could potentially make a loop out of this to condense code
@@ -264,12 +287,16 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+34, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+35, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+36, 'DNE', posts_format)
-                                twittersheet.write(twitrow, twitcol+37, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+38, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+39, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+40, 'DNE', posts_format)
         
                         #clear lists for next entry, go to next row to fill
                         mentionList[:] = []
                         mediaList[:] = []
                         following[:] = []
+                        quotedMediaList[:] = []
+                        quotedMediaIDList[:] = []
                         twitrow += 1
         
                 #------------------------------------------------------------------
