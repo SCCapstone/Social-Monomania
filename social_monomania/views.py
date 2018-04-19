@@ -262,7 +262,7 @@ def download(request):
                                 
                                 
                         else:
-                                #could potentially make a loop out of this to condense code
+                                #could potentially make a loop out of this (after finishing fields) to condense code
                                 twittersheet.write(twitrow, twitcol+13, 'DNE', posts_format)                                
                                 twittersheet.write(twitrow, twitcol+14, 'DNE', posts_format)                                
                                 twittersheet.write(twitrow, twitcol+15, 'DNE', posts_format)
