@@ -19,7 +19,6 @@
     
 	<input class="w3-input w3-border w3-round-large" type="search" id="searchSecond"  name='q2' placeholder="This.." >
 	<br>&nbsp;</br>
-	<button  id='s_button' style onclick="myFunction()">Search</button>
 	<br>&nbsp;</br>
 	<div id='choices'>
 		<div id='redditBox'>
@@ -27,7 +26,7 @@
 			<div id='redditSubmenu'>
 				<p> Select subreddit to search</p>
 				<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
-				<input type="checkbox" name='subboxes[]' id="SC" value='southcarolina' checked/> SC<br />
+				<input type="checkbox" name='subboxes[]' id="SC" value='southcarolina' checked/> South Carolina<br />
 
 				<p>Custom Subreddit</p>
 				<input class="w3-input w3-border w3-round-large"type="search" id="searchCustomSub"  title="Check subreddit's proper name before searching"name='searchCustomSub' placeholder="Subreddit.." >
@@ -47,6 +46,8 @@
 			</div>
 		</div>
 	</div>
+	<button  id='s_button' style onclick="myFunction()"> Advanced Search</button>
+	<a href="{% url 'search' %}">Back to Search</a>
 	
 	
 </form>	

@@ -6,7 +6,7 @@
   margin-right: -8px;
   font-family:"Arial Black", Gadget, sans-serif;
    }
-  
+
 .header_1{
 	width:cover;
 	height: 45%;
@@ -21,18 +21,21 @@
 		text-decoration: none;
 	}
 
-  
+
 h1{
 	margin-left:50px !important;
-}  
+}
 
 .about_info{
 	padding-right: 100px;
 	padding-left: 100px;
 }
-	
 
-  
+
+button:hover{
+	background-color: #56699B;
+	color: white;
+}
 
 .graphic{
 	display: block;
@@ -40,8 +43,8 @@ h1{
         margin-right: auto;
 	width: 65%;
 }
-  
-  
+
+
 nav {
     width: 100%;
     display: table;
@@ -70,7 +73,7 @@ nav {
 	margin-left: 25px;
 	margin-right: 25px;
 	text-align: center;
-	
+
 }
 
 #mySearch {
@@ -85,6 +88,8 @@ nav {
 #s_button {
 	font-size: 30px;
 	border-radius:25px;
+	display: block;
+	margin: 20px auto;
 }
 
 #mySearch input::placeholder{
@@ -106,7 +111,7 @@ margin-bottom: 10px;
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
-    font-size: 16px;	
+    font-size: 16px;
     width: 525px;
     height: 40px;
     outline: none;
@@ -134,10 +139,10 @@ margin-bottom: 10px;
 .subject_input:: placeholder{
  	margin-top: 20px;
  	font-size: 16px;
- 	
+
  }
- 
- 
+
+
 .message_input:: placeholder{
  	margin-top: 20px;
  	font-size: 16px;
@@ -192,11 +197,11 @@ margin-bottom: 10px;
     padding: 5px;
     margin-bottom: 25px;
     }
-    
+
 #Box{
 	display: inline-flex;
 	}
-	
+
 #reddit{
 	font-size: 18px;
 	padding: 5px;
@@ -206,7 +211,7 @@ margin-bottom: 10px;
 	font-size: 18px;
 	padding: 5px;
 }
-	
+
 a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
@@ -227,7 +232,7 @@ a.button {
     border-radius: 25px;
 	font-size: 40px
     }
-    
+
 #redditBox{
 	border: 5px solid #6A589F;
     border-radius: 25px;
@@ -237,7 +242,7 @@ a.button {
 	padding:20px;
 	text-align: left;
 	}
-	
+
 #twitterBox{
 	border: 5px solid #6A589F;
     border-radius: 25px;
@@ -251,13 +256,13 @@ a.button {
 #choices{
 	display:inline-flex;
 	}
-	
+
 #twitterUser{
 	display: table-cell;
 }
 
 #twitterDate{
-	text-align:right; 
+	text-align:right;
 }
 #redditUrl{
 	display: flex;
@@ -316,7 +321,7 @@ input[type='checkbox'] {
 .header{
 	display:flex;
 	background-color: #56699B;
-	
+
 }
 #graphic_s{
 	text-align: left;
@@ -332,6 +337,7 @@ input[type='checkbox'] {
 	height: 75%;
 	margin-top:25px;
 	margin-right: 25px;
+	width: auto;
 }
 
 /* Clear floats after the columns */
@@ -342,4 +348,3 @@ input[type='checkbox'] {
 }
 
 /*# sourceMappingURL=layout.css.map */
-
