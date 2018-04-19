@@ -115,7 +115,6 @@ def download(request):
         
         redrow = 1
         redcol = 0
-        #------------------REDDIT------------------------------------------------
 
         #Spreadsheet titles for reddit sheet
         headerObjReddit = ['Post Title', 'Time', 'URL']
