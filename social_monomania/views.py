@@ -162,7 +162,6 @@ def download(request):
                      'quoted_status_entities_media_id_str', 'quoted_status_entities_media_url',
                      'quoted_status_entities_media_id_str', 'quoted_status_text',
                      'quoted_status_id_str', 'quoted_status_created_at',
-                     'quoted_status_id_str'
                      ]
         twitcol = 0
         for header in headerObj:
@@ -181,6 +180,10 @@ def download(request):
                 following = []
                 quotedMediaList = []
                 quotedMediaIDList = []
+                entitiesMediaExpandedUrlList = []
+                entitiesMediaUrlList = []
+                entitiesMediaMediaUrlList = []
+                entitiesMediaIDstr = []
                 for entry in statusList:
                         #text, user, date, retweets, favorited, geolocation, link
                         twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
@@ -243,6 +246,8 @@ def download(request):
                                 #skipping statuses__quoted_status__user__entities__url__urls__expanded_url for now, twitcol is 32
                                 #if error is list indices must be integers not strings, it means that within the dictionary,
                                 #there is a list you must access.  Haven't found the best way to do this
+                                #UPDATE: as a workaround, the way to fix this is to treat it as a list. See below (line 274) how 'id_str' was
+                                #fixed - it was giving me the same errors before.
                                 twittersheet.write_url(twitrow, twitcol+33, str(entry['quoted_status']['user']['url']), url_format)
                                 twittersheet.write(twitrow, twitcol+34, entry['quoted_status']['user']['description'], posts_format)
                                 twittersheet.write(twitrow, twitcol+35, entry['quoted_status']['user']['location'], posts_format)
@@ -256,8 +261,25 @@ def download(request):
                                         twittersheet.write_url(twitrow, twitcol+39, ''.join(quotedMediaList), url_format)                                
                                         twittersheet.write_url(twitrow, twitcol+40, ''.join(quotedMediaIDList), url_format)
                                 else: 
-                                        twittersheet.write_url(twitrow, twitcol+39, 'No media url', url_format)                                
-                                        twittersheet.write_url(twitrow, twitcol+40, 'No media url ID', url_format)
+                                        twittersheet.write(twitrow, twitcol+39, 'No media url', posts_format)                                
+                                        twittersheet.write(twitrow, twitcol+40, 'No media url ID', posts_format)
+                                        
+                                if 'entities' in entry['quoted_status']:
+                                        if 'media' in entry['quoted_status']['entities']:
+                                                for item in entry['quoted_status']['entities']['media']:
+                                                        entitiesMediaExpandedUrlList.append(item['expanded_url']+'\n')
+                                                        entitiesMediaUrlList.append(item['url']+'\n')
+                                                        entitiesMediaMediaUrlList.append(item['media_url']+'\n')
+                                                        entitiesMediaIDstr.append(item['id_str']+'\n')
+                                twittersheet.write_url(twitrow, twitcol+41, ''.join(entitiesMediaExpandedUrlList), url_format)
+                                twittersheet.write_url(twitrow, twitcol+42, ''.join(entitiesMediaUrlList), url_format)
+                                twittersheet.write_url(twitrow, twitcol+43, ''.join(entitiesMediaMediaUrlList), url_format)
+                                twittersheet.write(twitrow, twitcol+44, ''.join(entitiesMediaIDstr), posts_format)
+                                twittersheet.write(twitrow, twitcol+45, entry['quoted_status']['text'], posts_format)
+                                twittersheet.write(twitrow, twitcol+46, entry['quoted_status']['id_str'], posts_format)
+                                twittersheet.write(twitrow, twitcol+47, entry['quoted_status']['created_at'], posts_format)
+                                twittersheet.write(twitrow, twitcol+48, bool(entry['is_quote_status']), posts_format)
+                                        
                                 
                                 
                         else:
@@ -289,6 +311,14 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+38, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+39, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+40, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+41, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+42, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+43, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+44, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+45, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+46, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+47, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+48, 'DNE', posts_format)
         
                         #clear lists for next entry, go to next row to fill
                         mentionList[:] = []
@@ -296,6 +326,12 @@ def download(request):
                         following[:] = []
                         quotedMediaList[:] = []
                         quotedMediaIDList[:] = []
+                        entitiesMediaExpandedUrlList[:] = []
+                        entitiesMediaUrlList[:] = []
+                        entitiesMediaMediaUrlList[:] = []
+                        entitiesMediaIDstr[:] = []
+
+                        #go to next row
                         twitrow += 1
         
                 #------------------------------------------------------------------
