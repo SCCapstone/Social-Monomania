@@ -162,6 +162,11 @@ def download(request):
                      'quoted_status_entities_media_id_str', 'quoted_status_entities_media_url',
                      'quoted_status_entities_media_id_str', 'quoted_status_text',
                      'quoted_status_id_str', 'quoted_status_created_at',
+                     'statuses_is_quote_status', 'retweeted_status_created_at',
+                     'retweeted_status_id_str', 'retweeted_status_text',
+                     'retweeted_status_entities_urls_url',
+                     'retweeted_status_entities_urls_expanded_url',
+                     'retweeted_entities_hashtags_text'
                      ]
         twitcol = 0
         for header in headerObj:
@@ -184,6 +189,9 @@ def download(request):
                 entitiesMediaUrlList = []
                 entitiesMediaMediaUrlList = []
                 entitiesMediaIDstr = []
+                retweetedStatusEntitiesUrlsUrl = []
+                retweetedStatusEntitiesUrlsExpandedUrl = []
+                retweetedEntitiesHashtags = []
                 for entry in statusList:
                         #text, user, date, retweets, favorited, geolocation, link
                         twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
@@ -208,13 +216,16 @@ def download(request):
                         twittersheet.write(twitrow, twitcol+10, entry['lang'], posts_format)
                         twittersheet.write(twitrow, twitcol+11, str(entry['retweeted']), posts_format)
                         twittersheet.write(twitrow, twitcol+12, str(entry['favorited']), posts_format)
+
+                        #START - quoted_status
+                        
                         #this if-else checks if quoted_status, exists, then writes the data of the
                         #quoted status in the cell.  If quoted_status doesn't exist, it writes
                         #'DNE' in the cell for Does Not Exist
                         if 'quoted_status' in entry:
                                 #to make sure you get hits for search results that have a quoted status, search for
                                 #'statuses' for twitter
-                                print "FOR TESTING YESYESYEYSEYEYESYS"
+                                #print "FOR TESTING YESYESYEYSEYEYESYS"
                                 twittersheet.write(twitrow, twitcol+13, entry['quoted_status']['lang'], posts_format)
                                 twittersheet.write(twitrow, twitcol+14, str(entry['quoted_status']['retweeted']), posts_format)
                                 twittersheet.write(twitrow, twitcol+15, str(entry['quoted_status']['favorited']), posts_format)
@@ -278,10 +289,6 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+45, entry['quoted_status']['text'], posts_format)
                                 twittersheet.write(twitrow, twitcol+46, entry['quoted_status']['id_str'], posts_format)
                                 twittersheet.write(twitrow, twitcol+47, entry['quoted_status']['created_at'], posts_format)
-                                twittersheet.write(twitrow, twitcol+48, bool(entry['is_quote_status']), posts_format)
-                                        
-                                
-                                
                         else:
                                 #could potentially make a loop out of this (after finishing fields) to condense code
                                 twittersheet.write(twitrow, twitcol+13, 'DNE', posts_format)                                
@@ -318,7 +325,41 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+45, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+46, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+47, 'DNE', posts_format)
-                                twittersheet.write(twitrow, twitcol+48, 'DNE', posts_format)
+
+                        #END - quoted_status
+
+                        #is_quote_status' parent is simply [statuses]
+                        twittersheet.write(twitrow, twitcol+48, bool(entry['is_quote_status']), posts_format)
+                        
+                        #START - retweeted status
+
+                        if 'retweeted_status' in entry:
+                                print "(FOR TESTING) RETWEETED STATUS PRESENT"
+                                twittersheet.write(twitrow, twitcol+49, entry['retweeted_status']['created_at'], posts_format)
+                                twittersheet.write(twitrow, twitcol+50, entry['retweeted_status']['id_str'], posts_format)
+                                twittersheet.write(twitrow, twitcol+51, entry['retweeted_status']['text'], posts_format)
+                                for item in entry['retweeted_status']['entities']['urls']:
+                                        retweetedStatusEntitiesUrlsUrl.append(item['url']+'\n')
+                                        retweetedStatusEntitiesUrlsExpandedUrl.append(item['expanded_url']+'\n')
+                                twittersheet.write_url(twitrow, twitcol+52, ''.join(retweetedStatusEntitiesUrlsUrl), url_format)
+                                twittersheet.write_url(twitrow, twitcol+53, ''.join(retweetedStatusEntitiesUrlsExpandedUrl), url_format)
+                                if 'entities' in entry['retweeted_status']:
+                                        if 'hashtags' in entry['retweeted_status']['entities']:
+                                                for item in entry['retweeted_status']['entities']['hashtags']:
+                                                        retweetedEntitiesHashtags.append('#'+item['text']+'\n')
+                                twittersheet.write(twitrow, twitcol+54, ''.join(retweetedEntitiesHashtags), posts_format)
+                                                                              
+
+                        else:
+                                twittersheet.write(twitrow, twitcol+49, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+50, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+51, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+52, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+53, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+54, 'DNE', posts_format)
+
+
+                        #END - retweeted status
         
                         #clear lists for next entry, go to next row to fill
                         mentionList[:] = []
@@ -330,6 +371,9 @@ def download(request):
                         entitiesMediaUrlList[:] = []
                         entitiesMediaMediaUrlList[:] = []
                         entitiesMediaIDstr[:] = []
+                        retweetedStatusEntitiesUrlsUrl[:] = []
+                        retweetedStatusEntitiesUrlsExpandedUrl[:] = []
+                        retweetedEntitiesHashtags[:] = []
 
                         #go to next row
                         twitrow += 1
