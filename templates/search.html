@@ -8,9 +8,9 @@
 <form id='searchForm' method='post' onsubmit='return validateForm()' action='/results/'>
 	{% csrf_token %}
 	<h3>Enter your search in the bar below and press enter. </h3>
-	<input class="w3-input w3-border w3-round-large" type="search" id="mySearch"  name='q' placeholder=" Search.." >
+	<input class="w3-input w3-border w3-round-large" type="search" id="mySearch"  name='q' placeholder="Text Here..." >
 	{{ form }}
-	<button  id='s_button' style onclick="myFunction()">Search</button>
+	<button  id='s_button' style onclick="myFunction()">Go</button>
 	<script type="text/javascript" language="javascript">
 		document.getElementById("mySearch")
   	  	.addEventListener("keyup", function(event) {

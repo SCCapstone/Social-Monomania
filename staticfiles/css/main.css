@@ -1,53 +1,67 @@
 
 .site-container {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  font-family:"Lucida Console", Monaco, monospace;
-  padding-bottom: 100px;
-   }
-  
-.header{
+  width: cover;
+  margin-left: -8px;
+  margin-top: -8px;
+  margin-right: -8px;
+  font-family: Georgia, sans-serif;   
+}
+
+.header_1{
 	width:cover;
+	height: 45%;
+	text-align: center;
 	background-color: #56699B;
 	font-size: 30px;
 	color: black;
 	text-decoration: none;
 	}
-	.header a {
+	.header_1 a {
 		color: black;
 		text-decoration: none;
 	}
 
-  
-  
+
+h1{
+	margin-left:50px !important;
+}
+
 .about_info{
 	padding-right: 100px;
 	padding-left: 100px;
 }
-	
 
-  
+button{
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+}
+button:hover{
+	background-color: #56699B;
+	color: white;
+}
 
 .graphic{
 	display: block;
-	margin: auto;
-    width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+	width: 65%;
 }
-  
-  
+
+
 nav {
     width: 100%;
     display: table;
     width: 100%;
     table-layout: fixed;
     background-color: #E7D473;
-    margin-bottom: 1em;
     overflow: hidden; }
     .site-container nav a {
       display: table-cell;
       width: 8.33333%;
-      padding: 10px;
+      padding: 0px;
+      border-top: 2px solid #642039;
       border-bottom: 2px solid #642039;
       color: #56699B;
       letter-spacing: 0.075em;
@@ -61,7 +75,10 @@ nav {
         color: white; }
 
 .content{
+	margin-left: 25px;
+	margin-right: 25px;
 	text-align: center;
+
 }
 
 #mySearch {
@@ -75,6 +92,9 @@ nav {
 
 #s_button {
 	font-size: 30px;
+	border-radius:25px;
+	display: block;
+	margin: 20px auto;
 }
 
 #mySearch input::placeholder{
@@ -96,7 +116,7 @@ margin-bottom: 10px;
 	margin: auto;
 	border: 5px solid #6A589F;
     border-radius: 25px;
-    font-size: 16px;	
+    font-size: 16px;
     width: 525px;
     height: 40px;
     outline: none;
@@ -124,10 +144,10 @@ margin-bottom: 10px;
 .subject_input:: placeholder{
  	margin-top: 20px;
  	font-size: 16px;
- 	
+
  }
- 
- 
+
+
 .message_input:: placeholder{
  	margin-top: 20px;
  	font-size: 16px;
@@ -152,6 +172,8 @@ margin-bottom: 10px;
 
 #submit_b{
 	font-size: 30px;
+	border-radius: 25px;
+	text-align:center;
 }
 
 #id_username{
@@ -181,5 +203,154 @@ margin-bottom: 10px;
     margin-bottom: 25px;
     }
 
-/*# sourceMappingURL=layout.css.map */
+#Box{
+	display: inline-flex;
+	}
 
+#reddit{
+	font-size: 18px;
+	padding: 5px;
+}
+
+#twitter{
+	font-size: 18px;
+	padding: 5px;
+}
+
+a.button {
+    text-decoration: none;
+    color: initial;
+    font-size: 30px;
+    border-width: thin;
+    border-color: black;
+	  border-radius:25px;
+	  display: block;
+	  margin: 20px auto;
+    }
+#searchMain{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	font-size: 40px
+	}
+
+#searchSecond{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	font-size: 40px
+    }
+
+#redditBox{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 200px;
+	height: 350px;
+	margin: 10px;
+	padding:20px;
+	text-align: left;
+	}
+
+#twitterBox{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 200px;
+	height: 350px;
+	margin: 10px;
+	padding: 20px;
+	text-align: left;
+	}
+
+#choices{
+	display:inline-flex;
+	}
+
+#twitterUser{
+	display: table-cell;
+}
+
+#twitterDate{
+	text-align:right;
+}
+#redditUrl{
+	display: flex;
+}
+
+#redditDate{
+	text-align:right;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+#help_content{
+	text-align: left !important;
+}
+
+#searchCustomSub{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+#searchLocation{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+#newestDate{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#myList{
+	font-size: 20px;
+}
+
+.about-content{
+	text-align: left !important;
+	margin: 0 25px;
+}
+
+input[type='checkbox'] {
+  -webkit-transform: scale(1.5);
+  margin: 5px;
+
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.header{
+	display:flex;
+	background-color: #56699B;
+
+}
+#graphic_s{
+	text-align: left;
+	margin-left: 0;
+	margin-right: 0;
+	display: flex;
+}
+
+#nav_1,
+#nav_2{
+	float: right;
+	display: inline;
+	height: 75%;
+	margin-top:25px;
+	margin-right: 25px;
+	width: auto;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*# sourceMappingURL=layout.css.map */
