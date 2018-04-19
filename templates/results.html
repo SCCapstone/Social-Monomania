@@ -9,6 +9,8 @@
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
 <br>
 <br>
+<button onclick="highlight()"id='test_highlight'>HIGHLIGHT</button>
+
 <button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <div id="wordCloud" style="display:none">
@@ -25,45 +27,47 @@
 
 </div>
 
-<div class="row">
-  <div class="column">
-	  <h3> Reddit Object </h3>
-		{% for entry, sub in redditReturn.iteritems|slice:":50" %}
-		<div id='redditResult' style="border-style: solid; margin: 14px; padding: 10px;">
-        	<h6 style="margin:10px" id='redditDate' > <em>{{ sub.time }} </em> </h6>
-        	<p id='redditTitle'>{{ entry.title }}</p>
-        	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>
-   		</div>
-		{% endfor %}
-  </div>
-  <div class="column" id='Twitter'>
-  		<h3>Twitter Object </h3>
-		{% for entry in twitterReturn.statuses|slice:":50" %}
-		<div id='twitterResult' style="border-style: solid; margin: 10px; padding: 10px;">
-			<h6 style="margin:10px" id='twitterDate'> {{entry.created_at}} </h6>
-			<p id='twitterText'>Text: {{ entry.text }}</p>
-			<div style="margin-bottom: 10px;text-align: center;">
-			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> User Screen Name: <br> {{ entry.user.screen_name }}</h6>
-			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> User Name: <br> {{ entry.user.name }}</h6>
-			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> Retweets: <br> {{ entry.retweet_count }}</h6>
-			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> Favorited Count: <br> {{ entry.favorite_count }}</h6>
-			</div>
-			<a href="https://www.twitter.com/statuses/{{ entry.id }}" target="_blank">Link to Tweet</a>
-			<!--<img src= "isImage({{entity.media.0.type}})" />-->
-			{% for x in entry.extended_entities %}
-			<!--<p>Test Entities: {{ x }}</p>-->
-			{% if x %}
-			{% for z in entry.extended_entities.media %}
-			<!--<p>Test: {{ z }}</p>-->
-			<a href="{{ z.media_url }}">Link to Image/Media</a>
-			<br>
-			<img src="{{ z.media_url }}" alt="Twitter Img" height="250" width="250">
-			<br>
-			{% endfor %}
-			{% endif %}
-			{% endfor %}
-		</div>
-		{% endfor %}
+<div class='returnData' >
+  <div class="row">
+    <div class="column">
+  	  <h3> Reddit Object </h3>
+  		{% for entry, sub in redditReturn.iteritems|slice:":50" %}
+  		<div id='redditResult' style="border-style: solid; margin: 14px; padding: 10px;">
+          	<h6 style="margin:10px" id='redditDate' > <em>{{ sub.time }} </em> </h6>
+          	<p id='redditTitle'>{{ entry.title }}</p>
+          	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>
+     		</div>
+  		{% endfor %}
+    </div>
+    <div class="column" id='Twitter'>
+    		<h3>Twitter Object </h3>
+  		{% for entry in twitterReturn.statuses|slice:":50" %}
+  		<div id='twitterResult' style="border-style: solid; margin: 10px; padding: 10px;">
+  			<h6 style="margin:10px" id='twitterDate'> {{entry.created_at}} </h6>
+  			<p id='twitterText'>Text: {{ entry.text }}</p>
+  			<div style="margin-bottom: 10px;text-align: center;">
+  			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> User Screen Name: <br> {{ entry.user.screen_name }}</h6>
+  			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> User Name: <br> {{ entry.user.name }}</h6>
+  			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> Retweets: <br> {{ entry.retweet_count }}</h6>
+  			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> Favorited Count: <br> {{ entry.favorite_count }}</h6>
+  			</div>
+  			<a href="https://www.twitter.com/statuses/{{ entry.id }}" target="_blank">Link to Tweet</a>
+  			<!--<img src= "isImage({{entity.media.0.type}})" />-->
+  			{% for x in entry.extended_entities %}
+  			<!--<p>Test Entities: {{ x }}</p>-->
+  			{% if x %}
+  			{% for z in entry.extended_entities.media %}
+  			<!--<p>Test: {{ z }}</p>-->
+  			<a href="{{ z.media_url }}">Link to Image/Media</a>
+  			<br>
+  			<img src="{{ z.media_url }}" alt="Twitter Img" height="250" width="250">
+  			<br>
+  			{% endfor %}
+  			{% endif %}
+  			{% endfor %}
+  		</div>
+  		{% endfor %}
+    </div>
   </div>
 </div>
 
@@ -77,6 +81,7 @@
  -->
  <form action='/search/'>
  	<button  id='s_button'>New Search</button>
+
 </form>
 <!--
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
@@ -91,7 +96,7 @@ function displayGraph() {
 	} else {
 		x.style.display = "none";
 	}
-
+  console.log("display graph runs");
 }
 
 function wordCloudFunction(){
@@ -103,18 +108,20 @@ function wordCloudFunction(){
 	}
 }
 
-function
+// function highlight(){
+//   var word= '{{searchQuery}}';
+//   var data= document.getElementsByClassName('returnData');
+//   console.log('searchQuery:' + word + word.length +' ' + data);
+//     var text = word;
+//     var query = new RegExp("(\\b" + text + "\\b)", "gim");
+//     var e = document.getElementsByClassName('returnData').innerHTML;
+//     console.log(e);
+//     var enew = e.replace(/(<span>|<\/span>)/igm, "");
+//     document.getElementsByClassName('returnData').innerHTML = enew;
+//     var newe = enew.replace(query, "<span>$1</span>");
+//     document.getElementsByClassName("returnData").innerHTML = newe;
+// }
 
-window.onload = highlight({{searchQuery}}) {
-  var inputText = document.getElementById("inputText");
-  var innerHTML = inputText.innerHTML;
-  var index = innerHTML.indexOf(text);
-  if (index >= 0) {
-   innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
-   inputText.innerHTML = innerHTML;
-   console.log("highlight: " {{searchQuery}});
-  }
-}
 </script>
 
 
