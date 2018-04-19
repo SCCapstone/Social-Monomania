@@ -32,14 +32,14 @@
 		<div id='redditResult' style="border-style: solid; margin: 10px; padding: 10px;">
         	<h6 id='redditDate' > <em>{{ sub.time }} </em> </h6>
         	<h4 id='redditTitle'>{{ entry.title }}</h4>
-        	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>  
+        	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>
    		</div>
 		{% endfor %}
   </div>
   <div class="column" id='Twitter'>
   		<p>Twitter Object </p>
 		{% for entry in twitterReturn.statuses|slice:":50" %}
-		<div id='twitterResult' style="border-style: solid; margin: 10px; padding: 10px;"> 
+		<div id='twitterResult' style="border-style: solid; margin: 10px; padding: 10px;">
 			<h6 id='twitterDate'> {{entry.created_at}} </h6>
 			<h4 id='twitterText'>Text: {{ entry.text }}</h4>
 			<h6 id='twitterUser'> User Screen Name: {{ entry.user.screen_name }} / </h6>
@@ -64,17 +64,18 @@
 		{% endfor %}
   </div>
 </div>
-		
 
-		
+
+
 		<!-- Might want to use a template function to do a foreach in both of these objects to display -->
 
-    	
-<!-- 
+
+<!--
 <div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
  -->
-
-<a href="{% url 'search' %}" class='button'>New Search</a>  
+ <form action='/search/'>
+ 	<button  id='s_button'>New Search</button>
+</form>
 <!--
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
@@ -88,7 +89,7 @@ function displayGraph() {
 	} else {
 		x.style.display = "none";
 	}
-	
+
 }
 
 function wordCloudFunction(){
@@ -100,13 +101,13 @@ function wordCloudFunction(){
 	}
 }
 
-function 
+function
 
 window.onload = highlight({{searchQuery}}) {
   var inputText = document.getElementById("inputText");
   var innerHTML = inputText.innerHTML;
   var index = innerHTML.indexOf(text);
-  if (index >= 0) { 
+  if (index >= 0) {
    innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
    inputText.innerHTML = innerHTML;
    console.log("highlight: " {{searchQuery}});
@@ -114,6 +115,5 @@ window.onload = highlight({{searchQuery}}) {
 }
 </script>
 
- 
+
 {% endblock content %}
-  

@@ -1,4 +1,6 @@
-
+*{
+  font-weight:normal;
+}
 .site-container {
   width: cover;
   margin-left: -8px;
@@ -31,7 +33,12 @@ h1{
 	padding-left: 100px;
 }
 
+button{
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
 
+}
 button:hover{
 	background-color: #56699B;
 	color: white;
@@ -213,13 +220,14 @@ margin-bottom: 10px;
 }
 
 a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-	font-size: 30px;
     text-decoration: none;
     color: initial;
-    padding: 5px;
+    font-size: 30px;
+    border-width: thin;
+    border-color: black;
+	  border-radius:25px;
+	  display: block;
+	  margin: 20px auto;
     }
 #searchMain{
 	border: 5px solid #6A589F;
