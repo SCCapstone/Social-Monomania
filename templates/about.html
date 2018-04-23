@@ -6,13 +6,17 @@
 
 {% block content %}
 <div class='about-content'>
-	<p class='about_info'>	This webapp was created as a Computer Science Capstone project by several students at the University of South Carolina. 
-	This is meant to be a way to search multiple social media sites at one time and to gain insight into trends shown on these sites. 
+	<p class='about_info'>	This webapp was created as a Computer Science Capstone project by several students at the University of South Carolina.
+	This is meant to be a way to search multiple social media sites at one time and to gain insight into trends shown on these sites.
 	This webapp currently has very limited functionality compared to full featured, paid services. </p>
 
 	<p class='about_info'> Navigate to the <a href="{% url 'search' %}">Search Page</a> to begin a query. Consult the <a href="{% url 'help' %}">Help Page</a> if you have any questions. If
-	your issue is still not resolved or simply not listed, feel free to <a href="{% url 'contact' %}">Contact Us Here!</a> 
+	your issue is still not resolved or simply not listed, feel free to <a href="{% url 'contact' %}">Contact Us Here!</a>
 	</p>
+	<br>
+	<div id='movie'>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/5tDDzg6pwL8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
 	<br>
 	<h2>Disclamer:</h2>
 	<h3><em>*Due to the recent Cambridge Analytica Scandal, both Facebook and Instagram have severely limited their public data access; as a result, they are currently unavaliable*</em></h3>

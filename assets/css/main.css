@@ -4,7 +4,7 @@
   margin-left: -8px;
   margin-top: -8px;
   margin-right: -8px;
-  font-family: Georgia, sans-serif;   
+  font-family: Georgia, sans-serif;
 }
 
 .header_1{
@@ -344,6 +344,12 @@ input[type='checkbox'] {
 	margin-top:25px;
 	margin-right: 25px;
 	width: auto;
+}
+
+#movie{
+  margin:auto;
+  width: 560px;
+  height: 315px;
 }
 
 /* Clear floats after the columns */
