@@ -108,7 +108,11 @@ function wordCloudFunction(){
 	}
 }
 
-// function highlight(){
+function highlight(){
+	//This needs to ignore case, it currently does not
+	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/g, "{{ searchQuery }}".bold().italics());
+	
+//old code below
 //   var word= '{{searchQuery}}';
 //   var data= document.getElementsByClassName('returnData');
 //   console.log('searchQuery:' + word + word.length +' ' + data);
@@ -120,7 +124,7 @@ function wordCloudFunction(){
 //     document.getElementsByClassName('returnData').innerHTML = enew;
 //     var newe = enew.replace(query, "<span>$1</span>");
 //     document.getElementsByClassName("returnData").innerHTML = newe;
-// }
+}
 
 </script>
 
