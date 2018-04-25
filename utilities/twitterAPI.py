@@ -10,11 +10,11 @@ import oauth2
 CONSUMER_KEY = "VFDbTduxt6SeTwyOjOFIfwWIO"
 CONSUMER_SECRET = "MrfTScFm6APqTZxDC5cwVAfSVqy5UCbgj61nl6Q34psjcs7J5F"
 
-def search(args, date = None, geocode = None):
+def search(args, date = '', geocode = None):
 
 	query = urllib.quote_plus(args)
 
-	if (date == None and geocode == None):
+	if (date == '' and geocode == None):
 		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}".format(query)
 
 	elif (geocode == None):

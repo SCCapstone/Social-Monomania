@@ -419,15 +419,33 @@ def advancedresults(request):
         # print(request.POST['q'])
         # print(request.POST['boxes[]'])
         global searchQuery
-        queryOne  = request.POST['q1']
-        queryTwo  = request.POST['q2']
-        booleanOp = request.POST['booleanOperator']
-        searchQuery = queryOne + " " + booleanOp + " " + queryTwo
+        if(request.POST['q2'] == ''):
+            searchQuery = request.POST['q1']
+        else:
+            queryOne  = request.POST['q1']
+            queryTwo  = request.POST['q2']
+            booleanOp = request.POST['booleanOperator']
+            searchQuery = queryOne + " " + booleanOp + " " + queryTwo
         
         twitterDate = request.POST['newestDate']
 
-        subredditsDict = dict(request.POST)['subboxes[]']
-        subredditsDict.append(request.POST['searchCustomSub'])
+        subredditsDict = []
+
+        try:
+            subredditsDict = dict(request.POST)['subboxes[]']
+        except Exception as e:
+            print("Sub boxes empty")
+
+        if(subredditsDict == []):
+            subredditsDict.append(request.POST['searchCustomSub'])
+            if(subredditsDict == [u'']):
+                subredditsDict = ['news']
+        else:
+            subredditsDict.append(request.POST['searchCustomSub'])
+
+        if(twitterDate == ''):
+            print twitterDate
+
         redditReturn, twitterReturn = advancedHandler.searchHandle(searchQuery, dict(request.POST)['boxes[]'], subredditsDict, twitterDate)
         #reddit global variables
         global redditVariable
