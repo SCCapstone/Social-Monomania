@@ -133,7 +133,7 @@ function highlight(){
 </script>
 
 <script>
-	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/g, "{{ searchQuery }}".bold().italics());
+	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/gi, "{{ searchQuery }}".bold().toUpperCase());
 </script>
 
 
