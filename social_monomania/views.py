@@ -348,7 +348,7 @@ def download(request):
                         #START - retweeted status
 
                         if 'retweeted_status' in entry:
-                                print "(FOR TESTING) RETWEETED STATUS PRESENT"
+                                #print "(FOR TESTING) RETWEETED STATUS PRESENT"
                                 twittersheet.write(twitrow, twitcol+49, entry['retweeted_status']['created_at'], posts_format)
                                 twittersheet.write(twitrow, twitcol+50, entry['retweeted_status']['id_str'], posts_format)
                                 twittersheet.write(twitrow, twitcol+51, entry['retweeted_status']['text'], posts_format)
