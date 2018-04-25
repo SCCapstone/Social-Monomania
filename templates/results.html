@@ -9,7 +9,9 @@
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
 <br>
 <br>
-<button onclick="highlight()"id='test_highlight'>HIGHLIGHT</button>
+//this highlight button is no longer needed as the script runs
+//automatically at the end of the page
+//<button onclick="highlight()"id='test_highlight'>HIGHLIGHT</button>
 
 <button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -126,6 +128,10 @@ function highlight(){
 //     document.getElementsByClassName("returnData").innerHTML = newe;
 }
 
+</script>
+
+<script>
+	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/g, "{{ searchQuery }}".bold().italics());
 </script>
 
 
