@@ -352,6 +352,10 @@ input[type='checkbox'] {
   height: 315px;
 }
 
+i {
+  background-color: yellow;
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";
