@@ -39,6 +39,9 @@
   		<div id='redditResult' style="border-style: solid; margin: 14px; padding: 10px;">
           	<h6 style="margin:10px" id='redditDate' > <em>{{ sub.time }} </em> </h6>
           	<p id='redditTitle'>{{ entry.title }}</p>
+            <h6 style="margin:auto;width:auto;display:inline-block;" id="redditPostInfo"> Upvotes: <br> {{ sub.upvotes }} </h6>
+            <h6 style="margin:auto;width:auto;display:inline-block;" id="redditPostInfo"> Subreddit: <br> {{ sub.source_sub }} </h6>
+            <h6 style="margin:auto;width:auto;display:inline-block;" id="redditPostInfo"> Comments: <br> {{ sub.comments }} </h6>
           	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>
      		</div>
   		{% endfor %}

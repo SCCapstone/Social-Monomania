@@ -443,9 +443,6 @@ def advancedresults(request):
         else:
             subredditsDict.append(request.POST['searchCustomSub'])
 
-        if(twitterDate == ''):
-            print twitterDate
-
         redditReturn, twitterReturn = advancedHandler.searchHandle(searchQuery, dict(request.POST)['boxes[]'], subredditsDict, twitterDate)
         #reddit global variables
         global redditVariable

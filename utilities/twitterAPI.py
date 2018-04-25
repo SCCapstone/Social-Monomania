@@ -15,23 +15,30 @@ def search(args, date = '', geocode = None):
 	query = urllib.quote_plus(args)
 
 	if (date == '' and geocode == None):
-		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}".format(query)
+		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&count=100".format(query)
 
 	elif (geocode == None):
-		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&until={1}".format(query,date)
+		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&until={1}&count=100".format(query,date)
 
 	#r = urllib2.urlopen(url)
 	#resultJSON = r.readline().decode('utf-8')
 	resultJSON = oauth_req(url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
 	result_parsed = json.loads(resultJSON)
-	statuses = result_parsed.get("statuses")
-	# f = open('twitter.txt', 'w')
-			#print x.get("entities").get("media")[0]
+
+	next_results = result_parsed.get('search_metadata').get('next_results')
+	next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
+
+	for i in range(1,10):
+		resultJSONLoop = oauth_req(next_url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
+		result_parsedLoop = json.loads(resultJSONLoop)
 		
-		#print x.get("entities").get("media").get("media_url")
-	# # 	f.write(x.get("user").get("screen_name").encode("UTF-8") +": " + x.get("text").encode("UTF-8") +"\n")
-	# f.close()
-	#print("DID TWITTER!")
+
+		for status in result_parsedLoop.get('statuses'):
+			result_parsed.get('statuses').append(status)
+
+		next_results = result_parsedLoop.get('search_metadata').get('next_results')
+		next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
+
 	return result_parsed
 
 

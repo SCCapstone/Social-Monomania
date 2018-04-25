@@ -38,9 +38,12 @@ def search(args = None, subreddits = ['news']):
 		timestamp = datetime.date.fromtimestamp(time)
 
 		retInfo[submission.title] = {
-			'time' : timestamp,
-			'url'  : "http://www.reddit.com" + submission.permalink
-		}
+			'time'       : timestamp,
+			'url'        : "http://www.reddit.com" + submission.permalink,
+			'upvotes'    : submission.score,
+			'source_sub' : submission.subreddit,
+			'comments'   : submission.num_comments
+			}
 
 	#print("DID REDDIT!")
 	#print(retInfo)
