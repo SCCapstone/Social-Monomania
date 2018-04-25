@@ -112,9 +112,10 @@ function wordCloudFunction(){
 	}
 }
 
-function highlight(){
+// NOTE: this highlight function is no longer being used, but keeping it for reference for the time being
+//function highlight(){
 	//This needs to ignore case, it currently does not
-	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/g, "{{ searchQuery }}".bold().italics());
+//	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/g, "{{ searchQuery }}".bold().italics());
 	
 //old code below
 //   var word= '{{searchQuery}}';
@@ -128,10 +129,12 @@ function highlight(){
 //     document.getElementsByClassName('returnData').innerHTML = enew;
 //     var newe = enew.replace(query, "<span>$1</span>");
 //     document.getElementsByClassName("returnData").innerHTML = newe;
-}
+//}
 
 </script>
 
+<!-- The script below is for altering the keywords in each Reddit/Twitter obj.  It uses
+regular expression flags g (global) and i (ignoreCase) -->
 <script>
 	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/gi, "{{ searchQuery }}".bold().italics().toUpperCase());
 </script>
