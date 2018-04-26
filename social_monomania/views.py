@@ -171,7 +171,18 @@ def download(request):
                      'retweeted_status__entities__media__id_str', 'retweeted_status__entities__media__media_url',
                      'retweeted_status__entities__media__url', 'retweeted_status__entities__media__expanded_url',
                      'retweeted_status__entities__media__source_status_id_str',
-                     'retweeted_status__entities__media__source_user_id_str'
+                     'retweeted_status__entities__media__source_user_id_str',
+                     'retweetedExtendedEntitiesMediaIDStr', 'retweetedExtendedEntitiesMediaMediaUrl',
+                     'retweetedExtendedEntitiesMediaUrl', 'retweetedExtendedEntitiesMediaExpandedUrl',
+                     'retweetedExtendedEntitiesMediaSourceStatusIDStr', 'retweetedExtendedEntitiesMediaSourceUserIDStr',
+                     'retweetedMetadataISOLanguageCode', 'retweetedSource','retweetedInReplyToStatusIDStr',
+                     'retweetedInReplyToUserIDStr', 'retweetedInReplyToScreenName',
+                     'retweetedUserName', 'retweetedUserScreenName', 'retweetedUserLocation',
+                     'retweetedUserDescription', 'retweetedUserURL', 'retweetedUserFollowersCount',
+                     'retweetedUserFriendsCount', 'retweetedUserListedCount', 'retweetedUserCreatedAt',
+                     'retweetedUserFavouritesCount', 'retweetedUserTimeZone', 'retweetedUserVerified',
+                     'retweetedUserLang', 'retweetedUserProfileBackgroundImageURL',
+                     'retweetedUserProfileImageURL', 'retweetedUserFollowing'
                      ]
         twitcol = 0
         for header in headerObj:
@@ -185,6 +196,15 @@ def download(request):
                 twittersheet.write(1, 0, "No Twitter Data Found", posts_format)
         else:
                 statusList = twitterVariable['statuses']
+
+                #these are the lists created for entries that require lists.
+                #these include information derived from the dictionary
+                #nested in a list nested in the main dictionary.  In Twitter,
+                #a user might link multiple media links (images, for example)
+                #and in order to capture ALL of these links, they have to put into
+                #a list.  And if there are multiple medias, that means there is
+                #potential for multiple media IDs, Urls, Sources, etc.  This is the
+                #reason for the large number of lists.
                 mentionList = []
                 mediaList = []
                 following = []
@@ -206,6 +226,13 @@ def download(request):
                 retweetedEntitiesMediaExpUrl = []
                 retweetedEntitiesMediaSourceStatusID = []
                 retweetedEntitiesMediaSourceUserIDstr = []
+                # started 4/26
+                retweetedExtendedEntitiesMediaIDStr = []
+                retweetedExtendedEntitiesMediaMediaUrl = []
+                retweetedExtendedEntitiesMediaUrl = []
+                retweetedExtendedEntitiesMediaExpandedUrl = []
+                retweetedExtendedEntitiesMediaSourceStatusIDStr = []
+                retweetedExtendedEntitiesMediaSourceUserIDStr = []
                 for entry in statusList:
                         #text, user, date, retweets, favorited, geolocation, link
                         twittersheet.write(twitrow, twitcol, entry['text'], posts_format)
@@ -236,6 +263,17 @@ def download(request):
                         #this if-else checks if quoted_status, exists, then writes the data of the
                         #quoted status in the cell.  If quoted_status doesn't exist, it writes
                         #'DNE' in the cell for Does Not Exist
+
+                        #----------NOTE-----------
+                        #each of these if-statements below are necessary for error catching.  In some cases,
+                        #the if statement is needed because of the way the json file is created.
+                        #Sometimes there are dictionaries of lists, while sometimes there are additional
+                        #lists of dictionaries nested in these parent dictionaries.  In each case,
+                        #it might be different in the approach to extract the information for the
+                        #excel field, but the technique in the if-statements and for-loops are
+                        #consistent throughout this document.
+                        #-------------------------
+                        
                         if 'quoted_status' in entry:
                                 #to make sure you get hits for search results that have a quoted status, search for
                                 #'statuses' for twitter
@@ -368,9 +406,9 @@ def download(request):
                                                         retweetedUserMentionsScreenNames.append('@'+item['screen_name']+'\n')
                                                         retweetedUserMentionsNames.append('@'+item['name']+'\n')
                                                         retweetedUserMentionsIDstrs.append('@'+item['id_str']+'\n') 
-                                                twittersheet.write(twitrow, twitcol+55, ''.join(retweetedUserMentionsScreenNames), posts_format)
-                                                twittersheet.write(twitrow, twitcol+56, ''.join(retweetedUserMentionsNames), posts_format)
-                                                twittersheet.write(twitrow, twitcol+57, ''.join(retweetedUserMentionsIDstrs), posts_format)
+                                twittersheet.write(twitrow, twitcol+55, ''.join(retweetedUserMentionsScreenNames), posts_format)
+                                twittersheet.write(twitrow, twitcol+56, ''.join(retweetedUserMentionsNames), posts_format)
+                                twittersheet.write(twitrow, twitcol+57, ''.join(retweetedUserMentionsIDstrs), posts_format)
                                 if 'entities' in entry['retweeted_status']:
                                         if 'media' in entry['retweeted_status']['entities']:
                                                 for item in entry['retweeted_status']['entities']['media']:
@@ -378,17 +416,59 @@ def download(request):
                                                         retweetedEntitiesMediaMediaUrl.append(item['media_url']+'\n')
                                                         retweetedEntitiesMediaUrl.append(item['url']+'\n')
                                                         retweetedEntitiesMediaExpUrl.append(item['expanded_url']+'\n')
-                                                        retweetedEntitiesMediaSourceStatusID.append(item['source_status_id_str']+'\n')
-                                                        retweetedEntitiesMediaSourceUserIDstr.append(item['source_user_id_str']+'\n')
-                                                twittersheet.write(twitrow, twitcol+58, ''.join(retweetedEntitiesMediaIDstr), posts_format)
-                                                twittersheet.write_url(twitrow, twitcol+59, ''.join(retweetedEntitiesMediaMediaUrl), url_format)
-                                                twittersheet.write_url(twitrow, twitcol+60, ''.join(retweetedEntitiesMediaUrl), url_format)
-                                                twittersheet.write_url(twitrow, twitcol+61, ''.join(retweetedEntitiesMediaExpUrl), url_format)
-                                                twittersheet.write(twitrow, twitcol+62, ''.join(retweetedEntitiesMediaSourceStatusID), posts_format)
-                                                twittersheet.write(twitrow, twitcol+63, ''.join(retweetedEntitiesMediaSourceUserIDstr), posts_format)
-                                
+                                                        if 'source_status_id_str' in item:
+                                                                retweetedEntitiesMediaSourceStatusID.append(item['source_status_id_str']+'\n')
+                                                        if 'source_user_id_str' in item:
+                                                                retweetedEntitiesMediaSourceUserIDstr.append(item['source_user_id_str']+'\n')
+                                twittersheet.write(twitrow, twitcol+58, ''.join(retweetedEntitiesMediaIDstr), posts_format)
+                                twittersheet.write_url(twitrow, twitcol+59, ''.join(retweetedEntitiesMediaMediaUrl), url_format)
+                                twittersheet.write_url(twitrow, twitcol+60, ''.join(retweetedEntitiesMediaUrl), url_format)
+                                twittersheet.write_url(twitrow, twitcol+61, ''.join(retweetedEntitiesMediaExpUrl), url_format)
+                                twittersheet.write(twitrow, twitcol+62, ''.join(retweetedEntitiesMediaSourceStatusID), posts_format)
+                                twittersheet.write(twitrow, twitcol+63, ''.join(retweetedEntitiesMediaSourceUserIDstr), posts_format)
+                                #started here 4/26
+                                if 'extended_entities' in entry['retweeted_status']:
+                                        for item in entry['retweeted_status']['extended_entities']['media']:
+                                                retweetedExtendedEntitiesMediaIDStr.append(item['id_str']+'\n')
+                                                retweetedExtendedEntitiesMediaMediaUrl.append(item['media_url']+'\n')
+                                                retweetedExtendedEntitiesMediaUrl.append(item['url']+'\n')
+                                                retweetedExtendedEntitiesMediaExpandedUrl.append(item['expanded_url']+'\n')
+                                                if 'source_status_id_str' in item:
+                                                        retweetedExtendedEntitiesMediaSourceStatusIDStr.append(item['source_status_id_str']+'\n')
+                                                if 'source_user_id_str' in item:
+                                                        retweetedExtendedEntitiesMediaSourceUserIDStr.append(item['source_user_id_str']+'\n')
+                                twittersheet.write(twitrow, twitcol+64, ''.join(retweetedExtendedEntitiesMediaIDStr), posts_format)
+                                twittersheet.write_url(twitrow, twitcol+65, ''.join(retweetedExtendedEntitiesMediaMediaUrl), url_format)
+                                twittersheet.write_url(twitrow, twitcol+66, ''.join(retweetedExtendedEntitiesMediaUrl), url_format)
+                                twittersheet.write_url(twitrow, twitcol+67, ''.join(retweetedExtendedEntitiesMediaExpandedUrl), url_format)
+                                twittersheet.write(twitrow, twitcol+68, ''.join(retweetedExtendedEntitiesMediaSourceStatusIDStr), posts_format)
+                                twittersheet.write(twitrow, twitcol+69, ''.join(retweetedExtendedEntitiesMediaSourceUserIDStr), posts_format)
+                                if 'metadata' in entry['retweeted_status']:
+                                        twittersheet.write(twitrow, twitcol+70, entry['retweeted_status']['metadata']['iso_language_code'], posts_format)
+                                twittersheet.write(twitrow, twitcol+71, entry['retweeted_status']['source'], posts_format)
+                                twittersheet.write(twitrow, twitcol+72, entry['retweeted_status']['in_reply_to_status_id_str'], posts_format)
+                                twittersheet.write(twitrow, twitcol+73, entry['retweeted_status']['in_reply_to_user_id_str'], posts_format)
+                                twittersheet.write(twitrow, twitcol+74, entry['retweeted_status']['in_reply_to_screen_name'], posts_format)
+                                twittersheet.write(twitrow, twitcol+75, entry['retweeted_status']['user']['name'], posts_format)
+                                twittersheet.write(twitrow, twitcol+76, entry['retweeted_status']['user']['screen_name'], posts_format)
+                                twittersheet.write(twitrow, twitcol+77, entry['retweeted_status']['user']['location'], posts_format)
+                                twittersheet.write(twitrow, twitcol+78, entry['retweeted_status']['user']['description'], posts_format)
+                                twittersheet.write_url(twitrow, twitcol+79, str(entry['retweeted_status']['user']['url']), url_format)
+                                twittersheet.write(twitrow, twitcol+80, entry['retweeted_status']['user']['followers_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+81, entry['retweeted_status']['user']['friends_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+82, entry['retweeted_status']['user']['listed_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+83, entry['retweeted_status']['user']['created_at'], posts_format)
+                                twittersheet.write(twitrow, twitcol+84, entry['retweeted_status']['user']['favourites_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+85, entry['retweeted_status']['user']['time_zone'], posts_format)
+                                twittersheet.write(twitrow, twitcol+86, entry['retweeted_status']['user']['verified'], posts_format)
+                                twittersheet.write(twitrow, twitcol+87, entry['retweeted_status']['user']['lang'], posts_format)
+                                twittersheet.write_url(twitrow, twitcol+88, str(entry['retweeted_status']['user']['profile_background_image_url']), url_format)
+                                twittersheet.write_url(twitrow, twitcol+89, str(entry['retweeted_status']['user']['profile_image_url']), url_format)
+                                twittersheet.write(twitrow, twitcol+90, entry['retweeted_status']['user']['following'], posts_format)
+
 
                         else:
+                                #this can be condensed later using a loop
                                 twittersheet.write(twitrow, twitcol+49, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+50, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+51, 'DNE', posts_format)
@@ -404,6 +484,33 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+61, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+62, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+63, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+64, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+65, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+66, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+67, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+68, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+69, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+70, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+71, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+72, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+73, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+74, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+75, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+76, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+77, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+78, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+79, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+80, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+81, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+82, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+83, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+84, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+85, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+86, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+87, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+88, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+89, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+90, 'DNE', posts_format)
 
 
                         #END - retweeted status
@@ -430,6 +537,12 @@ def download(request):
                         retweetedEntitiesMediaExpUrl[:] = []
                         retweetedEntitiesMediaSourceStatusID[:] = []
                         retweetedEntitiesMediaSourceUserIDstr[:] = []
+                        retweetedExtendedEntitiesMediaIDStr = []
+                        retweetedExtendedEntitiesMediaMediaUrl = []
+                        retweetedExtendedEntitiesMediaUrl = []
+                        retweetedExtendedEntitiesMediaExpandedUrl = []
+                        retweetedExtendedEntitiesMediaSourceStatusIDStr = []
+                        retweetedExtendedEntitiesMediaSourceUserIDStr = []
 
                         #go to next row
                         twitrow += 1
