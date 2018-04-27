@@ -69,17 +69,4 @@ if __name__ == '__main__':
 
 	search(args[0])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #reddit.subreddit('news').search('timestamp:{0}..{1}'.format(int(time.mktime(time_now.timetuple()) - datetime.timedelta(days=365).total_seconds()), int(time.mktime(time_now.timetuple()))), params)
