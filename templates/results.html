@@ -94,7 +94,7 @@
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
 <script>
-
+//Code for displaying the graph, using the specified button.
 function displayGraph() {
 	var x = document.getElementById("lineGraph");
 	if(x.style.display == "none"){
@@ -115,24 +115,25 @@ function wordCloudFunction(){
 	}
 }
 
-// NOTE: this highlight function is no longer being used, but keeping it for reference for the time being
-//function highlight(){
-	//This needs to ignore case, it currently does not
-//	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/g, "{{ searchQuery }}".bold().italics());
+/* NOTE: this highlight function is no longer being used, but keeping it for reference for the time being
+  function highlight(){
+This needs to ignore case, it currently does not
+	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/g, "{{ searchQuery }}".bold().italics());
 	
-//old code below
-//   var word= '{{searchQuery}}';
-//   var data= document.getElementsByClassName('returnData');
-//   console.log('searchQuery:' + word + word.length +' ' + data);
-//     var text = word;
-//     var query = new RegExp("(\\b" + text + "\\b)", "gim");
-//     var e = document.getElementsByClassName('returnData').innerHTML;
-//     console.log(e);
-//     var enew = e.replace(/(<span>|<\/span>)/igm, "");
-//     document.getElementsByClassName('returnData').innerHTML = enew;
-//     var newe = enew.replace(query, "<span>$1</span>");
-//     document.getElementsByClassName("returnData").innerHTML = newe;
-//}
+old code below
+   var word= '{{searchQuery}}';
+   var data= document.getElementsByClassName('returnData');
+   console.log('searchQuery:' + word + word.length +' ' + data);
+     var text = word;
+     var query = new RegExp("(\\b" + text + "\\b)", "gim");
+     var e = document.getElementsByClassName('returnData').innerHTML;
+     console.log(e);
+     var enew = e.replace(/(<span>|<\/span>)/igm, "");
+     document.getElementsByClassName('returnData').innerHTML = enew;
+     var newe = enew.replace(query, "<span>$1</span>");
+     document.getElementsByClassName("returnData").innerHTML = newe;
+  }
+*/
 
 </script>
 
