@@ -37,7 +37,8 @@ def search(args, date = '', geocode = None):
 			result_parsed.get('statuses').append(status)
 
 		next_results = result_parsedLoop.get('search_metadata').get('next_results')
-		next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
+		if (next_results != None):
+			next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
 
 	return result_parsed
 
