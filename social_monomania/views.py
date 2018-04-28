@@ -185,7 +185,13 @@ def download(request):
                      'retweetedUserProfileImageURL', 'retweetedUserFollowing',
                      'retweetedGeo', 'retweetedCoordinates', 'retweetedPlace', 'retweetedIsQuoteStatus',
                      'retweetedRetweetCount', 'retweetedFavoriteCount', 'retweetedFavorited',
-                     'retweetedRetweeted', 'retweetedPossiblySensitive', 'retweetedLang'
+                     'retweetedRetweeted', 'retweetedPossiblySensitive', 'retweetedLang',
+                     'UserLocation', 'UserDescription', 'UserUrl', 'UserEntitiesUrlUrlsUrl',
+                     'UserEntitiesUrlUrlsExpandedUrl', 'UserProtected', 'UserFollowersCount',
+                     'UserFriendsCount', 'UserListedCount', 'UserCreatedAt', 'UserFavouritesCount',
+                     'UsertTimeZone', 'UserVerified', 'UserLang', 'UserContributorsEnabled',
+                     'UserProfileBackgroundImageUrl', 'UserProfileImageUrl', 'UserProfileImagUrlHttps',
+                     'UserProfileBannerUrl', 'UserFollowing'
                      ]
         twitcol = 0
         for header in headerObj:
@@ -488,13 +494,7 @@ def download(request):
                                         twittersheet.write(twitrow, twitcol+99, entry['retweeted_status']['possibly_sensitive'], posts_format)
                                 else:
                                         twittersheet.write(twitrow, twitcol+99, 'DNE', posts_format)
-                                twittersheet.write(twitrow, twitcol+100, entry['retweeted_status']['lang'], posts_format)
-
-
-                                
-                                
-
-
+                                twittersheet.write(twitrow, twitcol+100, entry['retweeted_status']['lang'], posts_format)                       
                         else:
                                 #this can be condensed later using a loop
                                 twittersheet.write(twitrow, twitcol+49, 'DNE', posts_format)
@@ -549,9 +549,79 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+98, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+99, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+100, 'DNE', posts_format)
-
-
                         #END - retweeted status
+
+                        #normal user block start
+                        if 'user' in entry:
+                                #statuses__user__location 101
+                                #statuses__user__description 102
+                                #statuses__user__url 103
+                                #statuses__user__entities__url__urls__url 104
+                                #statuses__user__entities__url__urls__expanded_url 105
+                                #statuses__user__protected 106
+                                #statuses__user__followers_count 107
+                                #statuses__user__friends_count 108
+                                #statuses__user__listed_count 109
+                                #statuses__user__created_at 110
+                                #statuses__user__favourites_count 111
+                                #statuses__user__time_zone 112
+                                #statuses__user__verified 113
+                                #statuses__user__lang 114
+                                #statuses__user__contributors_enabled 115
+                                #statuses__user__profile_background_image_url 116
+                                #statuses__user__profile_image_url 117
+                                #statuses__user__profile_image_url_https 118
+                                #statuses__user__profile_banner_url 119
+                                #statuses__user__following 120
+                                twittersheet.write(twitrow, twitcol+101, entry['user']['location'], posts_format)
+                                twittersheet.write(twitrow, twitcol+102, entry['user']['description'], posts_format)
+                                twittersheet.write_url(twitrow, twitcol+103, str(entry['user']['url']), url_format)
+                                #twittersheet.write(twitrow, twitcol+104, entry['user']['location'], posts_format)
+                                #twittersheet.write(twitrow, twitcol+105, entry['user']['location'], posts_format)
+                                twittersheet.write(twitrow, twitcol+106, entry['user']['protected'], posts_format)
+                                twittersheet.write(twitrow, twitcol+107, entry['user']['followers_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+108, entry['user']['friends_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+109, entry['user']['listed_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+110, entry['user']['created_at'], posts_format)
+                                twittersheet.write(twitrow, twitcol+111, entry['user']['favourites_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+112, entry['user']['time_zone'], posts_format)
+                                twittersheet.write(twitrow, twitcol+113, entry['user']['verified'], posts_format)
+                                twittersheet.write(twitrow, twitcol+114, entry['user']['lang'], posts_format)
+                                twittersheet.write(twitrow, twitcol+115, entry['user']['contributors_enabled'], posts_format)
+                                twittersheet.write_url(twitrow, twitcol+116, str(entry['user']['profile_background_image_url']), url_format)
+                                twittersheet.write_url(twitrow, twitcol+117, entry['user']['profile_image_url'], url_format)
+                                twittersheet.write_url(twitrow, twitcol+118, entry['user']['profile_image_url_https'], url_format)
+                                if 'profile_banner_url' in entry['user']:
+                                        twittersheet.write_url(twitrow, twitcol+119, entry['user']['profile_banner_url'], url_format)
+                                else:
+                                        twittersheet.write(twitrow, twitcol+119, 'No banner URL', posts_format)
+                                twittersheet.write(twitrow, twitcol+120, entry['user']['following'], posts_format)
+
+                        else:
+                                
+                                twittersheet.write(twitrow, twitcol+101, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+102, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+103, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+104, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+105, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+106, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+107, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+108, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+109, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+110, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+111, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+112, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+113, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+114, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+115, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+116, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+117, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+118, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+119, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+120, 'DNE', posts_format)
+
+
+                        
         
                         #clear lists for next entry, go to next row to fill
                         mentionList[:] = []
