@@ -182,7 +182,10 @@ def download(request):
                      'retweetedUserFriendsCount', 'retweetedUserListedCount', 'retweetedUserCreatedAt',
                      'retweetedUserFavouritesCount', 'retweetedUserTimeZone', 'retweetedUserVerified',
                      'retweetedUserLang', 'retweetedUserProfileBackgroundImageURL',
-                     'retweetedUserProfileImageURL', 'retweetedUserFollowing'
+                     'retweetedUserProfileImageURL', 'retweetedUserFollowing',
+                     'retweetedGeo', 'retweetedCoordinates', 'retweetedPlace', 'retweetedIsQuoteStatus',
+                     'retweetedRetweetCount', 'retweetedFavoriteCount', 'retweetedFavorited',
+                     'retweetedRetweeted', 'retweetedPossiblySensitive', 'retweetedLang'
                      ]
         twitcol = 0
         for header in headerObj:
@@ -290,7 +293,9 @@ def download(request):
                                                 twittersheet.write(twitrow, twitcol+19, entry['quoted_status']['place']['country'], posts_format)
                                         else:
                                                 twittersheet.write(twitrow, twitcol+19, 'No country listed', posts_format)
-                                twittersheet.write(twitrow, twitcol+20, entry['quoted_status']['coordinates'], posts_format)
+                                #this one row below with coordinates was throwing an error of 'Unsupported type <type 'dict'> in write()'
+                                #commenting it out for now
+                                #twittersheet.write(twitrow, twitcol+20, entry['quoted_status']['coordinates'], posts_format)
                                 twittersheet.write(twitrow, twitcol+21, entry['quoted_status']['geo'], posts_format)
                                 twittersheet.write(twitrow, twitcol+22, entry['quoted_status']['user']['created_at'], posts_format)
                                 twittersheet.write(twitrow, twitcol+23, bool(entry['quoted_status']['user']['following']), posts_format)
@@ -465,6 +470,29 @@ def download(request):
                                 twittersheet.write_url(twitrow, twitcol+88, str(entry['retweeted_status']['user']['profile_background_image_url']), url_format)
                                 twittersheet.write_url(twitrow, twitcol+89, str(entry['retweeted_status']['user']['profile_image_url']), url_format)
                                 twittersheet.write(twitrow, twitcol+90, entry['retweeted_status']['user']['following'], posts_format)
+                                twittersheet.write(twitrow, twitcol+91, entry['retweeted_status']['geo'], posts_format)
+                                #coordinates is messing up, commenting out for now
+                                #twittersheet.write(twitrow, twitcol+92, entry['retweeted_status']['coordinates'], posts_format)
+                                #place requires this if/else statement and error catcher like it did before
+                                if entry['retweeted_status']['place'] != None:
+                                        if 'country' in entry['retweeted_status']['place']:
+                                                twittersheet.write(twitrow, twitcol+93, entry['retweeted_status']['place']['country'], posts_format)
+                                        else:
+                                                twittersheet.write(twitrow, twitcol+93, 'No country listed', posts_format)
+                                twittersheet.write(twitrow, twitcol+94, entry['retweeted_status']['is_quote_status'], posts_format)
+                                twittersheet.write(twitrow, twitcol+95, entry['retweeted_status']['retweet_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+96, entry['retweeted_status']['favorite_count'], posts_format)
+                                twittersheet.write(twitrow, twitcol+97, entry['retweeted_status']['favorited'], posts_format)
+                                twittersheet.write(twitrow, twitcol+98, entry['retweeted_status']['retweeted'], posts_format)
+                                if 'possibly_sensitive' in ['retweeted_status']:
+                                        twittersheet.write(twitrow, twitcol+99, entry['retweeted_status']['possibly_sensitive'], posts_format)
+                                else:
+                                        twittersheet.write(twitrow, twitcol+99, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+100, entry['retweeted_status']['lang'], posts_format)
+
+
+                                
+                                
 
 
                         else:
@@ -511,6 +539,16 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+88, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+89, 'DNE', posts_format)
                                 twittersheet.write(twitrow, twitcol+90, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+91, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+92, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+93, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+94, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+95, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+96, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+97, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+98, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+99, 'DNE', posts_format)
+                                twittersheet.write(twitrow, twitcol+100, 'DNE', posts_format)
 
 
                         #END - retweeted status
