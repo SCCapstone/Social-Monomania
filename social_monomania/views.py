@@ -250,40 +250,40 @@ def download(request):
                      'QuotedText', #110
                      '', #left blank for sentiment analysis field 111
                      '', #left blank for sentiment analysis field 112
-                     'QuotedGeo', #113
-                     'QuotedCoordinates', #114
-                     'QuotedPlace', #place is it's own dictionary. I will pull data from key 'country' from place dict  115
-                     'QuotedIsQuoteStatus', #116
-                     'QuotedRetweetCount', #117
-                     'QuotedFavoriteCount', #118
-                     'QuotedFavorited', #119
-                     'QuotedRetweeted', #120
-                     'QuotedPossiblySensitive', #121
-                     'QuotedLangugage', #122
-                     'QuotedUserName', #123
-                     'QuotedUserScreenName', #124
-                     'QuotedUserLocation', #125
-                     'QuotedUserDescription', #126
-                     'QuotedUserUrl', #127
-                     'QuotedUserUrlsUrl', #128
-                     'QuotedUserExpandedUrl', #129
-                     'QuotedUserFollowersCount', #130
-                     'QuotedUserFriendsCount', #131
-                     'QuotedUserListedCount', #132
-                     'QuotedUserCreatedAt', #133
-                     'QuotedUserFavouritesCount', #134
-                     'QuotedUserTimeZone', #135
-                     'QuotedUserLang', #136
-                     'QuotedUserProfileBackgroundImageUrl', #137
-                     'QuotedUserProfileImageUrl', #138
-                     'QuotedUserFollowing', #139
-                     'QuotedMediaID', #140
-                     'QuotedMediaMediaUrl', #141
-                     'QuotedMediaUrl', #142
-                     'QuotedMediaExpandedUrl', #143
-                     'QuotedMediaID', #144
-                     'QuotedMediaMediaURL', #145
-                     'QuotedInReplyToScreenName'  #146
+                     'QuotedMediaID', #113
+                     'QuotedMediaMediaUrl', #114
+                     'QuotedMediaUrl', #115
+                     'QuotedMediaExpandedUrl', #116
+                     'QuotedMediaID', #117
+                     'QuotedMediaMediaURL', #118
+                     'QuotedInReplyToScreenName'  #119
+                     'QuotedUserName', #120
+                     'QuotedUserScreenName', #121
+                     'QuotedUserLocation', #122
+                     'QuotedUserDescription', #123
+                     'QuotedUserUrl', #124
+                     'QuotedUserUrlsUrl', #125
+                     'QuotedUserExpandedUrl', #126
+                     'QuotedUserFollowersCount', #127
+                     'QuotedUserFriendsCount', #128
+                     'QuotedUserListedCount', #129
+                     'QuotedUserCreatedAt', #130
+                     'QuotedUserFavouritesCount', #131
+                     'QuotedUserTimeZone', #132
+                     'QuotedUserLang', #133
+                     'QuotedUserProfileBackgroundImageUrl', #134
+                     'QuotedUserProfileImageUrl', #135
+                     'QuotedUserFollowing', #136
+                     'QuotedGeo', #137
+                     'QuotedCoordinates', #138
+                     'QuotedPlace', #place is it's own dictionary. I will pull data from key 'country' from place dict  139
+                     'QuotedIsQuoteStatus', #140
+                     'QuotedRetweetCount', #141
+                     'QuotedFavoriteCount', #142
+                     'QuotedFavorited', #143
+                     'QuotedRetweeted', #144
+                     'QuotedPossiblySensitive', #145
+                     'QuotedLangugage', #146
                      ]
         twitcol = 0
         for header in headerObj:
