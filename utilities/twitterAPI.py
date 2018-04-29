@@ -27,7 +27,12 @@ def search(args, date = '', geocode = None):
 	result_parsed = json.loads(resultJSON)
 
 	#Gets the next result url from Twitter.
-	next_results = result_parsed.get('search_metadata').get('next_results')
+	next_results = None
+	try:
+		next_results = result_parsed.get('search_metadata').get('next_results')
+	except Exception as e:
+		print(e)
+		
 	next_url = ""
 	if (next_results != None):
 		next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
