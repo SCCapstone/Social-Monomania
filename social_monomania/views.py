@@ -149,7 +149,7 @@ def download(request):
                      'RetweetCount', #9
                      'FavoriteCount', #10
                      'Favorited', #11
-                     'Retweete?', #12
+                     'Retweeted', #12
                      'PossiblySensitive', #13
                      'Language', #14
                      'IsQuoteStatus', #15
@@ -194,57 +194,57 @@ def download(request):
                      'RetweetedText', #54
                      '', #left blank for sentiment analysis field 55
                      '', #left blank for sentiment analysis field 56
-                     'RetweetedUrl', #57
-                     'RetweetedUserName', #58
-                     'RetweetedUserScreenName', #59
-                     'RetweetedUserLocation', #60
-                     'RetweetedUserDescription', #61
-                     'RetweetedUserUrl', #62
-                     'RetweetedUserUrlsUrl', #63
-                     'RetweetedUserExpandedUrl', #64
-                     'RetweetedUserFollowersCount', #65
-                     'RetweetedUserFriendsCount', #66
-                     'RetweetedUserListedCount', #67
-                     'RetweetedUserCreatedAt', #68
-                     'RetweetedUserFavouritesCount', #69
-                     'RetweetedUserTimeZone', #70
-                     'RetweetedUserVerified', #71
-                     'RetweetedUserLang', #72
-                     'RetweetedUserProfileBackgroundImageUrl', #73
-                     'RetweetedUserProfileImageUrl', #74
-                     'RetweetedUserFollowing', #75
-                     'RetweetedGeo', #76
-                     'RetweetedCoordinates', #77
-                     'RetweetedPlace', #78
-                     'RetweetedIsQuoteStatus', #79
-                     'RetweetedRetweetCount', #80
-                     'RetweetedFavoriteCount', #81
-                     'RetweetedFavorited', #82
-                     'RetweetedRetweeted', #83
-                     'RetweetedPossiblySensitive', #84
-                     'RetweetedLang', #85
-                     'RetweetedExpandedUrl', #86
-                     'RetweetedHashtagsText', #87
-                     'RetweetedUserMentionsScreenName', #88
-                     'RetweetedUserMentionsName', #89
-                     'RetweetedUserMentionsID', #90
-                     'RetweetedMediaID', #91
-                     'RetweetedMediaMediaUrl', #92
-                     'RetweetedMediaUrl', #93
-                     'RetweetedMediaExpandedUrl', #94
-                     'RetweetedMediaSourceStatusID', #95
-                     'RetweetedMediaSourceUserID', #96
-                     'RetweetedMediaID', #97
-                     'RetweetedMediaMediaUrl', #98
-                     'RetweetedMediaUrl', #99
-                     'RetweetedMediaExpandedUrl', #100
-                     'RetweetedMediaSourceStatusID', #101
-                     'RetweetedMediaSourceUserID', #102
-                     'RetweetedISOLanguageCode', #103
-                     'RetweetedSource', #104
-                     'RetweetedInReplyToStatusID', #105
-                     'RetweetedInReplyToUserID', #106
-                     'RetweetedInReplyToScreen_name', #107
+                     'RetweetedUrl', #58
+                     'RetweetedExpandedUrl', #58
+                     'RetweetedHashtagsText', #59
+                     'RetweetedUserMentionsScreenName', #60
+                     'RetweetedUserMentionsName', #61
+                     'RetweetedUserMentionsID', #62
+                     'RetweetedMediaID', #63
+                     'RetweetedMediaMediaUrl', #64
+                     'RetweetedMediaUrl', #65
+                     'RetweetedMediaExpandedUrl', #66
+                     'RetweetedMediaSourceStatusID', #67
+                     'RetweetedMediaSourceUserID', #68
+                     'RetweetedMediaID', #69
+                     'RetweetedMediaMediaUrl', #70
+                     'RetweetedMediaUrl', #71
+                     'RetweetedMediaExpandedUrl', #72
+                     'RetweetedMediaSourceStatusID', #73
+                     'RetweetedMediaSourceUserID', #74
+                     'RetweetedISOLanguageCode', #75
+                     'RetweetedSource', #76
+                     'RetweetedInReplyToStatusID', #77
+                     'RetweetedInReplyToUserID', #78
+                     'RetweetedInReplyToScreen_name', #79
+                     'RetweetedUserName', #80
+                     'RetweetedUserScreenName', #81
+                     'RetweetedUserLocation', #82
+                     'RetweetedUserDescription', #83
+                     'RetweetedUserUrl', #84
+                     'RetweetedUserUrlsUrl', #85
+                     'RetweetedUserExpandedUrl', #86
+                     'RetweetedUserFollowersCount', #87
+                     'RetweetedUserFriendsCount', #88
+                     'RetweetedUserListedCount', #89
+                     'RetweetedUserCreatedAt', #90
+                     'RetweetedUserFavouritesCount', #91
+                     'RetweetedUserTimeZone', #92
+                     'RetweetedUserVerified', #93
+                     'RetweetedUserLang', #94
+                     'RetweetedUserProfileBackgroundImageUrl', #95
+                     'RetweetedUserProfileImageUrl', #96
+                     'RetweetedUserFollowing', #97
+                     'RetweetedGeo', #98
+                     'RetweetedCoordinates', #99
+                     'RetweetedPlace', #100
+                     'RetweetedIsQuoteStatus', #101
+                     'RetweetedRetweetCount', #102
+                     'RetweetedFavoriteCount', #103
+                     'RetweetedFavorited', #104
+                     'RetweetedRetweeted', #105
+                     'RetweetedPossiblySensitive', #106
+                     'RetweetedLang', #107
                      'QuotedCreatedAt', #108
                      'QuotedID', #109
                      'QuotedText', #110
@@ -562,7 +562,8 @@ def download(request):
                                                 retweetedUserEntitiesUrlUrlsUrl.append(item['url']+'\n')
                                                 retweetedUserEntitiesUrlUrlsExpandedUrl.append(item['expanded_url']+'\n')                            
                                 twittersheet.write_url(twitrow, twitcol+84, ''.join(retweetedUserEntitiesUrlUrlsUrl), url_format)#85
-                                twittersheet.write_url(twitrow, twitcol+85, ''.join(retweetedUserEntitiesUrlUrlsExpandedUrl), url_format)#86                                twittersheet.write(twitrow, twitcol+86, entry['retweeted_status']['user']['followers_count'], posts_format)#87
+                                twittersheet.write_url(twitrow, twitcol+85, ''.join(retweetedUserEntitiesUrlUrlsExpandedUrl), url_format)#86
+                                twittersheet.write(twitrow, twitcol+86, entry['retweeted_status']['user']['followers_count'], posts_format)#87
                                 twittersheet.write(twitrow, twitcol+87, entry['retweeted_status']['user']['friends_count'], posts_format)#88
                                 twittersheet.write(twitrow, twitcol+88, entry['retweeted_status']['user']['listed_count'], posts_format)#89
                                 twittersheet.write(twitrow, twitcol+89, entry['retweeted_status']['user']['created_at'], posts_format)#90
@@ -600,20 +601,10 @@ def download(request):
                                 if 'quoted_status' in entry['retweeted_status']:
                                         twittersheet.write(twitrow, twitcol+107, entry['retweeted_status']['quoted_status']['created_at'], posts_format)#108
                                         twittersheet.write(twitrow, twitcol+108, entry['retweeted_status']['quoted_status']['id_str'], posts_format)#109
-                                        twittersheet.write(twitrow, twitcol+109, entry['retweeted_status']['quoted_status']['text'], posts_format)#110 if 'entities' in entry['quoted_status']:
+                                        twittersheet.write(twitrow, twitcol+109, entry['retweeted_status']['quoted_status']['text'], posts_format)#110
                                 twittersheet.write(twitrow, twitcol+110, '', posts_format)#111 - Blank on purpose - for sentiment analysis
                                 twittersheet.write(twitrow, twitcol+111, '', posts_format)#112 - Blank on purpose - for sentiment analysis
-                                if 'quoted_status' in entry['retweeted_status']:
-                                        if 'media' in entry['retweeted_status']['quoted_status']['entities']:
-                                                for item in entry['retweeted_status']['quoted_status']['entities']['media']:
-                                                        entitiesMediaIDstr.append(item['id_str']+'\n')#113
-                                                        entitiesMediaMediaUrlList.append(item['media_url']+'\n')#114
-                                                        entitiesMediaUrlList.append(item['url']+'\n')#115
-                                                        entitiesMediaExpandedUrlList.append(item['expanded_url']+'\n')#116
-                                twittersheet.write(twitrow, twitcol+112, ''.join(entitiesMediaIDstr), posts_format)
-                                twittersheet.write_url(twitrow, twitcol+113, ''.join(entitiesMediaMediaUrlList), url_format)
-                                twittersheet.write_url(twitrow, twitcol+114, ''.join(entitiesMediaUrlList), url_format)
-                                twittersheet.write_url(twitrow, twitcol+115, ''.join(entitiesMediaExpandedUrlList), url_format)
+                                
                         
                         #END - retweeted status----------------------
 
@@ -622,6 +613,17 @@ def download(request):
                         if 'quoted_status' in entry:
                                 #for Testing: to make sure you get hits for search results that have a quoted status, search for
                                 #'statuses' for twitter
+                                if 'media' in entry['quoted_status']['entities']:
+                                        for item in entry['quoted_status']['entities']['media']:
+                                                entitiesMediaIDstr.append(item['id_str']+'\n')#113
+                                                entitiesMediaMediaUrlList.append(item['media_url']+'\n')#114
+                                                entitiesMediaUrlList.append(item['url']+'\n')#115
+                                                entitiesMediaExpandedUrlList.append(item['expanded_url']+'\n')#116
+                                twittersheet.write(twitrow, twitcol+112, ''.join(entitiesMediaIDstr), posts_format)
+                                twittersheet.write_url(twitrow, twitcol+113, ''.join(entitiesMediaMediaUrlList), url_format)
+                                twittersheet.write_url(twitrow, twitcol+114, ''.join(entitiesMediaUrlList), url_format)
+                                twittersheet.write_url(twitrow, twitcol+115, ''.join(entitiesMediaExpandedUrlList), url_format)
+                                
                                 if 'extended_entities' in entry['quoted_status']:
                                         for item in entry['quoted_status']['extended_entities']['media']:
                                                 quotedMediaIDList.append(item['id_str']+'\n')#117
