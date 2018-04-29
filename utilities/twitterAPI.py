@@ -28,12 +28,16 @@ def search(args, date = '', geocode = None):
 
 	#Gets the next result url from Twitter.
 	next_results = result_parsed.get('search_metadata').get('next_results')
+	next_url = ""
 	if (next_results != None):
 		next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
 
 	#Loop to continue calling Twitter over and over to get more results. Appends to initial results object.
 	for i in range(1,10):
-		resultJSONLoop = oauth_req(next_url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
+		if(next_url != ""):
+			resultJSONLoop = oauth_req(next_url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
+		else:
+			break
 		result_parsedLoop = json.loads(resultJSONLoop)
 		
 
@@ -41,6 +45,7 @@ def search(args, date = '', geocode = None):
 			result_parsed.get('statuses').append(status)
 
 		next_results = result_parsedLoop.get('search_metadata').get('next_results')
+		next_url = ""
 		if (next_results != None):
 			next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
 
