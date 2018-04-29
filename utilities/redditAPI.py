@@ -7,9 +7,11 @@ import praw
 
 def search(args = None, subreddits = ['news']):
 
+	#Allows for testing from cmd.
 	if(args == None):
 		args = sys.argv[1:]
 
+	#Initializing reddit object through PRAW with client id and secret.  User agent is a suggested field for reddit devs.
 	reddit = praw.Reddit(client_id='dL9KuOJHJojZaw',
                      client_secret='ek3X-TenXuiWDRzbXfSPROUglvg',
                      user_agent='Social Monomania API Searcher (by /u/Sorrento110')
@@ -18,20 +20,18 @@ def search(args = None, subreddits = ['news']):
 	relevant_submissions = []
 	retInfo = {}
 	
-	print(subreddits)
+	#print(subreddits)
+	#Calls helper function to change subreddits object to the string PRAW needs.
 	query_these_subreddits = subredditStringGenerator(subreddits)
 
+	#Main PRAW call to get results.
 	Redditbatch = reddit.subreddit(query_these_subreddits).search(args, sort='new', time_filter='all')
 
+	#Gets submissions from batch and transfers to holder object.
 	for submission in Redditbatch:
-		##Not decided on which reddit calls will give us the best results. Still experimenting.
-		if (args.lower() in submission.title.lower()):
-			relevant_submissions.append(submission)
+		relevant_submissions.append(submission)
 
-	#print(relevant_submissions)
-	##Testing submission accesses; this submission will be stored in specific variables and passed to the handler,
-	## which will then access these specifics
-
+	#Takes info from each submissions and extracts detailed info into final return object.
 	for submission in relevant_submissions:
 
 		time = submission.created_utc
@@ -45,7 +45,6 @@ def search(args = None, subreddits = ['news']):
 			'comments'   : submission.num_comments
 			}
 
-	#print("DID REDDIT!")
 	#print(retInfo)
 	return retInfo
 
@@ -63,10 +62,10 @@ def subredditStringGenerator(subreddits):
 	return subreddit_string
 
 
+#Function to enable running API call from cmd.
 if __name__ == '__main__':
 
 	args = sys.argv[1:]
 
 	search(args[0])
 
-#reddit.subreddit('news').search('timestamp:{0}..{1}'.format(int(time.mktime(time_now.timetuple()) - datetime.timedelta(days=365).total_seconds()), int(time.mktime(time_now.timetuple()))), params)

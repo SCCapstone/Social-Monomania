@@ -759,12 +759,14 @@ def download(request):
 
         return response
 
+#View to start the normal results processing
 def results(request):
 
     if request.method == 'POST':
-        print(request.POST)
+        #print(request.POST)
         global searchQuery
         searchQuery = request.POST['q']
+        #Main call returning the results from the API 
         redditReturn, twitterReturn = basicHandler.searchHandle(request.POST['q'], dict(request.POST)['boxes[]'])
         #reddit global variables
         global redditVariable
@@ -777,13 +779,14 @@ def results(request):
 
     return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn, 'searchQuery': searchQuery})
 
+#View to start the advanced results processing
 def advancedresults(request):
 
     if request.method == 'POST':
         print(request.POST)
-        # print(request.POST['q'])
-        # print(request.POST['boxes[]'])
         global searchQuery
+
+        #This chunk allows the user to put in one search query, or two queries (with a boolean operator in between) in the advanced search.
         if(request.POST['q2'] == ''):
             searchQuery = request.POST['q1']
         else:
@@ -792,10 +795,13 @@ def advancedresults(request):
             booleanOp = request.POST['booleanOperator']
             searchQuery = queryOne + " " + booleanOp + " " + queryTwo
         
+        #Grabs the twitter date variable.
         twitterDate = request.POST['newestDate']
 
+        #Global for subs checkboxes and custom subs.
         subredditsDict = []
 
+        #Logic chunk to get checked sub boxes and append a custom sub to the selected default subs.  If no sub box info is filled it goes back to the default of /r/news.
         try:
             subredditsDict = dict(request.POST)['subboxes[]']
         except Exception as e:
@@ -808,6 +814,7 @@ def advancedresults(request):
         else:
             subredditsDict.append(request.POST['searchCustomSub'])
 
+        #Main call returning the results from the API.
         redditReturn, twitterReturn = advancedHandler.searchHandle(searchQuery, dict(request.POST)['boxes[]'], subredditsDict, twitterDate)
         #reddit global variables
         global redditVariable
