@@ -1,7 +1,7 @@
 from django.test import TestCase
 
-from ..redditAPI import search
-class RedditTestCase(TestCase):
+from ..twitterAPI import search
+class TwitterTestCase(TestCase):
 	"""Unit test to ensure that search string is found in 100 new reddit posts returned from API"""
 	def setUp(self):
 		self.queryString = "Police"
@@ -9,11 +9,11 @@ class RedditTestCase(TestCase):
 
 
 	def test_submissions_contain_query(self):
-		for submission in self.submissions:
+		for submission in self.submissions.get('statuses'):
                         #Testing purposes below:
                         #print(type(submission))
                         #print(submission.encode("utf-8"))
                         #print(type(self.queryString))
                         #print(self.queryString)
-			self.assertTrue(self.queryString in submission)
+			self.assertTrue(self.queryString in submission.get('text'))
 			break
