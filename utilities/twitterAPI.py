@@ -24,9 +24,9 @@ def search(args, date = '', geocode = None):
 	#resultJSON = r.readline().decode('utf-8')
 	resultJSON = oauth_req(url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
 	result_parsed = json.loads(resultJSON)
-
 	next_results = result_parsed.get('search_metadata').get('next_results')
-	next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
+	if (next_results != None):
+		next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
 
 	for i in range(1,10):
 		resultJSONLoop = oauth_req(next_url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
