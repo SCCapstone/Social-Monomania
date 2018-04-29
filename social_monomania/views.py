@@ -145,146 +145,145 @@ def download(request):
                      '', #left blank for sentiment analysis field 5
                      'Geo', #6
                      'Coordinates', #7
-                     'Place', #8
-                     'Contributors', #9
-                     'RetweetCount', #10
-                     'FavoriteCount', #11
-                     'Favorited', #12
-                     'Retweete?', #13
-                     'PossiblySensitive', #14
-                     'Language', #15
-                     'IsQuoteStatus', #16
-                     'InReplyToStatusID', #17
-                     'InReplyToUserID', #18
-                     'InReplyToScreenName', #19
-                     'UserID', #20
-                     'UserScreenName', #21
-                     'UserLocation', #22
-                     'UserDescription', #23
-                     'UserURL', #24
-                     'UserEntitiesUrl_Urls_Url', #25
-                     'UserEntitiesUrl_Urls_Expanded_Url', #26
-                     'UserProtected', #27
-                     'UserFollowersCount', #28
-                     'UserFriendsCount', #29
-                     'UserListedCount', #30
-                     'UserCreatedAt', #31
-                     'UserFavouritesCount', #32
-                     'UserTimeZone', #33
-                     'UserVerified', #34
-                     'UserLang', #35
-                     'UserContributorsEnabled', #36
-                     'UserProfileBackgroundImageUrl', #37
-                     'UserProfileImageUrl', #38
-                     'UserProfileImageUrlHttps', #39
-                     'UserProfileBbannerUrl', #40
-                     'UserFollowing', #41
-                     'HashtagsText', #42
-                     'UserMentionsScreenName', #43
-                     'UserMentionsName', #44
-                     'UserMentionsID', #45
-                     'MediaID', #46
-                     'MediaUrl', #47
-                     'MediaSourceUserID', #48
-                     'ExtendedMediaUrl', #49
-                     'ExtendedMediaSourceStatusID', #50
-                     'ExtendedMediaSourceUserID', #51
-                     'EntitiesUrl', #52
-                     'RetweetedCreatedAt', #53
-                     'RetweetedID', #54
-                     'RetweetedText', #55
+                     'Contributors', #8
+                     'RetweetCount', #9
+                     'FavoriteCount', #10
+                     'Favorited', #11
+                     'Retweete?', #12
+                     'PossiblySensitive', #13
+                     'Language', #14
+                     'IsQuoteStatus', #15
+                     'InReplyToStatusID', #16
+                     'InReplyToUserID', #17
+                     'InReplyToScreenName', #18
+                     'UserID', #19
+                     'UserScreenName', #20
+                     'UserLocation', #21
+                     'UserDescription', #22
+                     'UserURL', #23
+                     'UserEntitiesUrl_Urls_Url', #24
+                     'UserEntitiesUrl_Urls_Expanded_Url', #25
+                     'UserProtected', #26
+                     'UserFollowersCount', #27
+                     'UserFriendsCount', #28
+                     'UserListedCount', #29
+                     'UserCreatedAt', #30
+                     'UserFavouritesCount', #31
+                     'UserTimeZone', #32
+                     'UserVerified', #33
+                     'UserLang', #34
+                     'UserContributorsEnabled', #35
+                     'UserProfileBackgroundImageUrl', #36
+                     'UserProfileImageUrl', #37
+                     'UserProfileImageUrlHttps', #38
+                     'UserProfileBbannerUrl', #39
+                     'UserFollowing', #40
+                     'HashtagsText', #41
+                     'UserMentionsScreenName', #42
+                     'UserMentionsName', #43
+                     'UserMentionsID', #44
+                     'MediaID', #45
+                     'MediaUrl', #46
+                     'MediaSourceUserID', #47
+                     'ExtendedMediaUrl', #48
+                     'ExtendedMediaSourceStausID', #49
+                     'ExtendedMediaSourceUserID', #50
+                     'EntitiesUrl', #51
+                     'RetweetedCreatedAt', #52
+                     'RetweetedID', #53
+                     'RetweetedText', #54
+                     '', #left blank for sentiment analysis field 55
                      '', #left blank for sentiment analysis field 56
-                     '', #left blank for sentiment analysis field 57
-                     'RetweetedUrl', #58
-                     'RetweetedUserName', #59
-                     'RetweetedUserScreenName', #60
-                     'RetweetedUserLocation', #61
-                     'RetweetedUserDescription', #62
-                     'RetweetedUserUrl', #63
-                     'RetweetedUserUrlsUrl', #64
-                     'RetweetedUserExpandedUrl', #65
-                     'RetweetedUserFollowersCount', #66
-                     'RetweetedUserFriendsCount', #67
-                     'RetweetedUserListedCount', #68
-                     'RetweetedUserCreatedAt', #69
-                     'RetweetedUserFavouritesCount', #70
-                     'RetweetedUserTimeZone', #71
-                     'RetweetedUserVerified', #72
-                     'RetweetedUserLang', #73
-                     'RetweetedUserProfileBackgroundImageUrl', #74
-                     'RetweetedUserProfileImageUrl', #75
-                     'RetweetedUserFollowing', #76
-                     'RetweetedGeo', #77
-                     'RetweetedCoordinates', #78
-                     'RetweetedPlace', #79
-                     'RetweetedIsQuoteStatus', #80
-                     'RetweetedRetweetCount', #81
-                     'RetweetedFavoriteCount', #82
-                     'RetweetedFavorited', #83
-                     'RetweetedRetweeted', #84
-                     'RetweetedPossiblySensitive', #85
-                     'RetweetedLang', #86
-                     'RetweetedExpandedUrl', #87
-                     'RetweetedHashtagsText', #88
-                     'RetweetedUserMentionsScreenName', #89
-                     'RetweetedUserMentionsName', #90
-                     'RetweetedUserMentionsID', #91
-                     'RetweetedMediaID', #92
-                     'RetweetedMediaMediaUrl', #93
-                     'RetweetedMediaUrl', #94
-                     'RetweetedMediaExpandedUrl', #95
-                     'RetweetedMediaSourceStatusID', #96
-                     'RetweetedMediaSourceUserID', #97
-                     'RetweetedMediaID', #98
-                     'RetweetedMediaMediaUrl', #99
-                     'RetweetedMediaUrl', #100
-                     'RetweetedMediaExpandedUrl', #101
-                     'RetweetedMediaSourceStatusID', #102
-                     'RetweetedMediaSourceUserID', #103
-                     'RetweetedISOLanguageCode', #104
-                     'RetweetedSource', #105
-                     'RetweetedInReplyToStatusID', #106
-                     'RetweetedInReplyToUserID', #107
-                     'RetweetedInReplyToScreen_name', #108
-                     'QuotedCreatedAt', #109
-                     'QuotedID', #110
-                     'QuotedText', #111
+                     'RetweetedUrl', #57
+                     'RetweetedUserName', #58
+                     'RetweetedUserScreenName', #59
+                     'RetweetedUserLocation', #60
+                     'RetweetedUserDescription', #61
+                     'RetweetedUserUrl', #62
+                     'RetweetedUserUrlsUrl', #63
+                     'RetweetedUserExpandedUrl', #64
+                     'RetweetedUserFollowersCount', #65
+                     'RetweetedUserFriendsCount', #66
+                     'RetweetedUserListedCount', #67
+                     'RetweetedUserCreatedAt', #68
+                     'RetweetedUserFavouritesCount', #69
+                     'RetweetedUserTimeZone', #70
+                     'RetweetedUserVerified', #71
+                     'RetweetedUserLang', #72
+                     'RetweetedUserProfileBackgroundImageUrl', #73
+                     'RetweetedUserProfileImageUrl', #74
+                     'RetweetedUserFollowing', #75
+                     'RetweetedGeo', #76
+                     'RetweetedCoordinates', #77
+                     'RetweetedPlace', #78
+                     'RetweetedIsQuoteStatus', #79
+                     'RetweetedRetweetCount', #80
+                     'RetweetedFavoriteCount', #81
+                     'RetweetedFavorited', #82
+                     'RetweetedRetweeted', #83
+                     'RetweetedPossiblySensitive', #84
+                     'RetweetedLang', #85
+                     'RetweetedExpandedUrl', #86
+                     'RetweetedHashtagsText', #87
+                     'RetweetedUserMentionsScreenName', #88
+                     'RetweetedUserMentionsName', #89
+                     'RetweetedUserMentionsID', #90
+                     'RetweetedMediaID', #91
+                     'RetweetedMediaMediaUrl', #92
+                     'RetweetedMediaUrl', #93
+                     'RetweetedMediaExpandedUrl', #94
+                     'RetweetedMediaSourceStatusID', #95
+                     'RetweetedMediaSourceUserID', #96
+                     'RetweetedMediaID', #97
+                     'RetweetedMediaMediaUrl', #98
+                     'RetweetedMediaUrl', #99
+                     'RetweetedMediaExpandedUrl', #100
+                     'RetweetedMediaSourceStatusID', #101
+                     'RetweetedMediaSourceUserID', #102
+                     'RetweetedISOLanguageCode', #103
+                     'RetweetedSource', #104
+                     'RetweetedInReplyToStatusID', #105
+                     'RetweetedInReplyToUserID', #106
+                     'RetweetedInReplyToScreen_name', #107
+                     'QuotedCreatedAt', #108
+                     'QuotedID', #109
+                     'QuotedText', #110
+                     '', #left blank for sentiment analysis field 111
                      '', #left blank for sentiment analysis field 112
-                     '', #left blank for sentiment analysis field 113
-                     'QuotedGeo', #114
-                     'QuotedCoordinates', #115
-                     'QuotedPlace', #place is it's own dictionary. I will pull data from key 'country' from place dict  116
-                     'QuotedIsQuoteStatus', #117
-                     'QuotedRetweetCount', #118
-                     'QuotedFavoriteCount', #119
-                     'QuotedFavorited', #120
-                     'QuotedRetweeted', #121
-                     'QuotedPossiblySensitive', #122
-                     'QuotedLangugage', #123
-                     'QuotedUserName', #124
-                     'QuotedUserScreenName', #125
-                     'QuotedUserLocation', #126
-                     'QuotedUserDescription', #127
-                     'QuotedUserUrl', #128
-                     'QuotedUserUrlsUrl', #129
-                     'QuotedUserExpandedUrl', #130
-                     'QuotedUserFollowersCount', #131
-                     'QuotedUserFriendsCount', #132
-                     'QuotedUserListedCount', #133
-                     'QuotedUserCreatedAt', #134
-                     'QuotedUserFavouritesCount', #135
-                     'QuotedUserTimeZone', #136
-                     'QuotedUserLang', #137
-                     'QuotedUserProfileBackgroundImageUrl', #138
-                     'QuotedUserProfileImageUrl', #139
-                     'QuotedUserFollowing', #140
-                     'QuotedMediaID', #141
-                     'QuotedMediaMediaUrl', #142
-                     'QuotedMediaUrl', #143
-                     'QuotedMediaExpandedUrl', #144
-                     'QuotedMediaID', #145
-                     'QuotedMediaMediaURL', #146
-                     'QuotedInReplyToScreenName'  #147
+                     'QuotedGeo', #113
+                     'QuotedCoordinates', #114
+                     'QuotedPlace', #place is it's own dictionary. I will pull data from key 'country' from place dict  115
+                     'QuotedIsQuoteStatus', #116
+                     'QuotedRetweetCount', #117
+                     'QuotedFavoriteCount', #118
+                     'QuotedFavorited', #119
+                     'QuotedRetweeted', #120
+                     'QuotedPossiblySensitive', #121
+                     'QuotedLangugage', #122
+                     'QuotedUserName', #123
+                     'QuotedUserScreenName', #124
+                     'QuotedUserLocation', #125
+                     'QuotedUserDescription', #126
+                     'QuotedUserUrl', #127
+                     'QuotedUserUrlsUrl', #128
+                     'QuotedUserExpandedUrl', #129
+                     'QuotedUserFollowersCount', #130
+                     'QuotedUserFriendsCount', #131
+                     'QuotedUserListedCount', #132
+                     'QuotedUserCreatedAt', #133
+                     'QuotedUserFavouritesCount', #134
+                     'QuotedUserTimeZone', #135
+                     'QuotedUserLang', #136
+                     'QuotedUserProfileBackgroundImageUrl', #137
+                     'QuotedUserProfileImageUrl', #138
+                     'QuotedUserFollowing', #139
+                     'QuotedMediaID', #140
+                     'QuotedMediaMediaUrl', #141
+                     'QuotedMediaUrl', #142
+                     'QuotedMediaExpandedUrl', #143
+                     'QuotedMediaID', #144
+                     'QuotedMediaMediaURL', #145
+                     'QuotedInReplyToScreenName'  #146
                      ]
         twitcol = 0
         for header in headerObj:
@@ -336,6 +335,28 @@ def download(request):
                 retweetedExtendedEntitiesMediaExpandedUrl = []
                 retweetedExtendedEntitiesMediaSourceStatusIDStr = []
                 retweetedExtendedEntitiesMediaSourceUserIDStr = []
+                geocoords = []
+                coords = []
+                UserEntitiesUrlUrlsUrl = []
+                UserEntitiesUrlUrlsExpandedUrl = []
+                retweetedgeocoords = []
+                retweetedcoords = []
+                quotedgeocoords = []
+                quotedcoords = []
+                retweetedUserEntitiesUrlUrlsUrl = []
+                retweetedUserEntitiesUrlUrlsExpandedUrl = []
+                quotedUserEntitiesUrlUrlsUrl = []
+                quotedUserEntitiesUrlUrlsExpandedUrl = []
+                entitiesHashtagsText = []
+                UserMentionsScreenNames = []
+                UserMentionsNames = []
+                UserMentionsIDstrs = []
+                mediaIDStr = []
+                EntitiesMediaSourceUserIDstr = []
+                entryExtendedEntitiesMediaMediaUrl = []
+                entryExtendedEntitiesMediaSourceStatusIDStr = []
+                entryExtendedEntitiesMediaSourceUserIDStr = []
+                Urlsurl = []
 
                 #----------NOTE-----------
                 #  each of these if-statements below are necessary for error catching.  In some cases,
@@ -354,32 +375,48 @@ def download(request):
                         twittersheet.write(twitrow, twitcol+2, entry['text'], posts_format)#3
                         twittersheet.write(twitrow, twitcol+3, '', posts_format)#4 - Blank on purpose - for sentiment analysis
                         twittersheet.write(twitrow, twitcol+4, '', posts_format)#5 - Blank on purpose - for sentiment analysis
-                        twittersheet.write(twitrow, twitcol+5, '', posts_format)#6 EMPTYEMPTYEMPTY geo
-                        twittersheet.write(twitrow, twitcol+6, '', posts_format)#7 EMPTYEMPTYEMPTY coords
-                        twittersheet.write(twitrow, twitcol+7, '', posts_format)#8 EMPTYEMPTYEMPTY contributros
-        
+                        if entry['geo'] != None:
+                                if 'coordinates' in entry['geo']:
+                                        for item in entry['geo']['coordinates']:
+                                            coords.append(str(item))
+                        twittersheet.write(twitrow, twitcol+5, ''.join(geocoords), posts_format)#6
+                        if entry['coordinates'] != None:
+                                for item in entry['coordinates']:
+                                        coords.append(str(item))
+                        twittersheet.write(twitrow, twitcol+6, ''.join(coords), posts_format)#7
+                        if 'place_statuses' in entry:
+                                if 'contributors' in entry['place_statuses']:
+                                        twittersheet.write(twitrow, twitcol+7, entry['place_statuses']['contributors'], posts_format)#8
+                        else:
+                                twittersheet.write(twitrow, twitcol+7, '', posts_format)   
                         twittersheet.write(twitrow, twitcol+8, entry['retweet_count'], posts_format)#9
                         twittersheet.write(twitrow, twitcol+9, entry['favorite_count'], posts_format)#10
                         twittersheet.write(twitrow, twitcol+10, str(entry['favorited']), posts_format)#11
                         twittersheet.write(twitrow, twitcol+11, str(entry['retweeted']), posts_format)#12
-                        twittersheet.write(twitrow, twitcol+12, '', posts_format)#13 EMPTYEMPTYEMPTY possibly sensitive
+                        if 'possibly_sensitive' in entry:
+                                twittersheet.write(twitrow, twitcol+12, entry['possibly_sensitive'], posts_format)#13
+                        else:
+                                twittersheet.write(twitrow, twitcol+12, '', posts_format)
                         twittersheet.write(twitrow, twitcol+13, entry['lang'], posts_format)#14
                         twittersheet.write(twitrow, twitcol+14, bool(entry['is_quote_status']), posts_format)#15
-                        twittersheet.write(twitrow, twitcol+15, '', posts_format)#16EMPTYEMPTYEMPTY status id str
-                        twittersheet.write(twitrow, twitcol+16, '', posts_format)#17EMPTYEMPTYEMPTY user id str
-                        twittersheet.write(twitrow, twitcol+17, '', posts_format)#18EMPTYEMPTYEMPTY screen name
+                        twittersheet.write(twitrow, twitcol+15, entry['in_reply_to_status_id_str'], posts_format)#16
+                        twittersheet.write(twitrow, twitcol+16, entry['in_reply_to_user_id_str'], posts_format)#17
+                        twittersheet.write(twitrow, twitcol+17, entry['in_reply_to_screen_name'], posts_format)#18
 
 
                         #'user' block start-------------------
                         if 'user' in entry:
-                                twittersheet.write(twitrow, twitcol+18, '', posts_format)#19EMPTYEMPTYEMPTY user id str
+                                twittersheet.write(twitrow, twitcol+18, entry['user']['id_str'], posts_format)#19
                                 twittersheet.write_url(twitrow, twitcol+19, 'https://www.twitter.com/'+str(entry['user']['screen_name']), url_format)#20
                                 twittersheet.write(twitrow, twitcol+20, entry['user']['location'], posts_format)#21
                                 twittersheet.write(twitrow, twitcol+21, entry['user']['description'], posts_format)#22
                                 twittersheet.write_url(twitrow, twitcol+22, str(entry['user']['url']), url_format)#23
-                                #coming back to these two later url urls url, url urls expanded url
-                                #twittersheet.write(twitrow, twitcol+23, entry['user']['location'], posts_format)#24EMPTYEMPTYEMPTY
-                                #twittersheet.write(twitrow, twitcol+24, entry['user']['location'], posts_format)#25EMPTYEMPTYEMPTY
+                                if 'urls' in entry['user']['entities']:
+                                        for item in entry['user']['entities']['urls']:
+                                                UserEntitiesUrlUrlsUrl.append(item['url']+'\n')
+                                                UserEntitiesUrlUrlsExpandedUrl.append(item['expanded_url']+'\n')                            
+                                twittersheet.write_url(twitrow, twitcol+23, ''.join(UserEntitiesUrlUrlsUrl), url_format)#24
+                                twittersheet.write_url(twitrow, twitcol+24, ''.join(UserEntitiesUrlUrlsExpandedUrl), url_format)#25
                                 twittersheet.write(twitrow, twitcol+25, entry['user']['protected'], posts_format)#26
                                 twittersheet.write(twitrow, twitcol+26, entry['user']['followers_count'], posts_format)#27
                                 twittersheet.write(twitrow, twitcol+27, entry['user']['friends_count'], posts_format)#28
@@ -398,26 +435,57 @@ def download(request):
                                 else:
                                         twittersheet.write(twitrow, twitcol+38, 'No banner URL', posts_format)
                                 twittersheet.write(twitrow, twitcol+39, entry['user']['following'], posts_format)#40
-                                twittersheet.write(twitrow, twitcol+40, '', posts_format)#41 emptyEMPTYEMPTYEMPTY
+
+                                if 'entities' in entry:
+                                        if 'hashtags' in entry['entities']:
+                                                for item in entry['entities']['hashtags']:
+                                                        entitiesHashtagsText.append('#'+item['text']+'\n')
+                                twittersheet.write(twitrow, twitcol+40, ''.join(entitiesHashtagsText), posts_format)#41
                         
                         #'user' block end-------------------
+
                                 
-                        for mention in entry['entities']['user_mentions']:#42
-                                mentionList.append('https://www.twitter.com/'+mention['screen_name']+'\n')
-                        twittersheet.write_url(twitrow, twitcol+41, ''.join(mentionList), url_format)
-                        twittersheet.write(twitrow, twitcol+42, '', posts_format)#43 EMPTYEMPTYEMPTY
-                        twittersheet.write(twitrow, twitcol+43, '', posts_format)#44 EMPTYEMPTYEMPTY
-                        twittersheet.write(twitrow, twitcol+44, '', posts_format)#45 EMPTYEMPTYEMPTY
-                        if 'entities' in entry:#46
+                        if 'entities' in entry:
+                                if 'user_mentions' in entry['entities']:
+                                        for item in entry['entities']['user_mentions']:
+                                                UserMentionsScreenNames.append('@'+item['screen_name']+'\n')
+                                                UserMentionsNames.append('@'+item['name']+'\n')
+                                                UserMentionsIDstrs.append('@'+item['id_str']+'\n')
+                                twittersheet.write(twitrow, twitcol+41, ''.join(UserMentionsScreenNames), posts_format)#42
+                                twittersheet.write(twitrow, twitcol+42, ''.join(UserMentionsNames), posts_format)#43
+                                twittersheet.write(twitrow, twitcol+43, ''.join(UserMentionsIDstrs), posts_format)#44                                
+                        if 'entities' in entry:
                                 if 'media' in entry['entities']:
                                         for item in entry['entities']['media']:
-                                               mediaList.append(item['media_url']+'\n')
-                        twittersheet.write_url(twitrow, twitcol+45, ''.join(mediaList), url_format)
-                        twittersheet.write(twitrow, twitcol+46, '', posts_format)#47 EMPTYEMPTYEMPTY
-                        twittersheet.write(twitrow, twitcol+47, '', posts_format)#48 EMPTYEMPTYEMPTY
-                        twittersheet.write(twitrow, twitcol+48, '', posts_format)#49 EMPTYEMPTYEMPTY
-                        twittersheet.write(twitrow, twitcol+49, '', posts_format)#50 EMPTYEMPTYEMPTY
-                        twittersheet.write(twitrow, twitcol+50, '', posts_format)#51 EMPTYEMPTYEMPTY
+                                                mediaIDStr.append(item['id_str']+'\n')
+                                                mediaList.append(item['media_url']+'\n')
+                                twittersheet.write_url(twitrow, twitcol+44, ''.join(mediaIDStr), url_format)#45
+                                twittersheet.write_url(twitrow, twitcol+45, ''.join(mediaList), url_format)#46
+
+                        if 'entities' in entry:
+                                if 'media' in entry['entities']:
+                                       for item in entry['entities']['media']:
+                                               if 'source_user_id_str' in item:
+                                                       EntitiesMediaSourceUserIDstr.append(item['source_user_id_str']+'\n')
+                                twittersheet.write(twitrow, twitcol+46, ''.join(EntitiesMediaSourceUserIDstr), posts_format)#47
+                        if 'extended_entities' in entry:
+                                if 'media' in entry['extended_entities']:
+                                        for item in entry['extended_entities']['media']:
+                                                entryExtendedEntitiesMediaMediaUrl.append(item['media_url']+'\n')
+                                                if 'source_status_id_str' in item:
+                                                        entryExtendedEntitiesMediaSourceStatusIDStr.append(item['source_status_id_str']+'\n')
+                                                if 'source_user_id_str' in item:
+                                                        entryExtendedEntitiesMediaSourceUserIDStr.append(item['source_user_id_str']+'\n')
+                                twittersheet.write_url(twitrow, twitcol+47, ''.join(entryExtendedEntitiesMediaMediaUrl), url_format)#48
+                                twittersheet.write(twitrow, twitcol+48, ''.join(entryExtendedEntitiesMediaSourceStatusIDStr), posts_format)#49
+                                twittersheet.write(twitrow, twitcol+49, ''.join(entryExtendedEntitiesMediaSourceUserIDStr), posts_format)#50
+
+                        if 'entities' in entry:
+                                if 'urls' in entry['entities']:
+                                        for item in entry['entities']['urls']:
+                                                if 'url' in item:
+                                                        Urlsurl.append(item['url']+'\n')
+                                twittersheet.write_url(twitrow, twitcol+50, ''.join(Urlsurl), url_format)#51
 
                         #START - retweeted status----------------------
                         if 'retweeted_status' in entry:
@@ -489,9 +557,12 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+81, entry['retweeted_status']['user']['location'], posts_format)#82
                                 twittersheet.write(twitrow, twitcol+82, entry['retweeted_status']['user']['description'], posts_format)#83
                                 twittersheet.write_url(twitrow, twitcol+83, str(entry['retweeted_status']['user']['url']), url_format)#84
-                                twittersheet.write(twitrow, twitcol+84, '', posts_format)#85 EMPTYEMPTYEMPTY
-                                twittersheet.write(twitrow, twitcol+85, '', posts_format)#86 EMPTYEMPTYEMPTY
-                                twittersheet.write(twitrow, twitcol+86, entry['retweeted_status']['user']['followers_count'], posts_format)#87
+                                if 'urls' in entry['retweeted_status']['user']['entities']:
+                                        for item in entry['retweeted_status']['user']['entities']['urls']:
+                                                retweetedUserEntitiesUrlUrlsUrl.append(item['url']+'\n')
+                                                retweetedUserEntitiesUrlUrlsExpandedUrl.append(item['expanded_url']+'\n')                            
+                                twittersheet.write_url(twitrow, twitcol+84, ''.join(retweetedUserEntitiesUrlUrlsUrl), url_format)#85
+                                twittersheet.write_url(twitrow, twitcol+85, ''.join(retweetedUserEntitiesUrlUrlsExpandedUrl), url_format)#86                                twittersheet.write(twitrow, twitcol+86, entry['retweeted_status']['user']['followers_count'], posts_format)#87
                                 twittersheet.write(twitrow, twitcol+87, entry['retweeted_status']['user']['friends_count'], posts_format)#88
                                 twittersheet.write(twitrow, twitcol+88, entry['retweeted_status']['user']['listed_count'], posts_format)#89
                                 twittersheet.write(twitrow, twitcol+89, entry['retweeted_status']['user']['created_at'], posts_format)#90
@@ -502,10 +573,15 @@ def download(request):
                                 twittersheet.write_url(twitrow, twitcol+94, str(entry['retweeted_status']['user']['profile_background_image_url']), url_format)#95
                                 twittersheet.write_url(twitrow, twitcol+95, str(entry['retweeted_status']['user']['profile_image_url']), url_format)#96
                                 twittersheet.write(twitrow, twitcol+96, entry['retweeted_status']['user']['following'], posts_format)#97
-                                twittersheet.write(twitrow, twitcol+97, entry['retweeted_status']['geo'], posts_format)#98
-                                #coordinates is messing up, commenting out for now #99
-                                #twittersheet.write(twitrow, twitcol+98, entry['retweeted_status']['coordinates'], posts_format)
-                                #place requires this if/else statement and error catcher like it did before
+                                if entry['retweeted_status']['geo'] != None:
+                                        if 'coordinates' in entry['retweeted_status']['geo']:
+                                                for item in entry['retweeted_status']['geo']['coordinates']:
+                                                    retweetedgeocoords.append(str(item))
+                                twittersheet.write(twitrow, twitcol+97, ''.join(retweetedgeocoords), posts_format)#98
+                                if entry['retweeted_status']['coordinates'] != None:
+                                        for item in entry['retweeted_status']['coordinates']:
+                                                retweetedcoords.append(str(item))
+                                twittersheet.write(twitrow, twitcol+98, ''.join(retweetedcoords), posts_format)#99
                                 if entry['retweeted_status']['place'] != None:#100
                                         if 'country' in entry['retweeted_status']['place']:
                                                 twittersheet.write(twitrow, twitcol+99, entry['retweeted_status']['place']['country'], posts_format)
@@ -561,14 +637,12 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+121, entry['quoted_status']['user']['location'], posts_format)#122
                                 twittersheet.write(twitrow, twitcol+122, entry['quoted_status']['user']['description'], posts_format)#123
                                 twittersheet.write_url(twitrow, twitcol+123, str(entry['quoted_status']['user']['url']), url_format)#124
-                                twittersheet.write(twitrow, twitcol+124, '', posts_format)#125 EMPTYEMPTYEMPTY
-                                twittersheet.write(twitrow, twitcol+125, '', posts_format)#126 EMPTYEMPTYEMPTY
-                                
-                                #if error is list indices must be integers not strings, it means that within the dictionary,
-                                #there is a list you must access.  Haven't found the best way to do this
-                                #UPDATE: as a workaround, the way to fix this is to treat it as a list. See below how 'id_str' was
-                                #fixed - it was giving me the same errors before.
-                                
+                                if 'urls' in entry['quoted_status']['user']['entities']:
+                                        for item in entry['quoted_status']['user']['entities']['urls']:
+                                                quotedUserEntitiesUrlUrlsUrl.append(item['url']+'\n')
+                                                quotedUserEntitiesUrlUrlsExpandedUrl.append(item['expanded_url']+'\n')                            
+                                twittersheet.write_url(twitrow, twitcol+124, ''.join(quotedUserEntitiesUrlUrlsUrl), url_format)#125
+                                twittersheet.write_url(twitrow, twitcol+125, ''.join(quotedUserEntitiesUrlUrlsExpandedUrl), url_format)#126                                
                                 twittersheet.write(twitrow, twitcol+126, entry['quoted_status']['user']['followers_count'], posts_format)#127
                                 twittersheet.write(twitrow, twitcol+127, entry['quoted_status']['user']['friends_count'], posts_format)#128
                                 twittersheet.write(twitrow, twitcol+128, entry['quoted_status']['user']['listed_count'], posts_format)#129
@@ -583,13 +657,15 @@ def download(request):
                                         twittersheet.write(twitrow, twitcol+133, 'No background image url', posts_format)
                                 twittersheet.write_url(twitrow, twitcol+134, entry['quoted_status']['user']['profile_image_url'], url_format)#135
                                 twittersheet.write(twitrow, twitcol+135, bool(entry['quoted_status']['user']['following']), posts_format)#136
-                                twittersheet.write(twitrow, twitcol+136, entry['quoted_status']['geo'], posts_format)#137
-                                
-                                #this one row below with coordinates was throwing an error of 'Unsupported type <type 'dict'> in write()'
-                                #commenting it out for now
-                                twittersheet.write(twitrow, twitcol+137, '', posts_format) #138 EMPTYEMPTYEMPTY
-                                #twittersheet.write(twitrow, twitcol+20, entry['quoted_status']['coordinates'], posts_format)
-                                #['quoted_status']['place'] was throwing errors if I didn't use this double if-statement
+                                if entry['quoted_status']['geo'] != None:
+                                        if 'coordinates' in entry['quoted_status']['geo']:
+                                                for item in entry['quoted_status']['geo']['coordinates']:
+                                                    quotedgeocoords.append(str(item))
+                                twittersheet.write(twitrow, twitcol+136, ''.join(quotedgeocoords), posts_format)#137
+                                if entry['quoted_status']['coordinates'] != None:
+                                        for item in entry['quoted_status']['coordinates']:
+                                                quotedcoords.append(str(item))
+                                twittersheet.write(twitrow, twitcol+137, ''.join(quotedcoords), posts_format)#138
                                 
                                 if entry['quoted_status']['place'] != None: #139
                                         if 'country' in entry['quoted_status']['place']:
@@ -601,7 +677,10 @@ def download(request):
                                 twittersheet.write(twitrow, twitcol+141, entry['quoted_status']['favorite_count'], posts_format)#142
                                 twittersheet.write(twitrow, twitcol+142, str(entry['quoted_status']['favorited']), posts_format)#143
                                 twittersheet.write(twitrow, twitcol+143, str(entry['quoted_status']['retweeted']), posts_format)#144
-                                twittersheet.write(twitrow, twitcol+144, '', posts_format)#145 EMPTYEMPTYEMPTY
+                                if 'possibly_sensitive' in entry['quoted_status']:
+                                        twittersheet.write(twitrow, twitcol+144, entry['quoted_status']['possibly_sensitive'], posts_format)#145
+                                else:
+                                        twittersheet.write(twitrow, twitcol+144, '', posts_format)
                                 twittersheet.write(twitrow, twitcol+145, entry['quoted_status']['lang'], posts_format)#146
                                 
                         
@@ -630,12 +709,34 @@ def download(request):
                         retweetedEntitiesMediaExpUrl[:] = []
                         retweetedEntitiesMediaSourceStatusID[:] = []
                         retweetedEntitiesMediaSourceUserIDstr[:] = []
-                        retweetedExtendedEntitiesMediaIDStr = []
-                        retweetedExtendedEntitiesMediaMediaUrl = []
-                        retweetedExtendedEntitiesMediaUrl = []
-                        retweetedExtendedEntitiesMediaExpandedUrl = []
-                        retweetedExtendedEntitiesMediaSourceStatusIDStr = []
-                        retweetedExtendedEntitiesMediaSourceUserIDStr = []
+                        retweetedExtendedEntitiesMediaIDStr[:] = []
+                        retweetedExtendedEntitiesMediaMediaUrl[:] = []
+                        retweetedExtendedEntitiesMediaUrl[:] = []
+                        retweetedExtendedEntitiesMediaExpandedUrl[:] = []
+                        retweetedExtendedEntitiesMediaSourceStatusIDStr[:] = []
+                        retweetedExtendedEntitiesMediaSourceUserIDStr[:] = []
+                        geocoords[:] = []
+                        coords[:] = []
+                        UserEntitiesUrlUrlsUrl[:] = []
+                        UserEntitiesUrlUrlsExpandedUrl[:] = []
+                        retweetedgeocoords[:] = []
+                        retweetedcoords[:] = []
+                        quotedgeocoords[:] = []
+                        quotedcoords[:] = []
+                        retweetedUserEntitiesUrlUrlsUrl[:] = []
+                        retweetedUserEntitiesUrlUrlsExpandedUrl[:] = []
+                        quotedUserEntitiesUrlUrlsUrl[:] = []
+                        quotedUserEntitiesUrlUrlsExpandedUrl[:] = []
+                        entitiesHashtagsText[:] = []
+                        UserMentionsScreenNames[:] = []
+                        UserMentionsNames[:] = []
+                        UserMentionsIDstrs[:] = []
+                        mediaIDStr[:] = []
+                        EntitiesMediaSourceUserIDstr[:] = []
+                        entryExtendedEntitiesMediaMediaUrl[:] = []
+                        entryExtendedEntitiesMediaSourceStatusIDStr[:] = []
+                        entryExtendedEntitiesMediaSourceUserIDStr[:] = []
+                        Urlsurl[:] = []
 
                         #go to next row
                         twitrow += 1
