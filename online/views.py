@@ -25,7 +25,7 @@ def regist(req):
         if uf.is_valid():
             # get data from base 2
            username = uf.cleaned_data['username']
-           password = uf.cleaned_data['password'] 3
+           password = uf.cleaned_data['password']
 
            if User.objects.filter(username=uf.cleaned_data['username']).exists():
 			return HttpResponseRedirect('../regist')
