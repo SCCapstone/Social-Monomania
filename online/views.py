@@ -30,9 +30,9 @@ def regist(req):
            if User.objects.filter(username=uf.cleaned_data['username']).exists():
 			return HttpResponseRedirect('../regist')
             # add to cookie base
-            user = User.objects.create_user(username=username,password=password)
-            user.save()
-            return HttpResponseRedirect('/online/registered/')
+	user = User.objects.create_user(username=username,password=password)
+	user.save()
+	return HttpResponseRedirect('/online/registered/')
    else:
        uf = UserForm()
    return render(req, 'regist.html',{'uf':uf})
