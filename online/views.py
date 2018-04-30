@@ -31,17 +31,27 @@ def regist(req):
         uf = SignUpForm(req.POST)
         if uf.is_valid():
             # get data from base
-            username = uf.cleaned_data['username']
-            password = uf.cleaned_data['password']
-            if User.objects.filter(username=uf.cleaned_data['username']).exists():
-                return HttpResponseRedirect('../regist')
+		form.save()
+		username = form.cleaned_data.get('username')
+		raw_password = form.cleaned_data.get('password1')
+		user = authenticate(username=username, password=raw_password)
+		login(req, user)
+		return redirect('/online/registered')
+	else:
+		form = SignUpForm()
+		return render(req, 'regist.html', {'uf': uf})
+	
+            #username = uf.cleaned_data['username']
+            #password = uf.cleaned_data['password']
+            #if User.objects.filter(username=uf.cleaned_data['username']).exists():
+             #   return HttpResponseRedirect('../regist')
             # add to cookie base
-            user = User.objects.create_user(username=username,password=password)
-            user.save()
-            return HttpResponseRedirect('/online/registered/')
-    else:
-        uf = SignUpForm()
-    return render(req, 'regist.html',{'uf':uf})
+            #user = User.objects.create_user(username=username,password=password)
+            #user.save()
+            #return HttpResponseRedirect('/online/registered/')
+    #else:
+     #   uf = SignUpForm()
+   # return render(req, 'regist.html',{'uf':uf})
 
 # login
 def login(req):
