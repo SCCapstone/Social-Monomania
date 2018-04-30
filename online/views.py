@@ -13,6 +13,9 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 
+from Social-Monomania.online.forms import SignUpForm
+
+
 # form
 class UserForm(forms.Form): 
     username = forms.CharField(label='User Name',max_length=100)
@@ -25,7 +28,7 @@ def registered(request):
 # register
 def regist(req):
     if req.method == 'POST':
-        uf = UserForm(req.POST)
+        uf = SignUpForm(req.POST)
         if uf.is_valid():
             # get data from base
             username = uf.cleaned_data['username']
