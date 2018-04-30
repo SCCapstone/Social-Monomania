@@ -124,9 +124,14 @@ the function wordCloudFunction() is used to hide/reveal the word cloud feature
 <script>
       var twitter = "{{ twitterReturn }}";
       var twitterDecode = he.decode(twitter);
-      var twitterParse = decodeURIComponent(escape(twitterDecode);
-      var twitterJSON = JSON.parse(twitterParse);
-      //console.log(twitterJSON);
+      console.log("Decode: " + twitterDecode);
+      console.log(typeof twitterDecode);
+      var twitterJSON = {
+        {% for k,v in twitterDecode %}
+        "{{k}}": "{{v}}"{% if not forloop.last %},{endif %}
+        {% endfor %}
+      }
+      console.log(twitterJSON);
       var reddit = "{{ redditReturn }}";
       var redditDecode = he.decode(reddit);
 
