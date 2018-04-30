@@ -40,7 +40,7 @@ def regist(req):
             user.save()
             return HttpResponseRedirect('/online/registered/')
     else:
-        uf = UserForm()
+        uf = SignUpForm()
     return render(req, 'regist.html',{'uf':uf})
 
 # login
