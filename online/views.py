@@ -21,7 +21,7 @@ def registered(request):
 # register
 def regist(req):
     if req.method == 'POST':
-        uf = UserForm(req.POST) 1
+        uf = UserForm(req.POST)
         if uf.is_valid():
             # get data from base 2
            username = uf.cleaned_data['username']
