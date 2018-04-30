@@ -4,7 +4,7 @@ import praw
 
 import redditAPI, twitterAPI
 
-def searchHandle(query, apiSelectArray, reddit_Subreddits, twitterDate):
+def searchHandle(query, apiSelectArray, reddit_Subreddits, twitterDate, twitterLocation):
 
 	redditResults = ""
 	twitterResults = ""
@@ -22,7 +22,7 @@ def searchHandle(query, apiSelectArray, reddit_Subreddits, twitterDate):
 		if("NOT " in query):
 			query = query.replace("NOT ", "-")
 
-		twitterResults = twitterAPI.search(query, twitterDate)
+		twitterResults = twitterAPI.search(query, twitterDate, twitterLocation)
 
 	# print(twitterResults)
 	# print(redditResults)

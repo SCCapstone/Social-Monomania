@@ -6,21 +6,46 @@ import json, csv
 
 import oauth2
 
+import twitterGeoSearch as TGS
+
 
 CONSUMER_KEY = "VFDbTduxt6SeTwyOjOFIfwWIO"
 CONSUMER_SECRET = "MrfTScFm6APqTZxDC5cwVAfSVqy5UCbgj61nl6Q34psjcs7J5F"
 
-def search(args, date = '', geocode = None):
+def search(args, date = '', geocode = None, radius = "100mi"):
 
 	query = urllib.quote_plus(args)
+
+	coords = []
 
 	#Normal search function uses this chunk. Formats URL without advance search features/if they aren't set.
 	if (date == '' and geocode == None):
 		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&count=100".format(query)
 
-	#Formats URL for just time input plus query.
+	#Formats URL for just time input plus query (but not geocode).
 	elif (geocode == None):
 		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&until={1}&count=100".format(query,date)
+
+	#Formats URL for Lat/Lon from geocode API call and formats URL for geocode filtering (but not date).
+	elif (date == ''):
+		coords = TGS.geoSearch(geocode)
+		if(radius == ""):
+			radius = "100mi"
+		geostring = "{0},{1},{2}".format(coords[1],coords[0],radius)
+
+		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&geocode={1}&count=100".format(query,geostring)
+
+		print url
+
+	#Formats URL for location filtering and date filtering.
+	else:
+		coords = TGS.geoSearch(geocode)
+		if(radius == ""):
+			radius = "10mi"
+		geostring = "{0},{1},{2}".format(coords[1],coords[0],radius)
+
+		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&until={1}&geocode={2}&count=100".format(query,date,geostring)
+
 
 	#Gets the results from twitter in this chunk and parses them from JSON.
 	resultJSON = oauth_req(url, '3270317358-uXCQfUGY86T1EBPIrGX97s7EkNzzZide84mfgHo' , 'CCdhkak0eOQDxfdAcbdfCkHn91Hdd5SMlldbLtOQFpfPw')
@@ -32,7 +57,7 @@ def search(args, date = '', geocode = None):
 		next_results = result_parsed.get('search_metadata').get('next_results')
 	except Exception as e:
 		print(e)
-		
+
 	next_url = ""
 	if (next_results != None):
 		next_url= "https://api.twitter.com/1.1/search/tweets.json"+next_results
