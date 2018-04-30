@@ -12,6 +12,7 @@ from utilities import basicHandler
 from utilities import advancedHandler
 from django.views import View
 import json #added for export
+from utilities import sentimeter
 
 try:
         import cStringIO as StringIO
@@ -776,8 +777,9 @@ def results(request):
         global twitterVariable
         twitterVariable = twitterReturn
         global twitterVariable1
+        data = sentimeter.analysis(twitterReturn)
 
-    return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn, 'searchQuery': searchQuery})
+    return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn, 'searchQuery': searchQuery, 'data': data})
 
 #View to start the advanced results processing
 def advancedresults(request):
