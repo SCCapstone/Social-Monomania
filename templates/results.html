@@ -17,6 +17,7 @@ automatically at the end of the page
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="{% static 'scripts/d3-cloud-master/build/d3.layout.cloud.js' %}"></script>
+<script src="{% static 'scripts/he.js' %}"></script>
 
 <!-- WordCloud! -->
 <button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
@@ -121,7 +122,17 @@ automatically at the end of the page
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
 <script>
-      var text_string = "Of course that’s your contention. You’re a first year grad student. You just got finished readin’ some Marxian historian, Pete Garrison probably. You’re gonna be convinced of that ’til next month when you get to James Lemon and then you’re gonna be talkin’ about how the economies of Virginia and Pennsylvania were entrepreneurial and capitalist way back in 1740. That’s gonna last until next year. You’re gonna be in here regurgitating Gordon Wood, talkin’ about, you know, the Pre-Revolutionary utopia and the capital-forming effects of military mobilization… ‘Wood drastically underestimates the impact of social distinctions predicated upon wealth, especially inherited wealth.’ You got that from Vickers, Work in Essex County, page 98, right? Yeah, I read that, too. Were you gonna plagiarize the whole thing for us? Do you have any thoughts of your own on this matter? Or do you, is that your thing? You come into a bar. You read some obscure passage and then pretend, you pawn it off as your own, as your own idea just to impress some girls and embarrass my friend? See, the sad thing about a guy like you is in 50 years, you’re gonna start doin’ some thinkin’ on your own and you’re gonna come up with the fact that there are two certainties in life. One: don’t do that. And two: you dropped a hundred and fifty grand on a fuckin’ education you coulda got for a dollar fifty in late charges at the public library.";
+      var twitter = "{{ twitterReturn }}";
+      var twitterDecode = he.decode(twitter);
+      var twitterParse = decodeURIComponent(escape(twitterDecode);
+      var twitterJSON = JSON.parse(twitterParse);
+      //console.log(twitterJSON);
+      var reddit = "{{ redditReturn }}";
+      var redditDecode = he.decode(reddit);
+
+      var redditJSON = JSON.parse(redditDecode);
+
+      var text_string = " ";
 
       drawWordCloud(text_string);
 
