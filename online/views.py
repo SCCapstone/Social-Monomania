@@ -24,31 +24,21 @@ def registered(request):
 # register
 def regist(req):
     if req.method == 'POST':
-        #uf = UserForm(req.POST) 1
-	uf = UserCreationForm(req.POST)
+        uf = UserForm(req.POST) 1
         if uf.is_valid():
             # get data from base 2
-		form.save()
-           # username = uf.cleaned_data['username']
-           # password = uf.cleaned_data['password'] 3
-		username = form.cleaned_data.get('username')
-		raw_password = form.cleaned_data.get('password1')
-		user = authenticate(username=username, password=raw_password)
-		login(request, user)
-		return redirect('home')
-	else:
-		uf = UserCreationForm()
-	return render(req, 'regist.html', {'uf': uf})
+           username = uf.cleaned_data['username']
+           password = uf.cleaned_data['password'] 3
 
-           # if User.objects.filter(username=uf.cleaned_data['username']).exists():
-            #    return HttpResponseRedirect('../regist')
+           if User.objects.filter(username=uf.cleaned_data['username']).exists():
+			return HttpResponseRedirect('../regist')
             # add to cookie base
-            #user = User.objects.create_user(username=username,password=password)
-           # user.save()
-            #return HttpResponseRedirect('/online/registered/')
-   # else:
-    #    uf = UserForm()
-   # return render(req, 'regist.html',{'uf':uf})
+            user = User.objects.create_user(username=username,password=password)
+            user.save()
+            return HttpResponseRedirect('/online/registered/')
+   else:
+       uf = UserForm()
+   return render(req, 'regist.html',{'uf':uf})
 
 # login
 def login(req):
