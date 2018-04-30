@@ -32,7 +32,7 @@ def regist(req):
         if uf.is_valid():
             # get data from base
             username = uf.cleaned_data['username']
-            password = uf.cleaned_data['password']
+            password = uf.cleaned_data['password1']
             if User.objects.filter(username=uf.cleaned_data['username']).exists():
                 return HttpResponseRedirect('../regist')
             # add to cookie base
