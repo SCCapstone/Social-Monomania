@@ -33,10 +33,13 @@ def regist(req):
             # get data from base
             username = uf.cleaned_data['username']
             password = uf.cleaned_data['password1']
+            first_name = uf.cleaned_data['first_name']
+            last_name = uf.cleaned_data['last_name']
+            email = uf.cleaned_data['email']
             if User.objects.filter(username=uf.cleaned_data['username']).exists():
                 return HttpResponseRedirect('../regist')
             # add to cookie base
-            user = User.objects.create_user(username=username,password=password)
+            user = User.objects.create_user(username=username,password=password,first_name=first_name,last_name=last_name,email=email)
             user.save()
             return HttpResponseRedirect('/online/registered/')
     else:
