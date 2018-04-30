@@ -8,7 +8,7 @@
 <form method = 'post' enctype="multipart/form-data">
     
     {% csrf_token %}
-    
+    {{uf.as_p}}
     {% for field in form %}
       <p>
         {{ field.label_tag }}<br>
