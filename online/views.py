@@ -33,9 +33,9 @@ def regist(req):
 	user = User.objects.create_user(username=username,password=password)
 	user.save()
 	return HttpResponseRedirect('/online/registered/')
-   else:
-       uf = UserForm()
-   return render(req, 'regist.html',{'uf':uf})
+	else:
+		uf = UserForm()
+		return render(req, 'regist.html',{'uf':uf})
 
 # login
 def login(req):
