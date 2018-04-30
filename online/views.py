@@ -13,7 +13,7 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 
-from Social-Monomania.online.forms import SignUpForm
+from .forms import SignUpForm
 
 
 # form
