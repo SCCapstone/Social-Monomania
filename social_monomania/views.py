@@ -798,6 +798,7 @@ def advancedresults(request):
         #Grabs the twitter date and location variables.
         twitterDate     = request.POST['newestDate']
         twitterLocation = request.POST['searchLocation']
+        twitterRadius   = request.POST['radius']
 
         #Global for subs checkboxes and custom subs.
         subredditsDict = []
@@ -816,7 +817,7 @@ def advancedresults(request):
             subredditsDict.append(request.POST['searchCustomSub'])
 
         #Main call returning the results from the API.
-        redditReturn, twitterReturn = advancedHandler.searchHandle(searchQuery, dict(request.POST)['boxes[]'], subredditsDict, twitterDate, twitterLocation)
+        redditReturn, twitterReturn = advancedHandler.searchHandle(searchQuery, dict(request.POST)['boxes[]'], subredditsDict, twitterDate, twitterLocation, twitterRadius)
         #reddit global variables
         global redditVariable
         redditVariable = redditReturn
