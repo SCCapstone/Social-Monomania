@@ -30,8 +30,8 @@ automatically at the end of the page
 </div>
 
 <!-- Sentiment Analysis Graph of Keywords! -->
-<button onclick="sentimentFunction()">Sentiment Analysis Graph</button>
-<div id="sentimentGraph" style="display:none;height:auto;width:auto;">
+<button onclick="sentimentFunction()">Twitter Sentiment Analysis</button>
+<div id="sentimentGraph" style="display:none;height:550px;width:550px;vertical-align: bottom;margin-left: auto;margin-right: auto" align:center>
 </div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -46,13 +46,12 @@ automatically at the end of the page
                     1: { color: '#2196F3' },
                     2: { color: '#F44336' }
                 },
-                height: 800,
-                width: 800
+                chartArea: {top:20,bottom:20,width:'75%',height:'75%'}
             };
             var chart = new google.visualization.PieChart(document.getElementById('sentimentGraph'));
             chart.draw(data, options);
         }
-        $(window).resize(function(){        //to make chart Responsive
+        $(window).resize(function(){
             drawChart();
         });
     </script>
