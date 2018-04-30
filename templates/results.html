@@ -122,22 +122,25 @@ automatically at the end of the page
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
 <script>
-      var twitter = "{{ twitterReturn }}";
-      var twitterDecode = he.decode(twitter);
-      console.log("Decode: " + twitterDecode);
-      console.log(typeof twitterDecode);
-      var twitterJSON = {
-        {% for k,v in twitterDecode %}
-        "{{k}}": "{{v}}"{% if not forloop.last %},{endif %}
-        {% endfor %}
-      }
-      console.log(twitterJSON);
-      var reddit = "{{ redditReturn }}";
-      var redditDecode = he.decode(reddit);
+    var textEntry = ` `;
+    {% for entry in twitterReturn.statuses|slice:":50" %}
+    textEntry = `{{ entry.text }}`;
+    var twitterText = twitterText + he.encode( textEntry + " ");
+    //var parsedEntry = decodeURIComponent(textEntry);
+    //console.log(parsedEntry);
+    {% endfor %}
+      var twitter = twitterText;
+      console.log(twitter);
+      //var twitterDecode = he.decode(twitter);
+      //console.log(twitterDecode);
+      //var twitterJSON = JSON.parse(twitterDecode);
+      //console.log(twitterJSON);
+      //var reddit = "{{ redditString }}";
+      //var redditDecode = he.decode(reddit);
 
-      var redditJSON = JSON.parse(redditDecode);
+      //var redditJSON = JSON.parse(redditDecode);
 
-      var text_string = " ";
+      var text_string = twitter;
 
       drawWordCloud(text_string);
 
