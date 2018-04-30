@@ -36,7 +36,7 @@ def regist(req):
 		raw_password = form.cleaned_data.get('password1')
 		user = authenticate(username=username, password=raw_password)
 		login(req, user)
-		return redirect('/online/registered')
+		return HttpResponseRedirect('/online/registered')
 	else:
 		form = SignUpForm()
 		return render(req, 'regist.html', {'uf': uf})
