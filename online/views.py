@@ -8,9 +8,6 @@ from django.contrib import auth
 from django.contrib.auth import authenticate, login as auth_login
 from django.conf import settings
 from django.db import models
-from django.contrib.auth.forms UserCreationForm
-#1
-from .forms import SignUpForm
 
 # form
 class UserForm(forms.Form): 
