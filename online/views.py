@@ -9,6 +9,10 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.conf import settings
 from django.db import models
 
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+
 # form
 class UserForm(forms.Form): 
     username = forms.CharField(label='User Name',max_length=100)
@@ -98,3 +102,20 @@ def logout(req):
 # Logged Out
 def loggedout(req):
     return render(req, 'loggedout.html')
+
+# change passsword
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('change_password')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'accounts/change_password.html', {
+        'form': form
+    })
