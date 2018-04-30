@@ -23,19 +23,18 @@ def regist(req):
     if req.method == 'POST':
         uf = UserForm(req.POST)
         if uf.is_valid():
-            # get data from base 2
-           username = uf.cleaned_data['username']
-           password = uf.cleaned_data['password']
-
-           if User.objects.filter(username=uf.cleaned_data['username']).exists():
-			return HttpResponseRedirect('../regist')
+            # get data from base
+            username = uf.cleaned_data['username']
+            password = uf.cleaned_data['password']
+            if User.objects.filter(username=uf.cleaned_data['username']).exists():
+                return HttpResponseRedirect('../regist')
             # add to cookie base
-	user = User.objects.create_user(username=username,password=password)
-	user.save()
-	return HttpResponseRedirect('/online/registered/')
-     else:
-	uf = UserForm()
-	return render(req, 'regist.html',{'uf':uf})
+            user = User.objects.create_user(username=username,password=password)
+            user.save()
+            return HttpResponseRedirect('/online/registered/')
+    else:
+        uf = UserForm()
+    return render(req, 'regist.html',{'uf':uf})
 
 # login
 def login(req):
