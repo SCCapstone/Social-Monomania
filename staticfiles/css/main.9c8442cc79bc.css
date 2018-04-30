@@ -189,6 +189,18 @@ margin-bottom: 10px;
     margin-bottom: 25px;
     }
 
+#first_name{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px !important;
+    width: 525px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+    }
 
 #id_password{
 	display: block;
