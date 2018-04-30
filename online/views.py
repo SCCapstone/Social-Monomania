@@ -1,4 +1,4 @@
-from django.shortcuts import render,render_to_response
+from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext
 from django import forms
@@ -8,6 +8,7 @@ from django.contrib import auth
 from django.contrib.auth import authenticate, login as auth_login
 from django.conf import settings
 from django.db import models
+from django.contrib.auth import UserCreationForm
 
 # form
 class UserForm(forms.Form): 
@@ -21,20 +22,31 @@ def registered(request):
 # register
 def regist(req):
     if req.method == 'POST':
-        uf = UserForm(req.POST)
+        #uf = UserForm(req.POST) 1
+	uf = UserCreationForm(req.POST)
         if uf.is_valid():
-            # get data from base
-            username = uf.cleaned_data['username']
-            password = uf.cleaned_data['password']
-            if User.objects.filter(username=uf.cleaned_data['username']).exists():
-                return HttpResponseRedirect('../regist')
+            # get data from base 2
+		form.save()
+           # username = uf.cleaned_data['username']
+           # password = uf.cleaned_data['password'] 3
+		username = form.cleaned_data.get('username')
+		raw_password = form.cleaned_data.get('password1')
+		user = authenticate(username=username, password=raw_password)
+		login(request, user)
+		return redirect('home')
+	else:
+		uf = UserCreationForm()
+	return render(req, 'regist.html', {'uf': uf})
+
+           # if User.objects.filter(username=uf.cleaned_data['username']).exists():
+            #    return HttpResponseRedirect('../regist')
             # add to cookie base
-            user = User.objects.create_user(username=username,password=password)
-            user.save()
-            return HttpResponseRedirect('/online/registered/')
-    else:
-        uf = UserForm()
-    return render(req, 'regist.html',{'uf':uf})
+            #user = User.objects.create_user(username=username,password=password)
+           # user.save()
+            #return HttpResponseRedirect('/online/registered/')
+   # else:
+    #    uf = UserForm()
+   # return render(req, 'regist.html',{'uf':uf})
 
 # login
 def login(req):
