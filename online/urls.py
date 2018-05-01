@@ -9,10 +9,5 @@ urlpatterns = [
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^loggedout/$', views.loggedout, name='loggedout'),
     url(r'^registered/$', views.registered, name='registered'),
-    url(r'^password/$', views.change_password, name='change_password'),
-    url(r'^sendEmail/$',views.sendemail,name='sendemail'),
-    
-    
-    
-    
+    url(r'^password/$', views.change_password, name='change_password'),  
 ]
