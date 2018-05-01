@@ -14,6 +14,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 
 from .forms import SignUpForm
+from django.contrib.auth.forms import PasswordResetForm
 
 # form
 class UserForm(forms.Form): 
@@ -125,3 +126,9 @@ def change_password(request):
         'form': form
     })
 
+def reset_password(email, from_email, template='password_reset_form.html'):
+    """
+    Reset the password for all (active) users with given E-Mail adress
+    """
+    form = PasswordResetForm({'email': email})
+    return form.save(from_email=from_email, email_template_name=template)
