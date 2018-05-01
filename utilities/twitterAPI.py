@@ -12,18 +12,18 @@ import twitterGeoSearch as TGS
 CONSUMER_KEY = "VFDbTduxt6SeTwyOjOFIfwWIO"
 CONSUMER_SECRET = "MrfTScFm6APqTZxDC5cwVAfSVqy5UCbgj61nl6Q34psjcs7J5F"
 
-def search(args, date = '', geocode = None, radius = "100mi"):
+def search(args, date = '', geocode = '', radius = "100mi"):
 
 	query = urllib.quote_plus(args)
 
 	coords = []
 
 	#Normal search function uses this chunk. Formats URL without advance search features/if they aren't set.
-	if (date == '' and geocode == None):
+	if (date == '' and geocode == ''):
 		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&count=100".format(query)
 
 	#Formats URL for just time input plus query (but not geocode).
-	elif (geocode == None):
+	elif (geocode == ''):
 		url = "https://api.twitter.com/1.1/search/tweets.json?q={0}&until={1}&count=100".format(query,date)
 
 	#Formats URL for Lat/Lon from geocode API call and formats URL for geocode filtering (but not date).
