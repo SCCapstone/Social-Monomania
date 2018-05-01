@@ -832,8 +832,9 @@ def advancedresults(request):
         global twitterVariable
         twitterVariable = twitterReturn
         global twitterVariable1
-        
+        data = sentimeter.analysis(twitterReturn)
+        twitterString = json.dumps(twitterReturn.get('statuses')).encode('utf-16')
         
 
-	return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn, 'searchQuery': searchQuery})
+	return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn, 'searchQuery': searchQuery, 'data': data, 'twitterString':twitterString})
 	
