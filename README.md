@@ -15,8 +15,10 @@ facebook-sdk
 gunicorn
 httplib2==0.10.3
 idna==2.6
+nltk==3.2.1
 numpy==1.14.1
 oauth2==1.9.0.post1
+oauthlib==1.1.2
 pandas==0.22.0
 praw==5.4.0
 prawcore==0.14.0
@@ -24,7 +26,9 @@ psycopg2==2.7.3.2
 python-dateutil==2.6.1
 pytz==2017.3
 requests==2.18.4
+requests-oauthlib==0.6.2
 six==1.11.0
+textblob==0.11.1
 update-checker==0.16
 urllib3==1.22
 whitenoise==3.3.1
