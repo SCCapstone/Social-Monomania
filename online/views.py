@@ -126,30 +126,3 @@ def change_password(request):
     return render(request, 'change_password.html', {
         'form': form
     })
-
-def sendemail(request):
-    emailaddress = request.POST['email']
-    if User.objects.filter(email=emailaddress):
-        for i in User.objects.filter(email=emailaddress):
-            nametemp = i.username
-            idtemp = i.id
-
-            # Generating random new password
-            from random import choice
-            import string
-	    # python3 is string.ascii_letters and python2 is string.letters or string.ascii_letters
-            def GenPassword(length=8, chars=string.ascii_letters + string.digits):
-                return ''.join([choice(chars) for i in range(length)])
-            pawdtemp = GenPassword(8)
-
-            User.objects.filter(email=emailaddress).delete()
-            User.objects.create_user(id=idtemp, username=nametemp, password=pawdtemp,email=emailaddress)
-
-            from django.core.mail import send_mail
-            send_mail(
-                subject=u"This is the new password,Pease use this to login", message=pawdtemp,
-                from_email='socialmonomania@gmail.com', recipient_list=[emailaddress, ], fail_silently=False,
-            )
-            return HttpResponse("New password has been send to your email,pllease check your email and you login with the new password. Contact us directly if you have any questions")
-    else:
-        return HttpResponse("This is not a registered email")
