@@ -1,0 +1,372 @@
+
+.site-container {
+  width: cover;
+  margin-left: -8px;
+  margin-top: -8px;
+  margin-right: -8px;
+  font-family: Georgia, sans-serif;
+}
+
+.header_1{
+	width:cover;
+	height: 45%;
+	text-align: center;
+	background-color: #56699B;
+	font-size: 30px;
+	color: black;
+	text-decoration: none;
+	}
+	.header_1 a {
+		color: black;
+		text-decoration: none;
+	}
+
+
+h1{
+	margin-left:50px !important;
+}
+
+.about_info{
+	padding-right: 100px;
+	padding-left: 100px;
+}
+
+button{
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+}
+button:hover{
+	background-color: #56699B;
+	color: white;
+}
+
+.graphic{
+	display: block;
+        margin-left: auto;
+        margin-right: auto;
+	width: 65%;
+}
+
+
+nav {
+    width: 100%;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #E7D473;
+    overflow: hidden; }
+    .site-container nav a {
+      display: table-cell;
+      width: 8.33333%;
+      padding: 0px;
+      border-top: 2px solid #642039;
+      border-bottom: 2px solid #642039;
+      color: #56699B;
+      letter-spacing: 0.075em;
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
+      }
+      .site-container nav a:hover {
+        background: #6A589F;
+        border-bottom: 2px solid #642039;
+        color: white; }
+
+.content{
+	margin-left: 25px;
+	margin-right: 25px;
+	text-align: center;
+
+}
+
+#mySearch {
+    width: 600px;
+    height: 70px;
+    border: 5px solid #6A589F;
+    border-radius: 25px;
+    outline: none;
+    font-size: 40px !important;
+}
+
+#s_button {
+	font-size: 30px;
+	border-radius:25px;
+	display: block;
+	margin: 20px auto;
+}
+
+#mySearch input::placeholder{
+	font-size: 50px !important;
+}
+
+#mySearch input{
+	font-size: 50px !important;
+}
+
+
+#question{
+border-bottom: 2px solid black;
+margin-bottom: 10px;
+}
+
+.email_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px;
+    width: 525px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+.email_input::placeholder{
+	font-size: 16px;
+}
+
+.subject_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px !important;
+    width: 525px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+.subject_input:: placeholder{
+ 	margin-top: 20px;
+ 	font-size: 16px;
+
+ }
+
+
+.message_input:: placeholder{
+ 	margin-top: 20px;
+ 	font-size: 16px;
+}
+.message_input{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px;
+    width: 525px;
+    height: 175px;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#id_subject_input{
+	 margin-top: 50px;
+	 font-size: 16px;
+}
+
+#submit_b{
+	font-size: 30px;
+	border-radius: 25px;
+	text-align:center;
+}
+
+#id_username, #id_first_name, #id_last_name, #id_email, #id_password1, #id_password2{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px !important;
+    width: 525px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+    }
+
+
+#id_password{
+	display: block;
+	margin: auto;
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px !important;
+     width: 525px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 25px;
+    }
+
+#Box{
+	display: inline-flex;
+	}
+
+#reddit{
+	font-size: 18px;
+	padding: 5px;
+}
+
+#twitter{
+	font-size: 18px;
+	padding: 5px;
+}
+
+a.button {
+    text-decoration: none;
+    color: initial;
+    font-size: 30px;
+    border-width: thin;
+    border-color: black;
+	  border-radius:25px;
+	  display: block;
+	  margin: 20px auto;
+    }
+#searchMain{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	font-size: 40px
+	}
+
+#searchSecond{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	font-size: 40px
+    }
+
+#redditBox{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 200px;
+	height: 350px;
+	margin: 10px;
+	padding:20px;
+	text-align: left;
+	}
+
+#twitterBox{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+	width: 200px;
+	height: 350px;
+	margin: 10px;
+	padding: 20px;
+	text-align: left;
+	}
+
+#choices{
+	display:inline-flex;
+	}
+
+#twitterUser{
+	display: table-cell;
+}
+
+#twitterDate{
+	text-align:right;
+}
+#redditUrl{
+	display: flex;
+}
+
+#redditDate{
+	text-align:right;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+#help_content{
+	text-align: left !important;
+}
+
+#searchCustomSub{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+#searchLocation{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+#radius{
+  	border: 5px solid #6A589F;
+      border-radius: 25px;
+      font-size: 20px;
+}
+
+#newestDate{
+	border: 5px solid #6A589F;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#myList{
+	font-size: 20px;
+}
+
+.about-content{
+	text-align: left !important;
+	margin: 0 25px;
+}
+
+input[type='checkbox'] {
+  -webkit-transform: scale(1.5);
+  margin: 5px;
+
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.header{
+	display:flex;
+	background-color: #56699B;
+
+}
+#graphic_s{
+	text-align: left;
+	margin-left: 0;
+	margin-right: 0;
+	display: flex;
+}
+
+#nav_1,
+#nav_2{
+	float: right;
+	display: inline;
+	height: 75%;
+	margin-top:25px;
+	margin-right: 25px;
+	width: auto;
+}
+
+#movie{
+  margin:auto;
+  width: 560px;
+  height: 315px;
+}
+
+i {
+  background-color: #feffc1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*# sourceMappingURL=layout.css.map */

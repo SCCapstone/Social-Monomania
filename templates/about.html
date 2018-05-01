@@ -5,14 +5,133 @@
 {% block heading %} Home {% endblock %}
 
 {% block content %}
-<p class='about_info'>	This webapp was created as a Computer Science Capstone project by several students at the University of South Carolina. 
-This is meant to be a way to search multiple social media sites at one time and to gain insight into trends shown on these sites. 
-This webapp currently has very limited functionality compared to full featured, paid services. </p>
+<div class='about-content'>
+	<p class='about_info'>	This webapp was created as a Computer Science Capstone project by several students at the University of South Carolina.
+	This is meant to be a way to search multiple social media sites at one time and to gain insight into trends shown on these sites.
+	This webapp currently has very limited functionality compared to full featured, paid services. </p>
 
-<p class='about_info'> Navigate to the <a href="{% url 'search' %}">Search Page</a> to begin a query. Consult the <a href="{% url 'help' %}">Help Page</a> if you have any questions. If
-your issue is still not resolved or simply not listed, feel free to <a href="{% url 'contact' %}">Contact Us Here!</a> 
-</p>
-<br>
-<h2>Disclamer:</h2>
-<h3><em>*Due to the recent Cambridge Analytica Scandal, both Facebook and Instagram have severely limited their public data access; as a result, they are currently unavaliable*</em></h3>
+	<p class='about_info'> Navigate to the <a href="{% url 'search' %}">Search Page</a> to begin a query. Consult the <a href="{% url 'help' %}">Help Page</a> if you have any questions. If
+	your issue is still not resolved or simply not listed, feel free to <a href="{% url 'contact' %}">Contact Us Here!</a>
+	<h3>Change password:</h3>
+	<a href="../online/password">Change password</a>
+	</p>
+	<br>
+	<div id='movie'>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/5tDDzg6pwL8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+	<br>
+
+
+
+
+
+
+
+	<div>
+        <style type="text/css">
+            .detailsContainer{
+                background-color: white;
+                box-shadow: 10px 10px 5px grey;
+                width: 1000px;
+                margin: 0 auto;
+                margin-bottom: 50px;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        </style>
+        <style type="text/css">
+            .screenshotContainer{
+                width: 1000px;
+                text-align: center;
+                margin: 0 auto;
+                margin-bottom: 20px;
+                background-color: white;
+                box-shadow: 10px 10px 5px grey;
+                border-radius: 10px
+            }
+        </style>
+
+
+			<title>Meet the Social Monomania Design Team</title>
+		<body>
+			<div id="detailsContainer" style="width:100%">
+					<h1 style="text-align:center;">Meet the Social Monomania Design Team</h1>
+					<h2>Logan Heckle</h2>
+					<hr>
+					<p style="float:left;height:300px;padding-right: 20px">
+					<img src="https://i.imgur.com/1tym3gg.jpg" height="300px" width="auto" style="position:relative">
+					<div style="height:300px;width:50%;padding-top:20px;padding-left: 20px;">
+					Soon to be Graduate of the University of South Carolina; interested in Software Development and Game Design.<br><br>
+					<center style="width:auto">
+					<a href="https://github.com/lheckle" style="text-align: center"><img src="https://image.flaticon.com/icons/svg/25/25231.svg" width="50px" height="50px" style="display:inline-block;margin-left: auto;margin-right: auto;text-align: center;align-items: center"></a><a href="https://www.linkedin.com/in/logan-heckle-3a940113a/"><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-linkedin-512.png" width="50px" height="50px" style="display:inline-block;margin-left: auto;margin-right:auto;text-align: center;align-items: center"></a>
+					</center>
+					</div>
+					</p>
+					<hr>
+					<h2>Mallory Baskin</h2>
+					<hr>
+					<p>Senior Student interested in Front End Web Design</p>
+					<br>
+					&emsp;
+					<br>
+
+					<h2>Philip Schmalfuss</h2>
+					<hr>
+					<p>Graduating in May 2018 with a Bachelor's of Computer Science.  Originally from Myrtle Beach, I enjoy cooking, games, and anything electronic.  I chose to work on this project because it piqued my interest with the social media aspect.  I enjoyed my time working on it and learned valuable teamwork and design skills I plan to use in the future.</p>
+					<br>
+					&emsp;
+					<br>
+
+					<h2>Powell Fendley</h2>
+					<hr>
+					<br>
+					&emsp;Write what you want.
+					<br>
+
+					<h2>Zeng Dong</h2>
+					<hr>
+					<p>Pursuing Bachelor's degree of Computer Science with minor in mathematics at Unversity of South Carolina.</p>
+					<br>
+					&emsp;
+					<br>
+					<br>
+					<br>
+				</p>
+			</div>
+			<div id="screenshotContainer">
+				<h1 style="text-align:center;padding-top:20px;">Example Features</h1>
+				<hr style="margin-right:10px;margin-left:10px;">
+				<div class="row">
+                    <div class="col-sm-6"><p><h3>Successful Login Page</h3><hr style="margin-right:15px;"></p><p style="text-align:left;margin-right:10px;">After user login, the website redirect the user to this page which shows they are successfully logging in to
+            this system.</p></div>
+					<img src="http://i65.tinypic.com/t5t76e.png" width="640" height="368">
+
+				</div>
+				<div class="row">
+                    <div class="col-sm-6"><p><h3>Search page</h3><hr style="margin-right:15px;"></p><p style="text-align:left;margin-right:10px;">This is the search page. After user successfully login to the website. They will able to do keyword search
+            through the public content of Reddit and twitter.</p></div>
+					<img src="http://i64.tinypic.com/idvo90.png" width="640" height="480">
+				</div>
+				<div class="row">
+                    <div class="col-sm-6"><p><h3>Search results page</h3><hr style="margin-right:15px;"></p><p style="text-align:left;margin-right:10px;">This is the search results page. This is the returning data of keywoard search from both Reddit and twitter
+            datebase.</p></div>
+					<img src="http://i67.tinypic.com/2khr8h.png" width="640" height="480">
+
+				</div>
+			</div>
+		</body>
+</div>
+
+
+
+
+
+
+
+
+
+	<h2>Disclamer:</h2>
+	<h3><em>*Due to the recent Cambridge Analytica Scandal, both Facebook and Instagram have severely limited their public data access; as a result, they are currently unavaliable*</em></h3>
+</div>
+
 {% endblock %}

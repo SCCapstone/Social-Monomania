@@ -4,7 +4,7 @@ from ..redditAPI import search
 class RedditTestCase(TestCase):
 	"""Unit test to ensure that search string is found in 100 new reddit posts returned from API"""
 	def setUp(self):
-		self.queryString = "SC"
+		self.queryString = "Police"
 		self.submissions = search(self.queryString)
 
 
@@ -15,4 +15,5 @@ class RedditTestCase(TestCase):
                         #print(submission.encode("utf-8"))
                         #print(type(self.queryString))
                         #print(self.queryString)
-			self.assertTrue(self.queryString in submission.encode("utf-8"))
+			self.assertTrue(self.queryString in submission)
+			break

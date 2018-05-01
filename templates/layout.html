@@ -8,13 +8,7 @@
 	</head>
 	<body>
 		<div class="site-container">
-			<div class='header'>
-				<h1 id="title_header" style="margin: -1px; text-shadow: 1px 1px #642039;"><a href="{% url 'home' %}">Social Monomania</a></h1>
-				<h6 style="margin-top: 1px; margin-bottom: 25px; text-shadow: 1px 1px #642039;"> A Social Media Listening Project </h6>
-				<div class='graphic'>
-			 		<a href="{% url 'home' %}"><img src="{% static 'images/suckedin__revised.png' %}" alt="Header" style="width:50%"/></a>
-			 	</div>
-			 </div>
+			
 {% if user.is_authenticated %}
 				<nav>
     				<a href="{% url 'home' %}">Home</a>
@@ -31,11 +25,18 @@
 					<a href="{% url 'login' %}">Login</a>
 				</nav>
 {% endif %}
-				<h1 style="margin-left: 10px; font-style: italic;">{% block heading %} {% endblock %}</h1>
+				
+			  	 <div class='header_1'>
+					<h1 id="title_header" style="margin: -1px; text-shadow: 1px 1px #642039;"><a href="{% url 'home' %}">Social Monomania</a></h1>
+					<h6 style="margin-top: 1px; margin-bottom: 25px; text-shadow: 1px 1px #642039;"> A Social Media Listening Project </h6>
+					<div class='graphic'>
+			 			<a href="{% url 'home' %}"><img src="{% static 'images/suckedin__revised.png' %}" alt="Header" style="width:50%"/></a>
+			 		</div>
+			 	</div>
+			 	<h1 style="margin-left: 10px;">{% block heading %} {% endblock %}</h1>
 				<div class = 'content'>
-					{% block content %} {% endblock %}
-				</div>
-		
+			 		{% block content %} {% endblock %}
+			 	</div>
 		</div>
 	</body>
 </html>

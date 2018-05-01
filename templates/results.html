@@ -1,87 +1,203 @@
-{% extends "layout.html" %}
+{% extends "search_template.html" %}
 {% block title %}Results{% endblock title %}
-
-
-
+{% load static from staticfiles %}
 {% block content %}
-
-<p> You searched for: {{ searchQuery }}</p>
+<meta charset="utf-16" />
+<p> You searched for: <b>{{ searchQuery }}</b></p>
 <p id='searchQ'></p>
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
 <br>
 <br>
-<button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
+<!--
+this highlight button is no longer needed as the script runs
+automatically at the end of the page
+
+<button onclick="highlight()"id='test_highlight'>HIGHLIGHT</button>
+-->
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<div id="wordCloud" style="display:none">
-<li>On results page, CTRL+A to select all</li>
+<script src="{% static 'scripts/d3.v3.min.js' %}"></script>
+<script src="{% static 'scripts/d3-cloud-master/build/d3.layout.cloud.js' %}"></script>
+<script src="{% static 'scripts/he.js' %}"></script>
+
+<!-- WordCloud! -->
+<button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
+<div id="wordCloud" style="display:none;height:800px;width:800px;margin-left:auto;margin-right:auto" align:center>
+<!--<li>On results page, CTRL+A to select all</li>
 <li>CTRL+C to copy selected text</li>
 <li>Click inside "Word It Out" Original text box</li>
 <li>Paste into box with CTRL+V</li>
 <li>Click green Generate button to view word cloud</li>
-<iframe src="https://worditout.com/word-cloud/create" height="500" width="100%"> </iframe>
+<iframe src="https://worditout.com/word-cloud/create" height="500" width="100%"> </iframe>-->
 </div>
 
-<button onclick="displayGraph()">TEST CHART.JS</button>
+<!-- Sentiment Analysis Graph of Keywords! -->
+<button onclick="sentimentFunction()">Twitter Sentiment Analysis</button>
+<div id="sentimentGraph" style="display:none;height:550px;width:550px;vertical-align: bottom;margin-left: auto;margin-right: auto" align:center>
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<!-- Chart.js Bar Graph for Likes per entry -->
+<!--<button onclick="displayGraph()">Line Graph</button>-->
 <div id="lineGraph" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto">
-
 </div>
 
-<div class="row">
-  <div class="column">
-	  <p> Reddit Object </p>
-		{% for entry, sub in redditReturn.iteritems|slice:":50" %}
-		<div id='redditResult' style="border-style: solid; margin: 10px; padding: 10px;">
-        	<h6 id='redditDate' >{{ sub.time }} </h6>
-        	<h4 id='redditTitle'>{{ entry.title }}</h4>
-        	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>  
-   		</div>
-		{% endfor %}
-  </div>
-  <div class="column" id='Twitter'>
-  		<p>Twitter Object </p>
-		{% for entry in twitterReturn.statuses|slice:":50" %}
-		<div id='twitterResult' style="border-style: solid; margin: 10px; padding: 10px;"> 
-			<h6 id='twitterDate'> {{entry.created_at}} </h6>
-			<h4 id='twitterText'>Text: {{ entry.text }}</h4>
-			<h6 id='twitterUser'> User Screen Name: {{ entry.user.screen_name }} / </h6>
-			<h6 id='twitterUser'> User Name: {{ entry.user.name }} / </h6>
-			<h6 id='twitterUser'> Retweets: {{ entry.retweet_count }} / </h6>
-			<h6 id='twitterUser'> Favorited Count: {{ entry.favorite_count }}</h6>
-			<a href="https://www.twitter.com/statuses/{{ entry.id }}" target="_blank">Link to Tweet</a>
-			<!--<img src= "isImage({{entity.media.0.type}})" />-->
-			{% for x in entry.extended_entities %}
-			<!--<p>Test Entities: {{ x }}</p>-->
-			{% if x %}
-			{% for z in entry.extended_entities.media %}
-			<!--<p>Test: {{ z }}</p>-->
-			<a href="{{ z.media_url }}">Link to Image/Media</a>
-			<br>
-			<img src="{{ z.media_url }}" alt="Twitter Img" height="250" width="250">
-			<br>
-			{% endfor %}
-			{% endif %}
-			{% endfor %}
-		</div>
-		{% endfor %}
+<!-- Data Columns Returned -->
+<div class='returnData' >
+  <div class="row">
+    <div class="column">
+  	  <h3> Reddit Object </h3>
+  		{% for entry, sub in redditReturn.iteritems|slice:":50" %}
+  		<div id='redditResult' style="border-style: solid; margin: 14px; padding: 10px;">
+          	<h6 style="margin:10px" id='redditDate' > <em>{{ sub.time }} </em> </h6>
+          	<p id='redditTitle'>{{ entry.title }}</p>
+            <h6 style="margin:auto;width:auto;display:inline-block;" id="redditPostInfo"> Upvotes: <br> {{ sub.upvotes }} </h6>
+            <h6 style="margin:auto;width:auto;display:inline-block;" id="redditPostInfo"> Subreddit: <br> {{ sub.source_sub }} </h6>
+            <h6 style="margin:auto;width:auto;display:inline-block;" id="redditPostInfo"> Comments: <br> {{ sub.comments }} </h6>
+          	<a id='redditUrl' href="{{ sub.url }}">Reddit Link</a>
+     		</div>
+  		{% endfor %}
+    </div>
+    <div class="column" id='Twitter'>
+    		<h3>Twitter Object </h3>
+  		{% for entry in twitterReturn.statuses|slice:":50" %}
+  		<div id='twitterResult' style="border-style: solid; margin: 10px; padding: 10px;">
+  			<h6 style="margin:10px" id='twitterDate'> {{entry.created_at}} </h6>
+  			<p id='twitterText'>Text: {{ entry.text }}</p>
+  			<div style="margin-bottom: 10px;text-align: center;">
+  			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> User Screen Name: <br> {{ entry.user.screen_name }}</h6>
+  			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> User Name: <br> {{ entry.user.name }}</h6>
+  			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> Retweets: <br> {{ entry.retweet_count }}</h6>
+  			<h6 style="margin:auto;width:auto;display:inline-block;" id='twitterUser'> Favorited Count: <br> {{ entry.favorite_count }}</h6>
+  			</div>
+  			<a href="https://www.twitter.com/statuses/{{ entry.id }}" target="_blank">Link to Tweet</a>
+  			<!--<img src= "isImage({{entity.media.0.type}})" />-->
+  			{% for x in entry.extended_entities %}
+  			<!--<p>Test Entities: {{ x }}</p>-->
+  			{% if x %}
+  			{% for z in entry.extended_entities.media %}
+  			<!--<p>Test: {{ z }}</p>-->
+  			<a href="{{ z.media_url }}">Link to Image/Media</a>
+  			<br>
+  			<img src="{{ z.media_url }}" alt="Twitter Img" height="250" width="250">
+  			<br>
+  			{% endfor %}
+  			{% endif %}
+  			{% endfor %}
+  		</div>
+  		{% endfor %}
+    </div>
   </div>
 </div>
-		
 
-		
+
+
 		<!-- Might want to use a template function to do a foreach in both of these objects to display -->
 
-    	
-<!-- 
-<div id="demo" style="height:800px; width:800px; display:none;vertical-align: bottom;margin-left:auto;margin-right:auto"> </div>
- -->
+ <form action='/search/'>
+ 	<button  id='s_button'>New Search</button>
 
-<a href="{% url 'search' %}" class='button'>New Search</a>  
-
+</form>
 <!--
 the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
 <script>
+    var textEntry = ` `;
+    var twitterText = ` `;
+    {% for entry in twitterReturn.statuses|slice:":50" %}
+    textEntry = `{{ entry.text }}`;
+    textEntry = (textEntry);
+    //var encodeText = he.encode( textEntry + " ");
+    var parsedEntry = decodeURI(textEntry);
+    twitterText = twitterText + parsedEntry;
+    //console.log(parsedEntry);
+    {% endfor %}
+      var twitter = he.decode(twitterText);
+      //console.log(twitter);
+      //var twitterDecode = he.decode(twitter);
+      //console.log(twitterDecode);
+      //var twitterJSON = JSON.parse(twitterDecode);
+      //console.log(twitterJSON);
+      //var reddit = "{{ redditString }}";
+      //var redditDecode = he.decode(reddit);
+      //var redditJSON = JSON.parse(redditDecode);
 
+      var text_string = twitter;
+
+      drawWordCloud(text_string);
+
+      function drawWordCloud(text_string){
+        var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+
+        var word_count = {};
+
+        var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+          if (words.length == 1){
+            word_count[words[0]] = 1;
+          } else {
+            words.forEach(function(word){
+              var word = word.toLowerCase();
+              if (word != "" && common.indexOf(word)==-1 && word.length>1){
+                if (word_count[word]){
+                  word_count[word]++;
+                } else {
+                  word_count[word] = 1;
+                }
+              }
+            })
+          }
+
+        var svg_location = "#wordCloud";
+        var width = 800;
+        var height = 800;
+
+        var fill = d3.scale.category20();
+
+        var word_entries = d3.entries(word_count);
+
+        var xScale = d3.scale.linear()
+           .domain([0, d3.max(word_entries, function(d) {
+              return d.value;
+            })
+           ])
+           .range([10,100]);
+
+        d3.layout.cloud().size([width, height])
+          .timeInterval(20)
+          .words(word_entries)
+          .fontSize(function(d) { return xScale(+d.value); })
+          .text(function(d) { return d.key; })
+          .rotate(function() { return ~~(Math.random() * 2) * 90; })
+          .font("Impact")
+          .on("end", draw)
+          .start();
+
+        function draw(words) {
+          d3.select(svg_location).append("svg")
+              .attr("width", width)
+              .attr("height", height)
+            .append("g")
+              .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+            .selectAll("text")
+              .data(words)
+            .enter().append("text")
+              .style("font-size", function(d) { return xScale(d.value) + "px"; })
+              .style("font-family", "Impact")
+              .style("fill", function(d, i) { return fill(i); })
+              .attr("text-anchor", "middle")
+              .attr("transform", function(d) {
+                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+              })
+              .text(function(d) { return d.key; });
+        }
+
+        d3.layout.cloud().stop();
+      }
+    </script>
+
+
+<script>
+//Code for displaying the graph, using the specified button.
 function displayGraph() {
 	var x = document.getElementById("lineGraph");
 	if(x.style.display == "none"){
@@ -90,9 +206,8 @@ function displayGraph() {
 	} else {
 		x.style.display = "none";
 	}
-	
 }
-
+//Code for displaying word cloud, using the specified button
 function wordCloudFunction(){
 	var x = document.getElementById("wordCloud");
 	if(x.style.display == "none"){
@@ -101,24 +216,67 @@ function wordCloudFunction(){
 		x.style.display = "none";
 	}
 }
-</script>
+//Code for displaying the sentiment graph, using the specified button
 
-<script type="text/javascript" language="javascript">
+function sentimentFunction(){
+  var x = document.getElementById("sentimentGraph");
+  if(x.style.display == "none"){
+    google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable({{ data|safe }} );
+            var options = {
+                legend: {position: 'bottom', alignment: 'center', maxLines: 3},
+                slices: {
+                    0: { color: '#4CAF50' },
+                    1: { color: '#2196F3' },
+                    2: { color: '#F44336' }
+                },
+                width:550,
+                height:550,
+                chartArea: {top:20,bottom:20,width:'75%',height:'75%'}
+            };
+            var sentimentGraph = document.getElementById('sentimentGraph');
+            sentimentGraph.style.display = "block";
+            var chart = new google.visualization.PieChart(sentimentGraph);
 
-function my_code(){
-//Finds the URL, makes the substring of it, and applies to your search query
-var longTerm = window.location.search;
-var term = longTerm.substring(3,longTerm.indexOf('&'));
-document.getElementById("searchQ").innerHTML = longTerm;
-
+            chart.draw(data, options);
+        }
+        $(window).resize(function(){
+            drawChart();
+        });
+  } else {
+    x.style.display = "none";
+  }
 }
 
+/* NOTE: this highlight function is no longer being used, but keeping it for reference for the time being
+  function highlight(){
+This needs to ignore case, it currently does not
+	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/g, "{{ searchQuery }}".bold().italics());
+	
+old code below
+   var word= '{{searchQuery}}';
+   var data= document.getElementsByClassName('returnData');
+   console.log('searchQuery:' + word + word.length +' ' + data);
+     var text = word;
+     var query = new RegExp("(\\b" + text + "\\b)", "gim");
+     var e = document.getElementsByClassName('returnData').innerHTML;
+     console.log(e);
+     var enew = e.replace(/(<span>|<\/span>)/igm, "");
+     document.getElementsByClassName('returnData').innerHTML = enew;
+     var newe = enew.replace(query, "<span>$1</span>");
+     document.getElementsByClassName("returnData").innerHTML = newe;
+  }
+*/
 
-window.onload= 'my_code()';
+</script>
+
+<!-- The script below is for altering the keywords in each Reddit/Twitter obj.  It uses
+regular expression flags g (global) and i (ignoreCase) -->
+<script>
+	document.body.innerHTML = document.body.innerHTML.replace(/{{ searchQuery }}/gi, "{{ searchQuery }}".bold().italics().toUpperCase());
 </script>
 
 
-
- 
 {% endblock content %}
-  

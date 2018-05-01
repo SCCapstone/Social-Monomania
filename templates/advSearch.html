@@ -1,4 +1,4 @@
-{% extends  "layout.html" %}
+{% extends  "search_template.html" %}
 
 {% block title %} Advanced Search {% endblock %}
 
@@ -8,7 +8,7 @@
 <form id='advSearch' method='post' onsubmit='return validateForm()' action='/advancedresults/' >
 	{% csrf_token %}
 	<h3>Enter your search in the bar below and press enter. </h3>
-	<input class="w3-input w3-border w3-round-large"type="search" id="searchMain"  name='q1' placeholder="Search.." >
+	<input class="w3-input w3-border w3-round-large"type="search" id="searchMain"  name='q1' placeholder="Search For This.." >
 	<p>
     	<select id = "myList" name="booleanOperator">
             <option value = "AND">AND</option>
@@ -17,9 +17,8 @@
         </select>
     </p>
     
-	<input class="w3-input w3-border w3-round-large" type="search" id="searchSecond"  name='q2' placeholder="Search.." >
+	<input class="w3-input w3-border w3-round-large" type="search" id="searchSecond"  name='q2' placeholder="This.." >
 	<br>&nbsp;</br>
-	<button  id='s_button' style onclick="myFunction()">Search</button>
 	<br>&nbsp;</br>
 	<div id='choices'>
 		<div id='redditBox'>
@@ -27,10 +26,10 @@
 			<div id='redditSubmenu'>
 				<p> Select subreddit to search</p>
 				<input type="checkbox" name='subboxes[]' id="news" value= 'news'  checked/> News<br />
-				<input type="checkbox" name='subboxes[]' id="SC" value='southcarolina' checked/> SC<br />
+				<input type="checkbox" name='subboxes[]' id="SC" value='southcarolina' checked/> South Carolina<br />
 
-				<p>Custom Subreddit (Please check subreddit's proper name before searching)</p>
-				<input class="w3-input w3-border w3-round-large"type="search" id="searchCustomSub"  name='searchCustomSub' placeholder="Search.." >
+				<p>Custom Subreddit</p>
+				<input class="w3-input w3-border w3-round-large"type="search" style="width: 200px" id="searchCustomSub"  title="Check subreddit's proper name before searching"name='searchCustomSub' placeholder="Subreddit.." >
 
 			</div>
 		</div>
@@ -39,14 +38,18 @@
 			<input type="checkbox" name='boxes[]' id="twitterAdvBox" value='twitter' onchange="twitterSearch(this)" checked/> Twitter<br />
 			<div id='twitterSubmenu'>
 					<p>Location</p>
-					<input class="w3-input w3-border w3-round-large"type="search" id="searchLocation"  name='q' placeholder="Search.." >
+					<input class="w3-input w3-border w3-round-large" type="search" style="width: 200px" id="searchLocation"  name='searchLocation' placeholder="Location.." >
+					<p>Radius (Enter a numerical value)</p>
+					<input class="w3-input w3-border w3-round-large" type="search" style="width: 200px" id="radius"  name='radius' placeholder="Radius.." >
 					<p>Date Filter </p>
 					<label for="twitterBeforeDate">Before</label>
-					<input type='date' name='newestDate' id='newestDate'>
+					<input type='date' style="width: 200px" name='newestDate' id='newestDate' min="2006-07-15">
 					<p> Find posts up to this date </p>
 			</div>
 		</div>
 	</div>
+	<button  id='s_button' style onclick="myFunction()"> Advanced Search</button>
+	<a href="{% url 'search' %}">Back to Search</a>
 	
 	
 </form>	

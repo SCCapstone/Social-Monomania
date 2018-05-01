@@ -11,6 +11,7 @@ def searchHandle(query, apiSelectArray):
 
 	print(apiSelectArray)
 
+	#Logic chunk to call API's based on selected social media site.
 	if 'reddit' in apiSelectArray:
 
 		redditResults = redditAPI.search(query)
