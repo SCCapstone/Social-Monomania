@@ -1,5 +1,6 @@
 from django.conf.urls import include , url
 from online import views
+from django.contrib.auth.views import login, logout, password_reset, password_reset_done
 
 urlpatterns = [
     url(r'^$', views.login, name='login'),
@@ -9,4 +10,6 @@ urlpatterns = [
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^loggedout/$', views.loggedout, name='loggedout'),
     url(r'^registered/$', views.registered, name='registered'),
+    url(r'^reset-password/$',password_reset, name='reset_password'),
+    
 ]
