@@ -14,7 +14,6 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 
 from .forms import SignUpForm
-from django.core.mail import send_mail
 
 
 # form
