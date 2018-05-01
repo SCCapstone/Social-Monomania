@@ -780,7 +780,7 @@ def results(request):
         data = sentimeter.analysis(twitterReturn)
         global twitterString
         #global redditString
-        twitterString = json.dumps(twitterReturn.get('statuses')).encode('utf-8')
+        twitterString = json.dumps(twitterReturn.get('statuses')).encode('utf-16')
         #redditString = json.dumps(redditReturn).encode('utf-8')
 
     return render(request, 'results.html', {'redditReturn': redditReturn, 'twitterReturn': twitterReturn, 'searchQuery': searchQuery, 'data': data, 'twitterString':twitterString})

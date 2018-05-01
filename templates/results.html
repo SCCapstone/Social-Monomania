@@ -2,6 +2,7 @@
 {% block title %}Results{% endblock title %}
 {% load static from staticfiles %}
 {% block content %}
+<meta charset="utf-16" />
 <p> You searched for: <b>{{ searchQuery }}</b></p>
 <p id='searchQ'></p>
 <a class="s_button" href="{% url 'download'%}" id='DownloadButton' >Export Data</a>
@@ -21,7 +22,7 @@ automatically at the end of the page
 
 <!-- WordCloud! -->
 <button onclick="wordCloudFunction()">Click to show/hide Word Cloud feature</button>
-<div id="wordCloud" style="display:none;height:auto;width:auto">
+<div id="wordCloud" style="display:none;height:800px;width:800px;margin-left:auto;margin-right:auto" align:center>
 <!--<li>On results page, CTRL+A to select all</li>
 <li>CTRL+C to copy selected text</li>
 <li>Click inside "Word It Out" Original text box</li>
@@ -35,27 +36,6 @@ automatically at the end of the page
 <div id="sentimentGraph" style="display:none;height:550px;width:550px;vertical-align: bottom;margin-left: auto;margin-right: auto" align:center>
 </div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable({{ data|safe }} );
-            var options = {
-                legend: {position: 'bottom', alignment: 'center', maxLines: 3},
-                slices: {
-                    0: { color: '#4CAF50' },
-                    1: { color: '#2196F3' },
-                    2: { color: '#F44336' }
-                },
-                chartArea: {top:20,bottom:20,width:'75%',height:'75%'}
-            };
-            var chart = new google.visualization.PieChart(document.getElementById('sentimentGraph'));
-            chart.draw(data, options);
-        }
-        $(window).resize(function(){
-            drawChart();
-        });
-    </script>
 
 <!-- Chart.js Bar Graph for Likes per entry -->
 <!--<button onclick="displayGraph()">Line Graph</button>-->
@@ -123,14 +103,17 @@ the function wordCloudFunction() is used to hide/reveal the word cloud feature
 -->
 <script>
     var textEntry = ` `;
+    var twitterText = ` `;
     {% for entry in twitterReturn.statuses|slice:":50" %}
     textEntry = `{{ entry.text }}`;
-    var twitterText = twitterText + he.encode( textEntry + " ");
-    //var parsedEntry = decodeURIComponent(textEntry);
+    textEntry = (textEntry);
+    //var encodeText = he.encode( textEntry + " ");
+    var parsedEntry = decodeURI(textEntry);
+    twitterText = twitterText + parsedEntry;
     //console.log(parsedEntry);
     {% endfor %}
-      var twitter = twitterText;
-      console.log(twitter);
+      var twitter = he.decode(twitterText);
+      //console.log(twitter);
       //var twitterDecode = he.decode(twitter);
       //console.log(twitterDecode);
       //var twitterJSON = JSON.parse(twitterDecode);
@@ -166,8 +149,8 @@ the function wordCloudFunction() is used to hide/reveal the word cloud feature
           }
 
         var svg_location = "#wordCloud";
-        var width = $(document).width();
-        var height = $(document).height();
+        var width = 800;
+        var height = 800;
 
         var fill = d3.scale.category20();
 
@@ -235,10 +218,34 @@ function wordCloudFunction(){
 	}
 }
 //Code for displaying the sentiment graph, using the specified button
+
 function sentimentFunction(){
   var x = document.getElementById("sentimentGraph");
   if(x.style.display == "none"){
-    x.style.display = "block";
+    google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable({{ data|safe }} );
+            var options = {
+                legend: {position: 'bottom', alignment: 'center', maxLines: 3},
+                slices: {
+                    0: { color: '#4CAF50' },
+                    1: { color: '#2196F3' },
+                    2: { color: '#F44336' }
+                },
+                width:550,
+                height:550,
+                chartArea: {top:20,bottom:20,width:'75%',height:'75%'}
+            };
+            var sentimentGraph = document.getElementById('sentimentGraph');
+            sentimentGraph.style.display = "block";
+            var chart = new google.visualization.PieChart(sentimentGraph);
+
+            chart.draw(data, options);
+        }
+        $(window).resize(function(){
+            drawChart();
+        });
   } else {
     x.style.display = "none";
   }
