@@ -12,7 +12,6 @@ urlpatterns = [
     url(r'^password/$', views.change_password, name='change_password'),
     
     
-    url(r'^reset-password/$',views.reset_password,name='reset_password'),
     
     
 ]
