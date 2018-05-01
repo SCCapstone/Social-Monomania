@@ -9,7 +9,5 @@ urlpatterns = [
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^loggedout/$', views.loggedout, name='loggedout'),
     url(r'^registered/$', views.registered, name='registered'),
-    url(r'^password-reset/$', views.password_reset, name='reset_password'),
-    url(r'^password-reset/done/$', views.password_reset_done, name='password_reset_done'),
     
 ]
