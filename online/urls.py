@@ -12,10 +12,7 @@ urlpatterns = [
     url(r'^password/$', views.change_password, name='change_password'),
     
     
-    url(r'^reset-password/$',password_reset,name='reset_password'),
-    url(r'^reset-passwrd/done/$',password_reset_done,name='password_reset_done'),
-    url(r'^reset-passwrd/confirm/$',password_reset_confirm,name='password_reset_confirm'),
-    url(r'^reset-passwrd/complete/$',password_reset_complete,name='password_reset_complete'),
+    url(r'^reset-password/$',views.reset_password,name='reset_password'),
     
     
 ]
