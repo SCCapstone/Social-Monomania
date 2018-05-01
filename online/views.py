@@ -137,7 +137,6 @@ def sendemail(request):
             from random import choice
             import string
 	    # python3 is string.ascii_letters and python2 is string.letters or string.ascii_letters
-            # python3中为string.ascii_letters,而python2下则可以使用string.letters和string.ascii_letters
             def GenPassword(length=8, chars=string.ascii_letters + string.digits):
                 return ''.join([choice(chars) for i in range(length)])
             pawdtemp = GenPassword(8)
